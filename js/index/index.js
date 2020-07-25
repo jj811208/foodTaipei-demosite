@@ -8,41 +8,62 @@ ScrollTrigger.create({
   trigger: ".scrollElement",
   start: "0% 0%",
   end: "100% 100%",
-  scrub: 0.5,
-  id: "background",
-  // markers: { startColor: "green", endColor: "red", fontSize: "22px" },
+  scrub: 1,
+  markers: { startColor: "green", endColor: "red", fontSize: "22px" },
 });
-// from to fromTo
-
-// backend
-// middle
-// front
-scene1.to(".container", {
-  x: "-100%",
-  left: "100%",
-},0);
-scene1.to(".middle", {
-  // x: "-50px",
-  // scrub: 3,
-},0);
-scene1.to(".front", {
-  x: "-100px",
-  // scrub: 0,
-},0);
-// scene1.to(".scenery", {
-//   x: "-100%",
-// },0);
-scene1.to(".protagonist", {
-  x: "149%",
-  // left: "100%",
-  // stagger:0.01
-},0);
-scene1.to(".supportingRole", {
-  x: "-130%",
-  // stagger:0.01
-},0);
-
-
+scene1.to(
+  ".container",
+  {
+    x: "-100%",
+    left: "100%",
+  },
+  0
+);
+scene1.to(
+  ".backend",
+  {
+    x: "30px",
+  },
+  0
+);
+scene1.to(
+  ".ryan .wineCabinet",
+  {
+    x: "-5%",
+    // scrub: 0,
+  },
+  0
+);
+scene1.to(
+  ".grandma",
+  {
+    x: "-60%",
+    // scrub: 0,
+  },
+  0
+);
+scene1.to(
+  ".front",
+  {
+    x: "-50px",
+  },
+  0
+);
+scene1.to(
+  ".protagonist",
+  {
+    x: "155%",
+  },
+  0
+);
+scene1.to(
+  ".supportingRole",
+  {
+    x: "-130%",
+    // stagger:0.01
+  },
+  0
+);
 
 // scene1.to("#protagonist", {
 //   //這樣寫相當於 100vw - 自身 100% width
@@ -50,8 +71,6 @@ scene1.to(".supportingRole", {
 //   // left: "-100%",
 //  // stagger:0.01
 // },0);
-
-
 
 // scene1.to("#asdfasdf", { y: 1 * speed, x: 4 * speed, scale: 5.9 }, '+=1');
 // scene1.to("#asdfasdf", { y: 1 * speed, x: 1 * speed, scale: 3.9 }, '+=1');
@@ -263,6 +282,14 @@ scene1.to(".supportingRole", {
 // });
 
 //reset scrollbar position after refresh
+
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
+};
+
+window.onload = function () {
+  setTimeout(() => {
+    document.querySelector(".loadingAsset").classList.add("loadingAsset__loaded");
+  }, 500);
+  document.querySelector(".container").classList.add("container__loaded");
 };

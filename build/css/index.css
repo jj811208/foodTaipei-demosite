@@ -455,25 +455,6 @@ input, select {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-html {
-  font-size: 16px; }
-
-body {
-  -webkit-overflow-scrolling: touch;
-  overflow-x: hidden; }
-
-.boundary {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto; }
-
-@media (max-width: 768px) {
-  .rwd-hidden {
-    display: none; } }
-
-.displaynone {
-  display: none; }
-
 .menu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -795,6 +776,7 @@ body {
   z-index: 0; }
 
 .container {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -805,6 +787,14 @@ body {
     display: block;
     height: 100%;
     width: 325.58747vh; }
+  .container__loaded {
+    display: block; }
+
+.logo {
+  height: 18vh;
+  left: 24px;
+  top: 0;
+  position: fixed; }
 
 .ribbon {
   position: absolute;
@@ -865,7 +855,7 @@ body {
 .grandma {
   position: absolute;
   width: 21.85646%;
-  top: 49.08616%;
+  top: 50.13055%;
   left: 61.26704%;
   background-image: url("/assets/grandma.png");
   background-position: left top;
@@ -949,7 +939,7 @@ body {
 .tv {
   position: absolute;
   width: 14.39455%;
-  top: -1.56658%;
+  top: -1.82768%;
   left: 85.00401%;
   background-image: url("/assets/tv.png");
   background-position: left top;
@@ -1005,7 +995,7 @@ body {
 .taiwanFishery {
   position: absolute;
   width: 22.51403%;
-  top: 61.3577%;
+  top: 61.6188%;
   left: 33.96151%;
   background-image: url("/assets/taiwanFishery.png");
   background-position: left top;
@@ -1019,7 +1009,7 @@ body {
 .poster {
   position: absolute;
   width: 5.81395%;
-  top: 11.22715%;
+  top: 10.83551%;
   left: 50.80192%;
   background-image: url("/assets/poster.png");
   background-position: left top;
@@ -1226,5 +1216,141 @@ body {
     content: "";
     display: block;
     padding-top: 30.88942%; }
+
+.ratioError {
+  display: none; }
+  @media (min-aspect-ratio: 2494 / 766) {
+    .ratioError {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      position: fixed;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      height: 120vh;
+      width: 120vw;
+      left: -10vw;
+      top: -10vh;
+      background: #fff;
+      -webkit-transition: all 0.6s;
+      -o-transition: all 0.6s;
+      transition: all 0.6s; } }
+  .ratioError__logo {
+    width: 50vw;
+    height: 24vh;
+    background-image: url("/assets/logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; }
+  .ratioError__text {
+    color: #bdbdbd;
+    font-size: 24px; }
+
+.loadingAsset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 120vh;
+  width: 120vw;
+  left: -10vw;
+  top: -10vh;
+  background: #fff;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s; }
+  .loadingAsset__loaded {
+    display: none; }
+  .loadingAsset__logo {
+    width: 50vw;
+    height: 24vh;
+    background-image: url("/assets/logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; }
+  .loadingAsset__text {
+    color: #bdbdbd;
+    font-size: 24px; }
+
+html {
+  font-size: 16px; }
+
+body {
+  overflow-x: hidden; }
+  @media (min-aspect-ratio: 2494 / 766) {
+    body .container {
+      display: none; } }
+
+.haoHand {
+  -webkit-transform-origin: 45px 0px;
+      -ms-transform-origin: 45px 0px;
+          transform-origin: 45px 0px;
+  -webkit-transform: scaleY(0);
+      -ms-transform: scaleY(0);
+          transform: scaleY(0); }
+
+.hao {
+  -webkit-transform: scaleY(0);
+      -ms-transform: scaleY(0);
+          transform: scaleY(0); }
+
+body.abc .haoHand {
+  -webkit-transform: scaleY(1);
+      -ms-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transform-origin: 45px 0px;
+      -ms-transform-origin: 45px 0px;
+          transform-origin: 45px 0px;
+  -webkit-animation: haoHandShake 3s  1s iteration-count direction fill-mode;
+          animation: haoHandShake 3s  1s iteration-count direction fill-mode;
+  -webkit-animation-name: haoHandShake;
+          animation-name: haoHandShake;
+  -webkit-animation-duration: 2.5s;
+          animation-duration: 2.5s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; }
+
+@-webkit-keyframes haoHandShake {
+  0% {
+    -webkit-transform: scaleY(1) rotate(0deg);
+            transform: scaleY(1) rotate(0deg); }
+  60% {
+    -webkit-transform: scaleY(1) rotate(-8deg);
+            transform: scaleY(1) rotate(-8deg); } }
+
+@keyframes haoHandShake {
+  0% {
+    -webkit-transform: scaleY(1) rotate(0deg);
+            transform: scaleY(1) rotate(0deg); }
+  60% {
+    -webkit-transform: scaleY(1) rotate(-8deg);
+            transform: scaleY(1) rotate(-8deg); } }
+
+body.abc .hao {
+  -webkit-transform: scaleY(1);
+      -ms-transform: scaleY(1);
+          transform: scaleY(1); }
 
 /*# sourceMappingURL=index.css.map */

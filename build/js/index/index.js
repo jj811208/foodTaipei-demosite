@@ -10,32 +10,33 @@ ScrollTrigger.create({
   trigger: ".scrollElement",
   start: "0% 0%",
   end: "100% 100%",
-  scrub: 0.5,
-  id: "background" // markers: { startColor: "green", endColor: "red", fontSize: "22px" },
-
-}); // from to fromTo
-// backend
-// middle
-// front
-
+  scrub: 1,
+  markers: {
+    startColor: "green",
+    endColor: "red",
+    fontSize: "22px"
+  }
+});
 scene1.to(".container", {
   x: "-100%",
   left: "100%"
 }, 0);
-scene1.to(".middle", {// x: "-50px",
-  // scrub: 3,
+scene1.to(".backend", {
+  x: "30px"
+}, 0);
+scene1.to(".ryan .wineCabinet", {
+  x: "-5%" // scrub: 0,
+
+}, 0);
+scene1.to(".grandma", {
+  x: "-60%" // scrub: 0,
+
 }, 0);
 scene1.to(".front", {
-  x: "-100px" // scrub: 0,
-
-}, 0); // scene1.to(".scenery", {
-//   x: "-100%",
-// },0);
-
+  x: "-50px"
+}, 0);
 scene1.to(".protagonist", {
-  x: "149%" // left: "100%",
-  // stagger:0.01
-
+  x: "155%"
 }, 0);
 scene1.to(".supportingRole", {
   x: "-130%" // stagger:0.01
@@ -238,4 +239,11 @@ scene1.to(".supportingRole", {
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
+};
+
+window.onload = function () {
+  setTimeout(function () {
+    document.querySelector(".loadingAsset").classList.add("loadingAsset__loaded");
+  }, 500);
+  document.querySelector(".container").classList.add("container__loaded");
 };
