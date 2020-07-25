@@ -1299,18 +1299,29 @@ body {
     body .container {
       display: none; } }
 
+* {
+  -webkit-transform-origin: bottom;
+      -ms-transform-origin: bottom;
+          transform-origin: bottom; }
+
 .haoHand {
   -webkit-transform-origin: 45px 0px;
       -ms-transform-origin: 45px 0px;
           transform-origin: 45px 0px;
   -webkit-transform: scaleY(0);
       -ms-transform: scaleY(0);
-          transform: scaleY(0); }
+          transform: scaleY(0);
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s; }
 
 .hao {
   -webkit-transform: scaleY(0);
       -ms-transform: scaleY(0);
-          transform: scaleY(0); }
+          transform: scaleY(0);
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s; }
 
 body.abc .haoHand {
   -webkit-transform: scaleY(1);

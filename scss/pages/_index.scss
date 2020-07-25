@@ -1,11 +1,11 @@
 $layout-width: 2494;
 $layout-height: 766;
 
-@mixin rect($x, $y, $width, $height) {
+@mixin rect($x, $y, $width, $height ,$parentW:$layout-width,$parentH:$layout-height) {
   position: absolute;
-  width: $width/$layout-width * 100%;
-  top: $y/$layout-height * 100%;
-  left: $x/$layout-width * 100%;
+  width: $width/$parentW * 100%;
+  top: $y/$parentH * 100%;
+  left: $x/$parentW * 100%;
   &::before {
     content: "";
     display: block;
@@ -123,6 +123,8 @@ $layout-height: 766;
 }
 .haoHand {
   @include rect(590, 317, 187.75, 120.47);
+  // @include rect(590 - 606.15, 317 - 92, 209.79 ,409.3,187.75 , 120.47);
+
   @include img("/assets/haoHand.png");
 }
 .hao {
@@ -250,15 +252,17 @@ body {
   }
 }
 * {
-  // transform-origin: bottom;
+  transform-origin: bottom;
   // transition: all .5s;
 }
 .haoHand {
   transform-origin: 45px 0px;
   transform: scaleY(0);
+  transition: all .5s;
 }
 .hao {
   transform: scaleY(0);
+  transition: all .5s;
 }
 body.abc{
   .haoHand{

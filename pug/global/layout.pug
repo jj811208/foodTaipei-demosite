@@ -28,7 +28,8 @@ html
     .loadingAsset
       .loadingAsset__logo
       .loadingAsset__text Loading...
-    .scrollElement
+    div(style='overflow:auto;height:100%')
+      .scrollElement
     include footer
     .modal-menu
     script(src="js/global.js" type="text/javascript")

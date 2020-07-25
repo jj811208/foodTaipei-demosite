@@ -1,53 +1,75 @@
 "use strict";
 
 var a = document.querySelectorAll;
-gsap.registerPlugin(ScrollTrigger);
-/*  SCENE 1 */
+gsap.registerPlugin(ScrollTrigger); // 進場動畫
 
-var scene1 = gsap.timeline();
-ScrollTrigger.create({
-  animation: scene1,
-  trigger: ".scrollElement",
-  start: "0% 0%",
-  end: "100% 100%",
-  scrub: 1,
-  markers: {
-    startColor: "green",
-    endColor: "red",
-    fontSize: "22px"
+gsap.from(".ryan", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "ryan",
+    start: "55% 50%",
+    end: "88% 50%",
+    scrub: 1,
+    markers: {
+      startColor: "green",
+      endColor: "red",
+      fontSize: "22px"
+    }
+  },
+  y: '100%',
+  onEnter: function onEnter() {
+    console.log("ryan onEnter");
+  },
+  onEnterBack: function onEnterBack() {
+    console.log("ryan onEnterBack");
+  },
+  onLeave: function onLeave() {
+    console.log("ryan onLeave");
+  },
+  onLeaveBack: function onLeaveBack() {
+    console.log("ryan onLeaveBack");
+  },
+  onUpdate: function onUpdate() {
+    console.log("ryan onUpdate");
+  }
+}); // 滾動視差
+
+var parallax = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 1,
+    markers: {
+      startColor: "green",
+      endColor: "red",
+      fontSize: "22px"
+    }
   }
 });
-scene1.to(".container", {
+parallax.to(".container", {
   x: "-100%",
   left: "100%"
 }, 0);
-scene1.to(".backend", {
+parallax.to(".backend", {
   x: "30px"
 }, 0);
-scene1.to(".ryan .wineCabinet", {
-  x: "-5%" // scrub: 0,
-
+parallax.to(".ryan, .wineCabinet", {
+  x: "-5%"
 }, 0);
-scene1.to(".grandma", {
-  x: "-60%" // scrub: 0,
-
+parallax.to(".grandma", {
+  x: "-60%"
 }, 0);
-scene1.to(".front", {
+parallax.to(".front", {
   x: "-50px"
 }, 0);
-scene1.to(".protagonist", {
+parallax.to(".protagonist", {
   x: "155%"
 }, 0);
-scene1.to(".supportingRole", {
+parallax.to(".supportingRole", {
   x: "-130%" // stagger:0.01
 
-}, 0); // scene1.to("#protagonist", {
-//   //這樣寫相當於 100vw - 自身 100% width
-//   x: "100%",
-//   // left: "-100%",
-//  // stagger:0.01
-// },0);
-// scene1.to("#asdfasdf", { y: 1 * speed, x: 4 * speed, scale: 5.9 }, '+=1');
+}, 0); // scene1.to("#asdfasdf", { y: 1 * speed, x: 4 * speed, scale: 5.9 }, '+=1');
 // scene1.to("#asdfasdf", { y: 1 * speed, x: 1 * speed, scale: 3.9 }, '+=1');
 // scene1.to("#asdfasdf", { y: 4 * speed, x: 3 * speed, scale: 1.9 }, '+=1');
 // scene1.to("#asdfasdf", { y: 0 * speed, x: -2 * speed, scale: 8 }, '+=4');
