@@ -1,0 +1,95 @@
+.footer {
+  background-color: rgb(22, 22, 22);
+  color: #ffffff;
+  padding: 32px 96px 24px;
+
+  @include size(padP) {
+    padding: 32px 32px 24px;
+  }
+  @include size(padS) {
+    padding: 32px 48px 16px;
+  }
+  &_container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: auto;
+    margin-bottom: 48px;
+    @include size(padS) {
+      flex-direction: column;
+    }
+  }
+  &_infoBlock {
+    display: flex;
+
+    @include size(padS) {
+      order: 2;
+    }
+  }
+  &_logoBlock {
+    text-align: right;
+
+    @include size(padS) {
+      text-align: center;
+      .slogan {
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &_info {
+    margin-right: 64px;
+    @include size(padS) {
+      margin-right: 0;
+    }
+  }
+
+  &_nav {
+    @include size(padP) {
+      display: none;
+    }
+  }
+  &_listTitle {
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    @include size(padS) {
+      display: inline;
+      font-weight: 400;
+      letter-spacing: 0;
+      margin-bottom: 0;
+
+      &::after {
+        content: "地址：";
+      }
+    }
+  }
+  &_listItem {
+    line-height: 1.5;
+    @include size(padS) {
+      display: inline;
+
+      &:nth-child(2){
+        &::after{
+          content:'';
+          display: block;
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+
+  .logo {
+    height: 72px;
+    width: 152px;
+    margin-bottom: 32px;
+  }
+  .copyright {
+    line-height: 1.5;
+    text-align: center;
+  }
+}

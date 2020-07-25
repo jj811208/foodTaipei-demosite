@@ -1,0 +1,238 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  max-width: $l-base-width;
+  position: relative;
+  z-index: 2;
+  @include size(padP) {
+    background-color: #ffffff;
+    justify-content: center;
+
+    .downloadPageCustom &,
+    .latestNewsCustom &,
+    .latestNewsDetailCustom & {
+      background-color: #085099;
+    }
+    .contactUsCustom &,
+    .foodServiceCustom & {
+      background-color: #ffc421;
+    }
+    .registerLayoutCustom & {
+      background-image: linear-gradient(
+        110deg,
+        #faa61a -17%,
+        #ff9900 2%,
+        #ff5d24 68%
+      );
+    }
+  }
+  &_list {
+    display: flex;
+    align-items: center;
+    margin-right: 96px;
+    transition: margin 0.3s;
+    @include size(desktop-s) {
+      margin-right: 0;
+    }
+    @include size(padP) {
+      display: none;
+    }
+    &_rwd {
+      display: none;
+      @include size(padP) {
+        z-index: 20;
+        transition: margin 0.3s;
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 82%;
+        max-width: 480px;
+        min-width: 288px;
+        height: 100vh;
+        background: #ffffff;
+        transform: translateX(-100%);
+        transition: all 0.3s;
+      }
+      &.js-open {
+        @include size(padP) {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+  &_item {
+    padding: 6px 16px;
+    margin: 0 12px;
+    line-height: 1.5;
+
+    @include size(padP) {
+      margin: 0;
+      padding: 16px 48px;
+    }
+    &-parent {
+      font-weight: 500;
+    }
+    &-child {
+      padding-left: 64px;
+    }
+    &-primary {
+      @include maxSize(padP) {
+        background-color: rgb(255, 102, 0);
+        color: #ffffff;
+      }
+      &.menu_item-active{
+        @include maxSize(padP) {
+          background-color: transparent;
+        }
+      }
+    }
+    &-active {
+      @include size(padP) {
+        background-color: #b2e2fc;
+      }
+      @include maxSize(padP) {
+        color: #ff6600;
+      }
+    }
+  }
+  &_rwdBtn {
+    display: none;
+
+    @include size(padP) {
+      height: 20px;
+      width: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      cursor: pointer;
+      padding: 4px;
+      box-sizing: content-box;
+    }
+    &_line {
+      @include size(padP) {
+        height: 3px;
+        width: 100%;
+        position: relative;
+        color: #000;
+        background-color: currentColor;
+        border-radius: 2px;
+
+        .registerLayoutCustom &,
+        .downloadPageCustom &,
+        .latestNewsCustom &,
+        .latestNewsDetailCustom &,
+        .contactUsCustom &,
+        .foodServiceCustom & {
+          color: #fff;
+        }
+        &::before,
+        &::after {
+          border-radius: 2px;
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: currentColor;
+        }
+        &::before {
+          transform: translateY(-6px);
+        }
+        &::after {
+          transform: translateY(6px);
+        }
+      }
+    }
+  }
+
+  &_logo {
+    margin: 0 24px;
+    .indexCustom & {
+      @include size(padP) {
+        margin-left: 0;
+      }
+    }
+    svg {
+      height: 80px;
+      width: 88px;
+      .st0 {
+        fill: #77787b;
+      }
+      .st1 {
+        fill: #f58220;
+      }
+      @include size(padP) {
+        height: 26px;
+        margin: 12px 0 8px;
+        .indexCustom & {
+          height: 48px;
+          width: 104px;
+          margin: 20px 0 20px;
+        }
+        .registerLayoutCustom &,
+        .downloadPageCustom &,
+        .latestNewsCustom &,
+        .latestNewsDetailCustom & {
+          .st0,
+          .st1 {
+            fill: #ffffff;
+          }
+        }
+      }
+    }
+
+    &_container {
+      display: flex;
+      align-items: center;
+    }
+    &_mobileContainer {
+      display: none;
+      @include size(padP) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px;
+        padding-right: 32px;
+      }
+      .menu_logo {
+        margin: 0;
+        svg {
+          margin: 0;
+          height: 48px;
+          width: 104px;
+          .st0 {
+            fill: #77787b;
+          }
+          .st1 {
+            fill: #f58220;
+          }
+        }
+      }
+      .arrow-left {
+        font-size: 20px;
+        cursor: pointer;
+        padding:16px;
+      }
+    }
+    &_slogan {
+      font-size: 24px;
+      color: rgb(54, 54, 54);
+      @include size(padM) {
+        display: none;
+      }
+      @include size(padP) {
+        .indexCustom & {
+          display: block;
+        }
+      }
+    }
+  }
+}

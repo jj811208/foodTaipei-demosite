@@ -1,0 +1,175 @@
+$layout-width: 2494;
+$layout-height: 766;
+
+
+@mixin rect($x, $y, $width, $height) {
+  position: absolute;
+  width: $width/$layout-width * 100%;
+  top: $y/$layout-height * 100%;
+  left: $x/$layout-width * 100%;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: $height / $width * 100%;
+  }
+}
+@mixin img($url){
+  background-image: url($url);
+  background-position: left top;
+  // background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.scrollElement {
+  position: absolute;
+  height: 7000px;
+  width: 100px;
+  top: 0;
+  z-index: 0;
+}
+
+// svg {
+//   display: block;
+//   height: 100vh;
+//   width: auto;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow: hidden;
+  &::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100vh * ($layout-width / $layout-height);
+  }
+}
+
+.ribbon{
+  @include rect(786.76,-127.03,617.12,231.47);
+  @include img("/assets/ribbon.png");
+}
+.ribbon-1{
+  @include rect(1366,-179,489.84,231.47);
+  @include img("/assets/ribbon-1.png");
+}
+.ribbon-2{
+  @include rect(2127.02,-81.14,617.12,231.47);
+  @include img("/assets/ribbon-2.png");
+}
+.vegetableBasket{
+  @include rect(486,609,371,264);
+  @include img("/assets/vegetableBasket.png");
+}
+.grandma{
+  @include rect(1528,376,545.1,390);
+  @include img("/assets/grandma.png");
+}
+.wineCabinet{
+  @include rect(2061,430,451,438);
+  @include img("/assets/wineCabinet.png");
+}
+.fruitCabinet{
+  @include rect(-129,607.99,641.86,366.72);
+  @include img("/assets/fruitCabinet.png");
+}
+.refrigerator{
+  @include rect(1298,452,569,428);
+  @include img("/assets/refrigerator.png");
+}
+.ryan{
+  @include rect(2060,305.03,410.15,363.97);
+  @include img("/assets/ryan.png");
+}
+.protagonist{
+  @include rect(167,340,748.07,550);
+  @include img("/assets/protagonist.png");
+}
+.tv{
+  @include rect(2120,-12,359,340);
+  @include img("/assets/tv.png");
+}
+.mainTableItems{
+  @include rect(835.03,263.74,404.97,193.22);
+  @include img("/assets/mainTableItems.png");
+}
+.supportingRole{
+  @include rect(1374,202,486.26,392);
+  @include img("/assets/supportingRole.png");
+}
+.internationalFruit{
+  @include rect(1960,270,551.1,358);
+  @include img("/assets/internationalFruit.png");
+}
+.taiwanFishery{
+  @include rect(847,470,561.5,303.69);
+  // @include rect(643,336,305.59,186);
+  @include img("/assets/taiwanFishery.png");
+}
+.poster{
+  @include rect(1267,86,145,160.93);
+  @include img("/assets/poster.png");
+}
+.yellowTable{
+  @include rect(524,431,735,356);
+  @include img("/assets/yellowTable.png");
+}
+.haoHand{
+  @include rect(590,317,187.75,120.47);
+  @include img("/assets/haoHand.png");
+}
+.hao{
+  @include rect(606.15,92,209.79,409.3);
+  @include img("/assets/hao.png");
+}
+.worldCabinet{
+  @include rect(1769,30,334,536);
+  @include img("/assets/worldCabinet.png");
+}
+.candyTable{
+  @include rect(1059,156,802,411);
+  @include img("/assets/candyTable.png");
+}
+.ladder{
+  @include rect(385,138,260.35,454.9);
+  @include img("/assets/ladder.png");
+}
+.cabinet{
+  @include rect(700,72,344.76,436.19);
+  @include img("/assets/cabinet.png");
+}
+.carton{
+  @include rect(516,213,197,282);
+  @include img("/assets/carton.png");
+}
+.elsa{
+  @include rect(10,192.76,314.09,461.28);
+  @include img("/assets/elsa.png");
+}
+.cabinet-1{
+  @include rect(10,157,345,364);
+  @include img("/assets/cabinet-1.png");
+}
+.orangeCabinet{
+  @include rect(-28,157,580,411);
+  @include img("/assets/orangeCabinet.png");
+}
+.window{
+  @include rect(2345,-3,224,129);
+  @include img("/assets/window.png");
+}
+.window-1{
+  @include rect(658,-2,224,129);
+  @include img("/assets/window-1.png");
+}
+.background{
+  @include rect(0,-5,2496,771);
+  @include img("/assets/background.png");
+  background-size: cover;
+}

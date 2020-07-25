@@ -1,0 +1,24 @@
+@import "utilities/variables";
+@import "utilities/mixin";
+@import "utilities/animation";
+
+@import 'vendors/toastr';
+
+@import 'vendors-override/toastr';
+
+@import "base/reset";
+@import "base/global";
+
+@import "layout/menu";
+@import "layout/footer";
+
+@import "pages/index";
+
+// @import 'abstracts/variables';
+// @import 'vendors/bootstrap';
+// @import 'base/typography';
+// @import 'layout/forms';
+// @import 'components/slider';
+// @import 'pages/contact';
+// @import 'themes/admin';
+
