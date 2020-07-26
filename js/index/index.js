@@ -249,7 +249,7 @@ const ParallaxFn = () => {
         trigger: ".scrollElement",
         start: "top top",
         end: "bottom bottom",
-        scrub: 1,
+        scrub: 0.1,
       },
     })
     .to(
@@ -382,9 +382,10 @@ window.onload = function () {
   window.addEventListener("scroll", () => {
     scrollEvent();
   });
-  window.addEventListener("resize", () => {
-    resizeDebounce();
-  });
+  if (!isMobile)
+    window.addEventListener("resize", () => {
+      resizeDebounce();
+    });
 
   setTimeout(() => {
     document.querySelector(".loadingAsset").classList.add("loadingAsset__loaded");
