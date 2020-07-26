@@ -49,7 +49,7 @@ gsap.registerPlugin(ScrollTrigger); // 開場動畫
 var a = gsap.timeline().from(".logo", {
   duration: 0.3,
   y: "-100%"
-}, .9); // .from(".carton,.vegetableBasket,.cabinet,.fruitCabinet,.taiwanFishery", {
+}, 0.9); // .from(".carton,.vegetableBasket,.cabinet,.fruitCabinet,.taiwanFishery", {
 //   duration: 0.8,
 //   scaleY: 0,
 //   stagger: 0.3,
@@ -231,49 +231,41 @@ gsap.from("#juice", {
 //   y: "-50%",
 //   x: "-10%",
 // });
-// 滾動視差
+// 滾動視差  因為 resize 後要清掉，然後重新計算 container 的 x，所以要存在一個變數，方便 resize 清理
 
-gsap.timeline({
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    start: "top top",
-    end: "bottom bottom",
-    scrub: 1 // markers: {
-    //   startColor: "green",
-    //   endColor: "red",
-    //   fontSize: "22px",
-    // },
+var parallaxInstance;
 
-  }
-}).to(".container", {
-  x: "-100%",
-  left: "100%"
-}, 0).to(".backend", {
-  x: "30px"
-}, 0).to(".ryan, .wineCabinet", {
-  x: "-5%"
-}, 0).to(".grandma", {
-  x: "-60%"
-}, 0).to(".buttonEvents", {
-  x: "-280%"
-}, 0).to(".front", {
-  x: "-100px"
-}, 0).to(".protagonistSvg", {
-  x: 1136
-}, 0) // .to(
-//   ".protagonist",
-//   {
-//     startAt: { opacity: 0.3 },
-//     x: "152%",
-//   },
-//   0
-// )
-.to(".supportingRole", {
-  x: "-130%"
-}, 0); //重新整理就重設 scrollbar
-// window.onbeforeunload = function () {
-//   window.scrollTo(0, 0);
-// };
+var ParallaxFn = function ParallaxFn() {
+  parallaxInstance = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1
+    }
+  }).to(".container", {
+    x: function x(_, dom, __) {
+      var percent = (dom.offsetWidth - window.innerWidth) / dom.offsetWidth * 100;
+      console.log("-".concat(percent, "%"));
+      return "-".concat(percent, "%");
+    } // left: "100%",
+
+  }, 0).to(".backend", {
+    x: "50px"
+  }, 0).to(".ryan, .wineCabinet", {
+    x: "-5%"
+  }, 0).to(".grandma", {
+    x: "-60%"
+  }, 0).to(".buttonEvents", {
+    x: "-280%"
+  }, 0).to(".front", {
+    x: "-100px"
+  }, 0).to(".protagonistSvg", {
+    x: 1136
+  }, 0).to(".supportingRole", {
+    x: "-130%"
+  }, 0);
+};
 
 var buttonExhibitor = document.querySelector(".buttonExhibitor");
 var buttonEvents = document.querySelector(".buttonEvents");
@@ -307,17 +299,40 @@ var scrollEvent = function scrollEvent() {
     fn();
     setTimeout(fn, 1000);
   });
+};
+
+var debounceId;
+
+var resizeDebounce = function resizeDebounce() {
+  if (debounceId) clearTimeout(debounceId);
+  debounceId = setTimeout(function () {
+    if (parallaxInstance && parallaxInstance) {
+      // ParallaxFn() 的時候 要確保scrollbar 和 動畫 維持初始狀態
+      window.scrollTo(0, 0);
+      document.body.style.overflow = "hidden"; // 等待動畫跑到對的地方
+
+      setTimeout(function () {
+        document.body.style.overflow = "unset";
+        parallaxInstance.clear();
+        ParallaxFn();
+      }, 1500);
+    }
+  }, 500);
 }; //載入所有資源再進入場景
 
 
 window.onload = function () {
+  ParallaxFn();
+  scrollEvent();
   window.addEventListener("scroll", function () {
     scrollEvent();
+  });
+  window.addEventListener("resize", function () {
+    resizeDebounce();
   });
   setTimeout(function () {
     document.querySelector(".loadingAsset").classList.add("loadingAsset__loaded");
     ScrollTrigger.refresh();
   }, 500);
   document.querySelector(".container").classList.add("container__loaded");
-  scrollEvent();
 };

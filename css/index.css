@@ -111,7 +111,8 @@ body {
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; }
   body::-webkit-scrollbar {
     display: none;
     /* Chrome, Safari and Opera  */ }
@@ -127,7 +128,6 @@ body {
   z-index: 0; }
 
 .container {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
