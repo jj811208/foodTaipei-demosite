@@ -26,47 +26,47 @@
 }
 .ribbon {
   @include rect(786.76, -127.03, 617.12, 231.47);
-  @include img("/assets/ribbon.png");
+  @include img("../assets/ribbon.png");
 }
 .ribbon-1 {
   @include rect(1366, -149, 653, 300);
-  @include img("/assets/ribbon-1.png");
+  @include img("../assets/ribbon-1.png");
 }
 .ribbon-2 {
   @include rect(2127.02, -81.14, 617.12, 231.47);
-  @include img("/assets/ribbon-2.png");
+  @include img("../assets/ribbon-2.png");
 }
 .vegetableBasket {
   @include rect(486, 612, 371, 264);
-  @include img("/assets/vegetableBasket.png");
+  @include img("../assets/vegetableBasket.png");
 }
 .grandma {
   @include rect(1528, 384, 545.1, 390);
-  @include img("/assets/grandma.png");
+  @include img("../assets/grandma.png");
 }
 .buttonEvents {
   @include rect(1777, 605, 120, 60 /*, 1528, 384, 545.1, 390*/);
-  @include img("/assets/buttonEvents.png");
+  @include img("../assets/buttonEvents.png");
 }
 .wineCabinet {
   @include rect(2061, 430, 451, 438);
-  @include img("/assets/wineCabinet.png");
+  @include img("../assets/wineCabinet.png");
 }
 .fruitCabinet {
   @include rect(-129, 607.99, 641.86, 366.72);
-  @include img("/assets/fruitCabinet.png");
+  @include img("../assets/fruitCabinet.png");
 }
 .refrigerator {
   @include rect(1298, 452, 569, 428);
-  @include img("/assets/refrigerator.png");
+  @include img("../assets/refrigerator.png");
 }
 .ryan {
   @include rect(2060, 305.03, 410.15, 363.97);
-  @include img("/assets/ryan.png");
+  @include img("../assets/ryan.png");
 }
 .buttonPSR {
   @include rect(2246, 534, 230, 65 /*, 2060, 305.03, 410.15, 363.97*/);
-  @include img("/assets/buttonPSR.png");
+  @include img("../assets/buttonPSR.png");
 }
 .protagonistContainer {
   display: block;
@@ -81,111 +81,111 @@
 }
 // .protagonist {
 //   @include rect(167, 340, 748.07, 550);
-//   @include img("/assets/protagonist.png");
+//   @include img("../assets/protagonist.png");
 // }
 .tv {
   @include rect(2120, -8, 360, 342);
-  @include img("/assets/tv.png");
+  @include img("../assets/tv.png");
 }
 .buttonSVG {
   @include rect(2138, 76, 260, 63 /*, 2120, -8, 360, 342*/);
-  @include img("/assets/buttonSVG.png");
+  @include img("../assets/buttonSVG.png");
 }
 .mainTableItems {
   @include rect(835.03, 263.74, 404.97, 193.22);
-  @include img("/assets/mainTableItems.png");
+  @include img("../assets/mainTableItems.png");
 }
 .buttonMNT {
   @include rect(881, 238, 258, 63 /*, 835.03, 263.74, 404.97, 193.22*/);
-  @include img("/assets/buttonMNT.png");
+  @include img("../assets/buttonMNT.png");
 }
 .supportingRole {
   @include rect(1374, 202, 486.26, 392);
-  @include img("/assets/supportingRole.png");
+  @include img("../assets/supportingRole.png");
 }
 .internationalFruit {
   @include rect(1960, 270, 551.1, 358);
-  @include img("/assets/internationalFruit.png");
+  @include img("../assets/internationalFruit.png");
 }
 .taiwanFishery {
   @include rect(847, 472, 561.5, 303.69);
-  @include img("/assets/taiwanFishery.png");
+  @include img("../assets/taiwanFishery.png");
 }
 .poster {
   @include rect(1267, 83, 145, 160.93);
-  @include img("/assets/poster.png");
+  @include img("../assets/poster.png");
 }
 .buttonPC {
   @include rect(1388, 140, 216, 59 /*, 1267, 83, 145, 160.93*/);
-  @include img("/assets/buttonPC.png");
+  @include img("../assets/buttonPC.png");
 }
 .yellowTable {
   @include rect(524, 431, 735, 356);
-  @include img("/assets/yellowTable.png");
+  @include img("../assets/yellowTable.png");
 }
 .hao {
   @include rect(606.15, 92, 209.79, 409.3);
-  @include img("/assets/hao.png");
+  @include img("../assets/hao.png");
 }
 .haoHand {
   @include rect(590, 317, 187.75, 120.47, 606.15, 92, 209.79, 409.3);
-  @include img("/assets/haoHand.png");
+  @include img("../assets/haoHand.png");
 }
 .buttonExhibitor {
   @include rect(535, 327.5, 138, 64.5 /*, 606.15, 92, 209.79, 409.3*/);
-  @include img("/assets/buttonExhibitor.png");
+  @include img("../assets/buttonExhibitor.png");
 }
 .worldCabinet {
   @include rect(1769, 30, 334, 536);
-  @include img("/assets/worldCabinet.png");
+  @include img("../assets/worldCabinet.png");
 }
 .candyTable {
   @include rect(1059, 156, 802, 411);
-  @include img("/assets/candyTable.png");
+  @include img("../assets/candyTable.png");
 }
 .ladder {
   @include rect(385, 138, 260.35, 454.9);
-  @include img("/assets/ladder.png");
+  @include img("../assets/ladder.png");
 }
 .buttonFactSheet {
   @include rect(461, 152, 155, 59 /*, 385, 138, 260.35, 454.9*/);
-  @include img("/assets/buttonFactSheet.png");
+  @include img("../assets/buttonFactSheet.png");
 }
 .cabinet {
   @include rect(700, 72, 344.76, 436.19);
-  @include img("/assets/cabinet.png");
+  @include img("../assets/cabinet.png");
 }
 .carton {
   @include rect(516, 213, 197, 282);
-  @include img("/assets/carton.png");
+  @include img("../assets/carton.png");
 }
 .elsa {
   @include rect(10, 192.76, 314.09, 461.28);
-  @include img("/assets/elsa.png");
+  @include img("../assets/elsa.png");
 }
 .buttonVisitor {
   @include rect(149, 337, 119, 56 /*, 10, 192.76, 314.09, 461.28*/);
-  @include img("/assets/buttonVisitor.png");
+  @include img("../assets/buttonVisitor.png");
 }
 .cabinet-1 {
   @include rect(10, 157, 345, 364);
-  @include img("/assets/cabinet-1.png");
+  @include img("../assets/cabinet-1.png");
 }
 .orangeCabinet {
   @include rect(-28, 157, 580, 411);
-  @include img("/assets/orangeCabinet.png");
+  @include img("../assets/orangeCabinet.png");
 }
 .window {
   @include rect(2345, -3, 224, 129);
-  @include img("/assets/window.png");
+  @include img("../assets/window.png");
 }
 .window-1 {
   @include rect(658, -2, 224, 129);
-  @include img("/assets/window-1.png");
+  @include img("../assets/window-1.png");
 }
 .background {
   @include rect(0, -5, 2496, 771);
-  @include img("/assets/background.png");
+  @include img("../assets/background.png");
   background-size: cover;
 }
 
@@ -208,7 +208,7 @@
   &__logo {
     width: 50vw;
     height: 24vh;
-    background-image: url("/assets/logo.png");
+    background-image: url("../assets/logo.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -239,7 +239,7 @@
   &__logo {
     width: 50vw;
     height: 24vh;
-    background-image: url("/assets/logo.png");
+    background-image: url("../assets/logo.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
