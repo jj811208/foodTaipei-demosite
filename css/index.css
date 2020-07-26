@@ -155,7 +155,7 @@ body {
   width: 24.74419%;
   top: -16.58355%;
   left: 31.54611%;
-  background-image: url("/assets/ribbon.png");
+  background-image: url("../assets/ribbon.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -169,7 +169,7 @@ body {
   width: 26.18284%;
   top: -19.4517%;
   left: 54.77145%;
-  background-image: url("/assets/ribbon-1.png");
+  background-image: url("../assets/ribbon-1.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -183,7 +183,7 @@ body {
   width: 24.74419%;
   top: -10.59269%;
   left: 85.28549%;
-  background-image: url("/assets/ribbon-2.png");
+  background-image: url("../assets/ribbon-2.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -197,7 +197,7 @@ body {
   width: 14.8757%;
   top: 79.89556%;
   left: 19.48677%;
-  background-image: url("/assets/vegetableBasket.png");
+  background-image: url("../assets/vegetableBasket.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -211,7 +211,7 @@ body {
   width: 21.85646%;
   top: 50.13055%;
   left: 61.26704%;
-  background-image: url("/assets/grandma.png");
+  background-image: url("../assets/grandma.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -225,7 +225,7 @@ body {
   width: 4.81155%;
   top: 78.98172%;
   left: 71.251%;
-  background-image: url("/assets/buttonEvents.png");
+  background-image: url("../assets/buttonEvents.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -239,7 +239,7 @@ body {
   width: 18.0834%;
   top: 56.13577%;
   left: 82.63833%;
-  background-image: url("/assets/wineCabinet.png");
+  background-image: url("../assets/wineCabinet.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -253,7 +253,7 @@ body {
   width: 25.73617%;
   top: 79.37206%;
   left: -5.17241%;
-  background-image: url("/assets/fruitCabinet.png");
+  background-image: url("../assets/fruitCabinet.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -267,7 +267,7 @@ body {
   width: 22.81476%;
   top: 59.00783%;
   left: 52.04491%;
-  background-image: url("/assets/refrigerator.png");
+  background-image: url("../assets/refrigerator.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -281,7 +281,7 @@ body {
   width: 16.44547%;
   top: 39.82115%;
   left: 82.59824%;
-  background-image: url("/assets/ryan.png");
+  background-image: url("../assets/ryan.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -295,7 +295,7 @@ body {
   width: 9.22213%;
   top: 69.71279%;
   left: 90.05613%;
-  background-image: url("/assets/buttonPSR.png");
+  background-image: url("../assets/buttonPSR.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -320,7 +320,7 @@ body {
   width: 14.43464%;
   top: -1.04439%;
   left: 85.00401%;
-  background-image: url("/assets/tv.png");
+  background-image: url("../assets/tv.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -334,7 +334,7 @@ body {
   width: 10.42502%;
   top: 9.92167%;
   left: 85.72574%;
-  background-image: url("/assets/buttonSVG.png");
+  background-image: url("../assets/buttonSVG.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -348,7 +348,7 @@ body {
   width: 16.23777%;
   top: 34.43081%;
   left: 33.48156%;
-  background-image: url("/assets/mainTableItems.png");
+  background-image: url("../assets/mainTableItems.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -362,7 +362,7 @@ body {
   width: 10.34483%;
   top: 31.0705%;
   left: 35.32478%;
-  background-image: url("/assets/buttonMNT.png");
+  background-image: url("../assets/buttonMNT.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -376,7 +376,7 @@ body {
   width: 19.49719%;
   top: 26.37076%;
   left: 55.09222%;
-  background-image: url("/assets/supportingRole.png");
+  background-image: url("../assets/supportingRole.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -390,7 +390,7 @@ body {
   width: 22.09703%;
   top: 35.24804%;
   left: 78.58861%;
-  background-image: url("/assets/internationalFruit.png");
+  background-image: url("../assets/internationalFruit.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -404,7 +404,7 @@ body {
   width: 22.51403%;
   top: 61.6188%;
   left: 33.96151%;
-  background-image: url("/assets/taiwanFishery.png");
+  background-image: url("../assets/taiwanFishery.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -418,7 +418,7 @@ body {
   width: 5.81395%;
   top: 10.83551%;
   left: 50.80192%;
-  background-image: url("/assets/poster.png");
+  background-image: url("../assets/poster.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -432,7 +432,7 @@ body {
   width: 8.66079%;
   top: 18.27676%;
   left: 55.65357%;
-  background-image: url("/assets/buttonPC.png");
+  background-image: url("../assets/buttonPC.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -446,7 +446,7 @@ body {
   width: 29.47073%;
   top: 56.26632%;
   left: 21.01043%;
-  background-image: url("/assets/yellowTable.png");
+  background-image: url("../assets/yellowTable.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -460,7 +460,7 @@ body {
   width: 8.41179%;
   top: 12.01044%;
   left: 24.30433%;
-  background-image: url("/assets/hao.png");
+  background-image: url("../assets/hao.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -474,7 +474,7 @@ body {
   width: 89.49426%;
   top: 54.9719%;
   left: -7.69817%;
-  background-image: url("/assets/haoHand.png");
+  background-image: url("../assets/haoHand.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -488,7 +488,7 @@ body {
   width: 5.53328%;
   top: 42.75457%;
   left: 21.45148%;
-  background-image: url("/assets/buttonExhibitor.png");
+  background-image: url("../assets/buttonExhibitor.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -502,7 +502,7 @@ body {
   width: 13.39214%;
   top: 3.91645%;
   left: 70.93023%;
-  background-image: url("/assets/worldCabinet.png");
+  background-image: url("../assets/worldCabinet.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -516,7 +516,7 @@ body {
   width: 32.15718%;
   top: 20.36554%;
   left: 42.46191%;
-  background-image: url("/assets/candyTable.png");
+  background-image: url("../assets/candyTable.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -530,7 +530,7 @@ body {
   width: 10.43905%;
   top: 18.01567%;
   left: 15.43705%;
-  background-image: url("/assets/ladder.png");
+  background-image: url("../assets/ladder.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -544,7 +544,7 @@ body {
   width: 6.21492%;
   top: 19.84334%;
   left: 18.48436%;
-  background-image: url("/assets/buttonFactSheet.png");
+  background-image: url("../assets/buttonFactSheet.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -558,7 +558,7 @@ body {
   width: 13.82358%;
   top: 9.39948%;
   left: 28.06736%;
-  background-image: url("/assets/cabinet.png");
+  background-image: url("../assets/cabinet.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -572,7 +572,7 @@ body {
   width: 7.89896%;
   top: 27.80679%;
   left: 20.68966%;
-  background-image: url("/assets/carton.png");
+  background-image: url("../assets/carton.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -586,7 +586,7 @@ body {
   width: 12.59383%;
   top: 25.16449%;
   left: 0.40096%;
-  background-image: url("/assets/elsa.png");
+  background-image: url("../assets/elsa.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -600,7 +600,7 @@ body {
   width: 4.77145%;
   top: 43.99478%;
   left: 5.97434%;
-  background-image: url("/assets/buttonVisitor.png");
+  background-image: url("../assets/buttonVisitor.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -614,7 +614,7 @@ body {
   width: 13.8332%;
   top: 20.49608%;
   left: 0.40096%;
-  background-image: url("/assets/cabinet-1.png");
+  background-image: url("../assets/cabinet-1.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -628,7 +628,7 @@ body {
   width: 23.25581%;
   top: 20.49608%;
   left: -1.12269%;
-  background-image: url("/assets/orangeCabinet.png");
+  background-image: url("../assets/orangeCabinet.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -642,7 +642,7 @@ body {
   width: 8.98156%;
   top: -0.39164%;
   left: 94.02566%;
-  background-image: url("/assets/window.png");
+  background-image: url("../assets/window.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -656,7 +656,7 @@ body {
   width: 8.98156%;
   top: -0.2611%;
   left: 26.38332%;
-  background-image: url("/assets/window-1.png");
+  background-image: url("../assets/window-1.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
@@ -670,7 +670,7 @@ body {
   width: 100.08019%;
   top: -0.65274%;
   left: 0%;
-  background-image: url("/assets/background.png");
+  background-image: url("../assets/background.png");
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat;
@@ -709,7 +709,7 @@ body {
   .ratioError__logo {
     width: 50vw;
     height: 24vh;
-    background-image: url("/assets/logo.png");
+    background-image: url("../assets/logo.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat; }
@@ -745,7 +745,7 @@ body {
   .loadingAsset__logo {
     width: 50vw;
     height: 24vh;
-    background-image: url("/assets/logo.png");
+    background-image: url("../assets/logo.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat; }
