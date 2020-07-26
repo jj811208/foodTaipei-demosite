@@ -7,47 +7,18 @@
 // -------------------------------------
 //   ap-layout
 // -------------------------------------
-$l-base-width: 1440px;
-$l-base-inner-width: 1280px;
-$l-window-width: 1050px;
-// -------------------------------------
-//   utility base
-// -------------------------------------
-$vertical-direction: top middle bottom;
-$horizontal-direction:left center right;
+
+$layout-width: 2494;
+$layout-height: 766;
+
 // -------------------------------------
 //   media queries
 // -------------------------------------
 
-$media-desktop: $l-base-width;
 $media-desktop-s: 1280px;
 $media-pad: 1024px;
 $media-pad-middle: 900px;
 $media-pad-portrait: 768px;
 $media-pad-small: 600px;
-$media-phone:500px;
-$media-phone-xs:320px;
-// *************************************
-//
-//   Font
-//   -> about fnot style
-//
-// *************************************
-$font: 16px;
-/// *************************************
-//
-//   Theme Color
-//   -> Color variable
-//
-// *************************************
-$color: #0f89e2;
-$color-blue: #1bd7ff;
-$color-orange: #ff8627;
-$color-yellow: #FABF25;
-$color-green: #25DCB3;
-$color-green-light: #b1ec59;
-$color-red: #ee3b32;
-$color-fb: #4267B2;
-$color-google:#4285F4;
-$color-black: #4A4A4A;
-$color-blue-btn: #04AFE5;
+$media-phone: 500px;
+$media-phone-xs: 320px;

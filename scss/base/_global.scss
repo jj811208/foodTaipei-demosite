@@ -1,0 +1,27 @@
+html {
+  font-size: 16px;
+  background: #333;
+}
+body {
+  /* Hide scrollbar */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera  */
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  overflow-x: hidden;
+
+  @media (min-aspect-ratio: #{$layout-width}/#{$layout-height}) {
+    .container {
+      display: none;
+    }
+  }
+}
+.scrollElement {
+  position: absolute;
+  height: 7000px;
+  width: 100px;
+  top: 0;
+  z-index: 0;
+}

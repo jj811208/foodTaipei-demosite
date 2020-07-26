@@ -1,318 +1,381 @@
-var a = document.querySelectorAll;
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 40 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) /*or $(window).height() */ &&
+    rect.right <=
+      (window.innerWidth || document.documentElement.clientWidth) + 20 /*or $(window).width() */
+  );
+}
+
+const mouseHover = (className, callback = { mouseover: () => {}, mouseout: () => {} }) => {
+  const target = document.querySelector(className);
+  if (!target) return;
+  const { mouseover, mouseout } = callback;
+  let mouseInEvent = null;
+  target.addEventListener("mouseover", () => {
+    mouseInEvent = mouseover();
+  });
+  target.addEventListener("mouseout", () => {
+    mouseInEvent.pause();
+    mouseout();
+  });
+};
+const hoverIn = [
+  {
+    rotate: 2,
+  },
+  {
+    duration: 0.2,
+    repeat: -1,
+    yoyo: true,
+    yoyoEase: "power1.inOut",
+    transformOrigin: "bottom center",
+    rotate: -2,
+  },
+];
+const hoverOut = {
+  duration: 0.3,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "bottom center",
+  rotate: 0,
+};
+
 gsap.registerPlugin(ScrollTrigger);
 
-// 進場動畫
+// 開場動畫
+const a = gsap.timeline().from(
+  ".logo",
+  {
+    duration: 0.3,
+    y: "-100%",
+  },
+  .9
+);
+// .from(".carton,.vegetableBasket,.cabinet,.fruitCabinet,.taiwanFishery", {
+//   duration: 0.8,
+//   scaleY: 0,
+//   stagger: 0.3,
+//   // ease: "elastic.out(1, 0.5)",
+// });
+
+//進場動畫
 gsap.from(".ryan", {
   scrollTrigger: {
     trigger: ".scrollElement",
     id: "ryan",
-    start: "55% 50%",
-    end: "88% 50%",
-    scrub: 1,
-    markers: { startColor: "green", endColor: "red", fontSize: "22px" },
+    start: "66% center",
   },
-  y:'100%',
-  onEnter: () => {
-    console.log("ryan onEnter");
-  },
-  onEnterBack: () => {
-    console.log("ryan onEnterBack");
-  },
-  onLeave: () => {
-    console.log("ryan onLeave");
-  },
-  onLeaveBack: () => {
-    console.log("ryan onLeaveBack");
-  },
-  onUpdate: () => {
-    console.log("ryan onUpdate");
-  },
-  
+  duration: 1.7,
+  scaleY: 0,
+  transformOrigin: "bottom",
+  ease: "elastic.out(1, 0.3)",
 });
-
-// 滾動視差
-let parallax = gsap.timeline({
+gsap.from(".elsa", {
+  duration: 1.7,
+  scaleY: 0,
+  delay: 1.2,
+  transformOrigin: "bottom",
+  ease: "elastic.out(1, 0.3)",
+});
+gsap.from(".ladder", {
   scrollTrigger: {
     trigger: ".scrollElement",
-    start: "top top",
-    end: "bottom bottom",
-    scrub: 1,
-    markers: { startColor: "green", endColor: "red", fontSize: "22px" },
+    id: "ladder",
+    start: "8% center",
   },
+  duration: 1.7,
+  transformOrigin: "bottom",
+  scaleY: 0,
+  ease: "elastic.out(1, 0.3)",
 });
-parallax.to(
-  ".container",
-  {
-    x: "-100%",
-    left: "100%",
+gsap.from(".grandma", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "grandma",
+    start: "28% center",
   },
-  0
-);
-parallax.to(
-  ".backend",
-  {
-    x: "30px",
+  duration: 1.7,
+  transformOrigin: "bottom",
+  scaleY: 0,
+  ease: "elastic.out(1, 0.3)",
+});
+gsap.from(".hao", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "hao",
+    start: "11% center",
   },
-  0
-);
-parallax.to(
-  ".ryan, .wineCabinet",
-  {
-    x: "-5%",
+  duration: 1.7,
+  transformOrigin: "bottom",
+  scaleY: 0,
+  ease: "elastic.out(1, 0.3)",
+});
+
+//常駐動畫
+gsap.to(".haoHand", {
+  duration: 2.3,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "45px 0px",
+  rotate: "-10",
+  // ease: "elastic.out(1, 0.3)",
+});
+
+//hover動畫
+const ELSA = ".elsa";
+const LADDER = ".ladder";
+const HAO = ".hao";
+const MAINTABLEITEMS = ".mainTableItems";
+const POSTER = ".poster";
+const GRANDMA = ".grandma";
+const TV = ".tv";
+const RYAN = ".ryan";
+[ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach((className) => {
+  mouseHover(className, {
+    mouseover: () => {
+      return gsap.fromTo(className, ...hoverIn);
+    },
+    mouseout: () => {
+      gsap.to(className, hoverOut);
+    },
+  });
+});
+
+// 購物動畫
+gsap.from("#noodles", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "noodles",
+    start: "10% center",
+    end: "18% center",
+    scrub: 1,
   },
-  0
-);
-parallax.to(
-  ".grandma",
-  {
-    x: "-60%",
+  rotate: -180,
+  opacity: 0,
+  y: "-50%",
+  x: "-10%",
+});
+gsap.from("#chocolate", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "chocolate",
+    start: "24% center",
+    end: "32% center",
+    scrub: 1,
   },
-  0
-);
-parallax.to(
-  ".front",
-  {
-    x: "-50px",
+  rotate: -180,
+  opacity: 0,
+  y: "-50%",
+  x: "-10%",
+});
+gsap.from("#crab", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "crab",
+    start: "38% center",
+    end: "46% center",
+    scrub: 1,
   },
-  0
-);
-parallax.to(
-  ".protagonist",
-  {
-    x: "155%",
+  rotate: -180,
+  opacity: 0,
+  y: "-50%",
+  x: "-10%",
+});
+gsap.from("#Avocado", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "Avocado",
+    start: "52% center",
+    end: "60% center",
+    scrub: 1,
   },
-  0
-);
-parallax.to(
-  ".supportingRole",
-  {
-    x: "-130%",
-    // stagger:0.01
+  rotate: -180,
+  opacity: 0,
+  y: "-50%",
+  x: "-10%",
+});
+gsap.from("#wine", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "wine",
+    start: "66% center",
+    end: "74% center",
+    scrub: 1,
   },
-  0
-);
+  rotate: -180,
+  opacity: 0,
+  y: "-50%",
+  x: "-10%",
+});
+gsap.from("#juice", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "juice",
+    start: "80% center",
+    end: "88% center",
+    scrub: 1,
+  },
+  rotate: -180,
+  opacity: 0,
+  y: "-50%",
+  x: "-10%",
+});
 
-
-
-
-// scene1.to("#asdfasdf", { y: 1 * speed, x: 4 * speed, scale: 5.9 }, '+=1');
-// scene1.to("#asdfasdf", { y: 1 * speed, x: 1 * speed, scale: 3.9 }, '+=1');
-// scene1.to("#asdfasdf", { y: 4 * speed, x: 3 * speed, scale: 1.9 }, '+=1');
-// scene1.to("#asdfasdf", { y: 0 * speed, x: -2 * speed, scale: 8 }, '+=4');
-// scene1.to("#h1-2", { y: 2.6 * speed, x: -0.6 * speed, ease: "power1.in" }, 0);
-// scene1.to("#h1-3", { y: 1.7 * speed, x: 1.2 * speed }, 0.03);
-// scene1.to("#h1-4", { y: 3 * speed, x: 1 * speed }, 0.03);
-// scene1.to("#h1-5", { y: 2 * speed, x: 1 * speed }, 0.03);
-// scene1.to("#h1-6", { y: 2.3 * speed, x: -2.5 * speed }, 0);
-// scene1.to("#h1-7", { y: 5 * speed, x: 1.6 * speed }, 0);
-// scene1.to("#h1-8", { y: 3.5 * speed, x: 0.2 * speed }, 0);
-// scene1.to("#h1-9", { y: 3.5 * speed, x: -0.2 * speed }, 0);
-
-// //animate text
-// scene1.to("#info", { y: 8 * speed }, 0);
-
-// /*   Bird   */
-// gsap.fromTo(
-//   "#bird",
-//   { opacity: 1 },
-//   {
-//     y: -250,
-//     x: 800,
-//     ease: "power2.out",
-//     scrollTrigger: {
-//       trigger: ".scrollElement",
-//       start: "15% top",
-//       end: "60% 100%",
-//       scrub: 4,
-//       onEnter: function () {
-//         gsap.to("#bird", { scaleX: 1, rotation: 0 });
-//       },
-//       onLeave: function () {
-//         gsap.to("#bird", { scaleX: -1, rotation: -15 });
-//       },
-//     },
-//   }
-// );
-
-// /* Clouds  */
-// let clouds = gsap.timeline();
-// ScrollTrigger.create({
-//   animation: clouds,
-//   trigger: ".scrollElement",
-//   start: "top top",
-//   end: "70% 100%",
-//   scrub: 1,
-// });
-
-// clouds.to("#cloud1", { x: 500 }, 0);
-// clouds.to("#cloud2", { x: 1000 }, 0);
-// clouds.to("#cloud3", { x: -1000 }, 0);
-// clouds.to("#cloud4", { x: -700, y: 25 }, 0);
-
-// /* Sun motion Animation  */
-// let sun = gsap.timeline();
-// ScrollTrigger.create({
-//   animation: sun,
-//   trigger: ".scrollElement",
-//   start: "top top",
-//   end: "2200 100%",
-//   scrub: 1,
-// });
-
-// //sun motion
-// sun.to("#bg_grad", { attr: { cy: "330" } }, 0.0);
-
-// //bg change
-// sun.to("#sun", { attr: { offset: "0.15" } }, 0.0);
-// sun.to("#bg_grad stop:nth-child(2)", { attr: { offset: "0.15" } }, 0.0);
-// sun.to("#bg_grad stop:nth-child(3)", { attr: { offset: "0.18" } }, 0.0);
-// sun.to("#bg_grad stop:nth-child(4)", { attr: { offset: "0.25" } }, 0.0);
-// sun.to("#bg_grad stop:nth-child(5)", { attr: { offset: "0.46" } }, 0.0);
-// sun.to("#bg_grad stop:nth-child(6)", { attr: { "stop-color": "#FF9171" } }, 0);
-
-// /*   SCENE 2  */
-// let scene2 = gsap.timeline();
-// ScrollTrigger.create({
-//   animation: scene2,
-//   trigger: ".scrollElement",
-//   start: "15% top",
-//   end: "40% 100%",
-//   scrub: 4,
-// });
-
-// scene2.fromTo("#h2-1", { y: 500, opacity: 0 }, { y: 0, opacity: 1 }, 0);
-// scene2.fromTo("#h2-2", { y: 500 }, { y: 0 }, 0.1);
-// scene2.fromTo("#h2-3", { y: 700 }, { y: 0 }, 0.1);
-// scene2.fromTo("#h2-4", { y: 700 }, { y: 0 }, 0.2);
-// scene2.fromTo("#h2-5", { y: 800 }, { y: 0 }, 0.3);
-// scene2.fromTo("#h2-6", { y: 900 }, { y: 0 }, 0.3);
-
-// /* Bats */
-// gsap.fromTo(
-//   "#bats",
-//   { opacity: 1, y: 400, scale: 0 },
-//   {
-//     y: 120,
-//     scale: 0.8,
-//     transformOrigin: "50% 50%",
-//     ease: "power3.out",
-//     scrollTrigger: {
-//       trigger: ".scrollElement",
-//       start: "40% top",
-//       end: "70% 100%",
-//       scrub: 3,
-//       onEnter: function () {
-//         gsap.utils.toArray("#bats path").forEach((item, i) => {
-//           gsap.to(item, {
-//             scaleX: 0.5,
-//             yoyo: true,
-//             repeat: 11,
-//             duration: 0.15,
-//             delay: 0.7 + i / 10,
-//             transformOrigin: "50% 50%",
-//           });
-//         });
-//         gsap.set("#bats", { opacity: 1 });
-//       },
-//       onLeave: function () {
-//         gsap.to("#bats", { opacity: 0, delay: 2 });
-//       },
-//     },
-//   }
-// );
-
-// /* Sun increase */
-// let sun2 = gsap.timeline();
-// ScrollTrigger.create({
-//   animation: sun2,
-//   trigger: ".scrollElement",
-//   start: "2200 top",
-//   end: "5000 100%",
-//   scrub: 1,
-// });
-
-// sun2.to("#sun", { attr: { offset: "0.6" } }, 0);
-// sun2.to("#bg_grad stop:nth-child(2)", { attr: { offset: "0.7" } }, 0);
-// sun2.to("#sun", { attr: { "stop-color": "#ffff00" } }, 0);
-// sun2.to("#lg4 stop:nth-child(1)", { attr: { "stop-color": "#623951" } }, 0);
-// sun2.to("#lg4 stop:nth-child(2)", { attr: { "stop-color": "#261F36" } }, 0);
-// sun2.to("#bg_grad stop:nth-child(6)", { attr: { "stop-color": "#45224A" } }, 0);
-
-// /* Transition (from Scene2 to Scene3) */
-// gsap.set("#scene3", { y: 580, visibility: "visible" });
-// let sceneTransition = gsap.timeline();
-// ScrollTrigger.create({
-//   animation: sceneTransition,
-//   trigger: ".scrollElement",
-//   start: "70% top",
-//   end: "bottom 100%",
-//   scrub: 3,
-// });
-
-// sceneTransition.to(
-//   "#h2-1",
-//   { y: -680, scale: 1.5, transformOrigin: "50% 50%" },
-//   0
-// );
-// sceneTransition.to("#bg_grad", { attr: { cy: "-80" } }, 0.0);
-// sceneTransition.to("#bg2", { y: 0 }, 0);
-
-// /* Scene 3 */
-// let scene3 = gsap.timeline();
-// ScrollTrigger.create({
-//   animation: scene3,
-//   trigger: ".scrollElement",
-//   start: "80% 50%",
-//   end: "bottom 100%",
-//   scrub: 3,
-// });
-
-// //Hills motion
-// scene3.fromTo("#h3-1", { y: 300 }, { y: -550 }, 0);
-// scene3.fromTo("#h3-2", { y: 800 }, { y: -550 }, 0.03);
-// scene3.fromTo("#h3-3", { y: 600 }, { y: -550 }, 0.06);
-// scene3.fromTo("#h3-4", { y: 800 }, { y: -550 }, 0.09);
-// scene3.fromTo("#h3-5", { y: 1000 }, { y: -550 }, 0.12);
-
-// //stars
-// scene3.fromTo("#stars", { opacity: 0 }, { opacity: 0.5, y: -500 }, 0);
-
-// // Scroll Back text
-// scene3.fromTo("#arrow2", { opacity: 0 }, { opacity: 0.7, y: -710 }, 0.25);
-// scene3.fromTo("#text2", { opacity: 0 }, { opacity: 0.7, y: -710 }, 0.3);
-
-// //gradient value change
-// scene3.to("#bg2-grad", { attr: { cy: 600 } }, 0);
-// scene3.to("#bg2-grad", { attr: { r: 500 } }, 0);
-
-// /*   falling star   */
-// gsap.to("#fstar", {
-//   x: -700,
-//   y: -250,
-//   ease: "power4.out",
+// 氣泡選單
+// gsap.from("#noodles", {
 //   scrollTrigger: {
 //     trigger: ".scrollElement",
-//     start: "4000 top",
-//     end: "6000 100%",
-//     scrub: 5,
-//     onEnter: function () {
-//       gsap.set("#fstar", { opacity: 1 });
-//     },
-//     onLeave: function () {
-//       gsap.set("#fstar", { opacity: 0 });
-//     },
+//     id: "noodles",
+//     start: "10% center",
+//     end: "18% center",
+//     scrub: 1,
 //   },
+//   rotate:180,
+//   opacity: 0,
+//   y: "-50%",
+//   x: "-10%",
 // });
 
-//reset scrollbar position after refresh
+// 滾動視差
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1,
+      // markers: {
+      //   startColor: "green",
+      //   endColor: "red",
+      //   fontSize: "22px",
+      // },
+    },
+  })
+  .to(
+    ".container",
+    {
+      x: "-100%",
+      left: "100%",
+    },
+    0
+  )
+  .to(
+    ".backend",
+    {
+      x: "30px",
+    },
+    0
+  )
+  .to(
+    ".ryan, .wineCabinet",
+    {
+      x: "-5%",
+    },
+    0
+  )
+  .to(
+    ".grandma",
+    {
+      x: "-60%",
+    },
+    0
+  )
+  .to(
+    ".buttonEvents",
+    {
+      x: "-280%",
+    },
+    0
+  )
+  .to(
+    ".front",
+    {
+      x: "-100px",
+    },
+    0
+  )
+  .to(
+    ".protagonistSvg",
+    {
+      x: 1136,
+    },
+    0
+  )
+  // .to(
+  //   ".protagonist",
+  //   {
+  //     startAt: { opacity: 0.3 },
+  //     x: "152%",
+  //   },
+  //   0
+  // )
+  .to(
+    ".supportingRole",
+    {
+      x: "-130%",
+    },
+    0
+  );
 
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
+//重新整理就重設 scrollbar
+// window.onbeforeunload = function () {
+//   window.scrollTo(0, 0);
+// };
+
+const buttonExhibitor = document.querySelector(".buttonExhibitor");
+const buttonEvents = document.querySelector(".buttonEvents");
+const buttonPSR = document.querySelector(".buttonPSR");
+const buttonSVG = document.querySelector(".buttonSVG");
+const buttonMNT = document.querySelector(".buttonMNT");
+const buttonPC = document.querySelector(".buttonPC");
+const buttonFactSheet = document.querySelector(".buttonFactSheet");
+const buttonVisitor = document.querySelector(".buttonVisitor");
+const scrollEvent = () => {
+  [
+    buttonExhibitor,
+    buttonEvents,
+    buttonPSR,
+    buttonSVG,
+    buttonMNT,
+    buttonPC,
+    buttonFactSheet,
+    buttonVisitor,
+  ].forEach((button) => {
+    const buttonClassName = `.${button.className}`;
+
+    const fn = () => {
+      if (isElementInViewport(button)) {
+        if (button.style.opacity === 1) return;
+        gsap.to(buttonClassName, {
+          opacity: 1,
+          ease: "power2.out",
+        });
+      } else {
+        if (button.style.opacity === 0) return;
+        gsap.to(buttonClassName, {
+          opacity: 0,
+          ease: "power2.out",
+        });
+      }
+    };
+    fn();
+    setTimeout(fn, 1000);
+  });
 };
 
+//載入所有資源再進入場景
 window.onload = function () {
+  window.addEventListener("scroll", () => {
+    scrollEvent();
+  });
   setTimeout(() => {
     document.querySelector(".loadingAsset").classList.add("loadingAsset__loaded");
+    ScrollTrigger.refresh();
   }, 500);
   document.querySelector(".container").classList.add("container__loaded");
+  scrollEvent();
 };

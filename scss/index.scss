@@ -2,15 +2,10 @@
 @import "utilities/mixin";
 @import "utilities/animation";
 
-@import 'vendors/toastr';
-
-@import 'vendors-override/toastr';
-
 @import "base/reset";
 @import "base/global";
 
 @import "layout/menu";
-@import "layout/footer";
 
 @import "pages/index";
 

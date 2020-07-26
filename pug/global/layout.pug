@@ -1,6 +1,4 @@
 
-include ../mixin/mixin
-
 block var
 // pagetitle classlist
 doctype html
@@ -28,10 +26,7 @@ html
     .loadingAsset
       .loadingAsset__logo
       .loadingAsset__text Loading...
-    div(style='overflow:auto;height:100%')
-      .scrollElement
-    include footer
-    .modal-menu
+    .scrollElement
     script(src="js/global.js" type="text/javascript")
     script(src="js/layout/menu.js" type="text/javascript")
     script(src="js/vendors/gsap/gsap.min.js" type="text/javascript")

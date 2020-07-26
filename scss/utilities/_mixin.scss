@@ -49,8 +49,34 @@
   @else if $media == phonexs {
     @media (min-width: $media-phone-xs) { @content; }
   }
-
 }
 @mixin font($f){
   font-size: #{$f / $font}rem;
+}
+@mixin rect(
+  $x,
+  $y,
+  $width,
+  $height,
+  $parentX: 0,
+  $parentY: 0,
+  $parentW: $layout-width,
+  $parentH: $layout-height
+) {
+  position: absolute;
+  width: $width/$parentW * 100%;
+  top: ($y - $parentY) / $parentH * 100%;
+  left: ($x - $parentX) / $parentW * 100%;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: $height / $width * 100%;
+  }
+}
+
+@mixin img($url) {
+  background-image: url($url);
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
