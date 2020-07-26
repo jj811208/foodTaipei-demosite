@@ -241,7 +241,7 @@ var ParallaxFn = function ParallaxFn() {
       trigger: ".scrollElement",
       start: "top top",
       end: "bottom bottom",
-      scrub: 1
+      scrub: 0.1
     }
   }).to(".container", {
     x: function x(_, dom, __) {
@@ -327,7 +327,7 @@ window.onload = function () {
   window.addEventListener("scroll", function () {
     scrollEvent();
   });
-  window.addEventListener("resize", function () {
+  if (!isMobile) window.addEventListener("resize", function () {
     resizeDebounce();
   });
   setTimeout(function () {
