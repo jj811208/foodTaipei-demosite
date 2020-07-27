@@ -126,6 +126,9 @@ body {
   width: 100px;
   top: 0;
   z-index: 0; }
+  @media (max-width: 900px) {
+    .scrollElement {
+      height: 6000px; } }
 
 .container {
   position: fixed;
@@ -149,6 +152,10 @@ body {
   left: 24px;
   top: 0;
   position: fixed; }
+  @media (max-width: 900px) {
+    .logo {
+      max-width: 65vw;
+      height: auto; } }
 
 .ribbon {
   position: absolute;
@@ -210,15 +217,39 @@ body {
   position: absolute;
   width: 21.85646%;
   top: 50.13055%;
-  left: 61.26704%;
-  background-image: url("../assets/grandma.png");
-  background-position: left top;
-  background-size: contain;
-  background-repeat: no-repeat; }
+  left: 61.26704%; }
   .grandma::before {
     content: "";
     display: block;
     padding-top: 71.54651%; }
+
+.grandmaBody {
+  position: absolute;
+  width: 49.16529%;
+  top: -3.58974%;
+  left: 4.58631%;
+  background-image: url("../assets/grandmaBody.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .grandmaBody::before {
+    content: "";
+    display: block;
+    padding-top: 155.22388%; }
+
+.grandmaHand {
+  position: absolute;
+  width: 63.65804%;
+  top: 36.41026%;
+  left: 37.05742%;
+  background-image: url("../assets/grandmaHand.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .grandmaHand::before {
+    content: "";
+    display: block;
+    padding-top: 41.21037%; }
 
 .buttonEvents {
   position: absolute;
@@ -279,16 +310,54 @@ body {
 .ryan {
   position: absolute;
   width: 16.44547%;
-  top: 39.82115%;
-  left: 82.59824%;
-  background-image: url("../assets/ryan.png");
-  background-position: left top;
-  background-size: contain;
-  background-repeat: no-repeat; }
+  top: 41.77937%;
+  left: 82.59824%; }
   .ryan::before {
     content: "";
     display: block;
     padding-top: 88.7407%; }
+
+.ryanBody {
+  position: absolute;
+  width: 58.62977%;
+  top: 0%;
+  left: 41.37023%;
+  background-image: url("../assets/ryanBody.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .ryanBody::before {
+    content: "";
+    display: block;
+    padding-top: 151.35776%; }
+
+.ryanLeftHand {
+  position: absolute;
+  width: 52.13702%;
+  top: 30.03544%;
+  left: 47.34122%;
+  background-image: url("../assets/ryanLeftHand.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .ryanLeftHand::before {
+    content: "";
+    display: block;
+    padding-top: 99.40142%; }
+
+.ryanRightHand {
+  position: absolute;
+  width: 71.17396%;
+  top: 9.38264%;
+  left: 0%;
+  background-image: url("../assets/ryanRightHand.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .ryanRightHand::before {
+    content: "";
+    display: block;
+    padding-top: 62.41779%; }
 
 .buttonPSR {
   position: absolute;
@@ -529,15 +598,67 @@ body {
   position: absolute;
   width: 10.43905%;
   top: 18.01567%;
-  left: 15.43705%;
-  background-image: url("../assets/ladder.png");
-  background-position: left top;
-  background-size: contain;
-  background-repeat: no-repeat; }
+  left: 15.43705%; }
   .ladder::before {
     content: "";
     display: block;
     padding-top: 174.72633%; }
+
+.ladderBody {
+  position: absolute;
+  width: 100%;
+  top: 8.13366%;
+  left: 0%;
+  background-image: url("../assets/ladderBody.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .ladderBody::before {
+    content: "";
+    display: block;
+    padding-top: 160.51469%; }
+
+.ladderLeftHand {
+  position: absolute;
+  width: 45.84214%;
+  top: 9.56254%;
+  left: 16.59305%;
+  background-image: url("../assets/ladderLeftHand.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .ladderLeftHand::before {
+    content: "";
+    display: block;
+    padding-top: 81.86845%; }
+
+.ladderRightHand {
+  position: absolute;
+  width: 54.32687%;
+  top: 24.97252%;
+  left: 1.94738%;
+  background-image: url("../assets/ladderRightHand.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .ladderRightHand::before {
+    content: "";
+    display: block;
+    padding-top: 70.0509%; }
+
+.ladderCarton {
+  position: absolute;
+  width: 94.08489%;
+  top: 0.17806%;
+  left: 28.03918%;
+  background-image: url("../assets/ladderCarton.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .ladderCarton::before {
+    content: "";
+    display: block;
+    padding-top: 57.86895%; }
 
 .buttonFactSheet {
   position: absolute;

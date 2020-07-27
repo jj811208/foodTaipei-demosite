@@ -1,5 +1,17 @@
 "use strict";
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function isElementInViewport(el) {
   var rect = el.getBoundingClientRect();
   return rect.top >= 0 && rect.left >= 40 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
@@ -14,17 +26,20 @@ var mouseHover = function mouseHover(className) {
     mouseover: function mouseover() {},
     mouseout: function mouseout() {}
   };
-  var target = document.querySelector(className);
-  if (!target) return;
+  var targets = document.querySelectorAll(className);
+  if (targets.length === 0) return;
   var mouseover = callback.mouseover,
       mouseout = callback.mouseout;
   var mouseInEvent = null;
-  target.addEventListener("mouseover", function () {
-    mouseInEvent = mouseover();
-  });
-  target.addEventListener("mouseout", function () {
-    mouseInEvent.pause();
-    mouseout();
+  targets.forEach(function (target) {
+    console.log(123);
+    target.addEventListener("mouseover", function () {
+      mouseInEvent = mouseover();
+    });
+    target.addEventListener("mouseout", function () {
+      mouseInEvent.pause();
+      mouseout();
+    });
   });
 };
 
@@ -49,25 +64,14 @@ gsap.registerPlugin(ScrollTrigger); // 開場動畫
 var a = gsap.timeline().from(".logo", {
   duration: 0.3,
   y: "-100%"
-}, 0.9); // .from(".carton,.vegetableBasket,.cabinet,.fruitCabinet,.taiwanFishery", {
-//   duration: 0.8,
-//   scaleY: 0,
-//   stagger: 0.3,
-//   // ease: "elastic.out(1, 0.5)",
-// });
-//進場動畫
-
-gsap.from(".ryan", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "ryan",
-    start: "66% center"
-  },
-  duration: 1.7,
-  scaleY: 0,
+}, 0.9).from(".carton,.vegetableBasket,.cabinet,.fruitCabinet,.taiwanFishery", {
+  duration: 0.4,
   transformOrigin: "bottom",
-  ease: "elastic.out(1, 0.3)"
-});
+  scaleY: 0,
+  stagger: 0.3 // ease: "elastic.out(1, 0.5)",
+
+}); //進場動畫
+
 gsap.from(".elsa", {
   duration: 1.7,
   scaleY: 0,
@@ -86,6 +90,39 @@ gsap.from(".ladder", {
   scaleY: 0,
   ease: "elastic.out(1, 0.3)"
 });
+gsap.from(".hao", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "hao",
+    start: "11% center"
+  },
+  duration: 1.7,
+  transformOrigin: "bottom",
+  scaleY: 0,
+  ease: "elastic.out(1, 0.3)"
+});
+gsap.from(".mainTableItems", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "mainTableItems",
+    start: "15% center"
+  },
+  duration: 1.7,
+  transformOrigin: "bottom",
+  scaleY: 0,
+  ease: "elastic.out(1, 0.3)"
+});
+gsap.from(".poster", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "poster",
+    start: "25% center"
+  },
+  duration: 1.7,
+  transformOrigin: "bottom",
+  scaleY: 0,
+  ease: "elastic.out(1, 0.3)"
+});
 gsap.from(".grandma", {
   scrollTrigger: {
     trigger: ".scrollElement",
@@ -97,45 +134,118 @@ gsap.from(".grandma", {
   scaleY: 0,
   ease: "elastic.out(1, 0.3)"
 });
-gsap.from(".hao", {
+gsap.from(".tv", {
   scrollTrigger: {
     trigger: ".scrollElement",
-    id: "hao",
-    start: "11% center"
+    id: "tv",
+    start: "76% center"
   },
   duration: 1.7,
-  transformOrigin: "bottom",
+  transformOrigin: "top",
   scaleY: 0,
+  ease: "elastic.out(0.2, 0.1)"
+});
+gsap.from(".ryan", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "ryan",
+    start: "66% center"
+  },
+  duration: 1.7,
+  scaleY: 0,
+  transformOrigin: "bottom",
   ease: "elastic.out(1, 0.3)"
 }); //常駐動畫
 
+gsap.fromTo(".elsa", {
+  scaleY: 1
+}, {
+  duration: 2.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "bottom",
+  scaleY: 1.03
+});
+gsap.to(".ladderCarton", {
+  duration: 1.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "left bottom",
+  rotate: "-10"
+});
+gsap.to(".ladderLeftHand", {
+  duration: 1.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "left bottom",
+  rotate: "-10"
+});
+gsap.to(".ladderRightHand", {
+  duration: 1.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "left top",
+  rotate: "-10"
+});
 gsap.to(".haoHand", {
-  duration: 2.3,
+  duration: 2,
   repeat: -1,
   yoyo: true,
   yoyoEase: "power2.inOut",
   transformOrigin: "45px 0px",
-  rotate: "-10" // ease: "elastic.out(1, 0.3)",
-
+  rotate: "-10"
+});
+gsap.to(".grandmaHand", {
+  duration: 1,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "left bottom",
+  rotate: "-6"
+});
+gsap.to(".ryanLeftHand", {
+  duration: 1.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "right top",
+  rotate: "-10"
+});
+gsap.to(".ryanRightHand", {
+  duration: 1,
+  repeat: -1,
+  delay: 0.4,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "right top",
+  rotate: "-10"
 }); //hover動畫
 
-var ELSA = ".elsa";
-var LADDER = ".ladder";
-var HAO = ".hao";
-var MAINTABLEITEMS = ".mainTableItems";
-var POSTER = ".poster";
-var GRANDMA = ".grandma";
-var TV = ".tv";
-var RYAN = ".ryan";
-[ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach(function (className) {
-  mouseHover(className, {
+var ELSA = [".buttonVisitor,.elsa", ".elsa"];
+var LADDER = [".buttonFactSheet,.ladder", ".ladder"];
+var HAO = [".buttonExhibitor,.hao", ".hao"];
+var MAINTABLEITEMS = [".buttonMNT,.mainitableItems", ".mainTableItems"];
+var POSTER = [".buttonPC,.poster", ".poster"];
+var GRANDMA = [".buttonEvents,.grandma", ".grandma"];
+var TV = [".buttonSVG,.tv", ".tv"];
+var RYAN = [".buttonPSR,.ryan", ".ryan"];
+[ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach(function (_ref) {
+  var _ref2 = _slicedToArray(_ref, 2),
+      hoverClassName = _ref2[0],
+      targetClassname = _ref2[1];
+
+  mouseHover(hoverClassName, {
     mouseover: function mouseover() {
       var _gsap;
 
-      return (_gsap = gsap).fromTo.apply(_gsap, [className].concat(hoverIn));
+      return (_gsap = gsap).fromTo.apply(_gsap, [targetClassname].concat(hoverIn));
     },
     mouseout: function mouseout() {
-      gsap.to(className, hoverOut);
+      gsap.to(targetClassname, hoverOut);
     }
   });
 }); // 購物動畫
@@ -217,21 +327,7 @@ gsap.from("#juice", {
   opacity: 0,
   y: "-50%",
   x: "-10%"
-}); // 氣泡選單
-// gsap.from("#noodles", {
-//   scrollTrigger: {
-//     trigger: ".scrollElement",
-//     id: "noodles",
-//     start: "10% center",
-//     end: "18% center",
-//     scrub: 1,
-//   },
-//   rotate:180,
-//   opacity: 0,
-//   y: "-50%",
-//   x: "-10%",
-// });
-// 滾動視差  因為 resize 後要清掉，然後重新計算 container 的 x，所以要存在一個變數，方便 resize 清理
+}); // 滾動視差  因為 resize 後要清掉，然後重新計算 container 的 x，所以要存在一個變數，方便 resize 清理
 
 var parallaxInstance;
 
@@ -265,7 +361,8 @@ var ParallaxFn = function ParallaxFn() {
   }, 0).to(".supportingRole", {
     x: "-130%"
   }, 0);
-};
+}; // 氣泡選單
+
 
 var buttonExhibitor = document.querySelector(".buttonExhibitor");
 var buttonEvents = document.querySelector(".buttonEvents");
@@ -278,18 +375,16 @@ var buttonVisitor = document.querySelector(".buttonVisitor");
 
 var scrollEvent = function scrollEvent() {
   [buttonExhibitor, buttonEvents, buttonPSR, buttonSVG, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor].forEach(function (button) {
-    var buttonClassName = ".".concat(button.className);
-
     var fn = function fn() {
       if (isElementInViewport(button)) {
         if (button.style.opacity === 1) return;
-        gsap.to(buttonClassName, {
+        gsap.to(button, {
           opacity: 1,
           ease: "power2.out"
         });
       } else {
         if (button.style.opacity === 0) return;
-        gsap.to(buttonClassName, {
+        gsap.to(button, {
           opacity: 0,
           ease: "power2.out"
         });
