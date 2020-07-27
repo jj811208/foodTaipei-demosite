@@ -23,6 +23,10 @@
   left: 24px;
   top: 0;
   position: fixed;
+  @include size(padM){
+    max-width: 65vw;
+    height:auto;
+  }
 }
 .ribbon {
   @include rect(786.76, -127.03, 617.12, 231.47);
@@ -42,7 +46,16 @@
 }
 .grandma {
   @include rect(1528, 384, 545.1, 390);
-  @include img("../assets/grandma.png");
+  // @include img("../assets/grandma.png");
+}
+
+.grandmaBody {
+  @include rect(1553, 370, 268, 416, 1528, 384, 545.1, 390);
+  @include img("../assets/grandmaBody.png");
+}
+.grandmaHand {
+  @include rect(1730, 526, 347, 143, 1528, 384, 545.1, 390);
+  @include img("../assets/grandmaHand.png");
 }
 .buttonEvents {
   @include rect(1777, 605, 120, 60 /*, 1528, 384, 545.1, 390*/);
@@ -61,8 +74,20 @@
   @include img("../assets/refrigerator.png");
 }
 .ryan {
-  @include rect(2060, 305.03, 410.15, 363.97);
-  @include img("../assets/ryan.png");
+  @include rect(2060, 320.03, 410.15, 363.97);
+  // @include img("../assets/ryan.png");
+}
+.ryanBody {
+  @include rect(2229.68, 305.03, 240.47, 363.97, 2060, 305.03, 410.15, 363.97);
+  @include img("../assets/ryanBody.png");
+}
+.ryanLeftHand {
+  @include rect(2254.17, 414.35, 213.84, 212.56, 2060, 305.03, 410.15, 363.97);
+  @include img("../assets/ryanLeftHand.png");
+}
+.ryanRightHand {
+  @include rect(2060, 339.18, 291.92, 182.21, 2060, 305.03, 410.15, 363.97);
+  @include img("../assets/ryanRightHand.png");
 }
 .buttonPSR {
   @include rect(2246, 534, 230, 65 /*, 2060, 305.03, 410.15, 363.97*/);
@@ -145,7 +170,23 @@
 }
 .ladder {
   @include rect(385, 138, 260.35, 454.9);
-  @include img("../assets/ladder.png");
+  // @include img("../assets/ladder.png");
+}
+.ladderBody {
+  @include rect(385, 175, 260.35, 417.9, 385, 138, 260.35, 454.9);
+  @include img("../assets/ladderBody.png");
+}
+.ladderLeftHand {
+  @include rect(428.2, 181.5, 119.35, 97.71, 385, 138, 260.35, 454.9);
+  @include img("../assets/ladderLeftHand.png");
+}
+.ladderRightHand {
+  @include rect(390.07, 251.6, 141.44, 99.08, 385, 138, 260.35, 454.9);
+  @include img("../assets/ladderRightHand.png");
+}
+.ladderCarton {
+  @include rect(458, 138.81, /* 163.3*/ 244.95, /*94.5*/ 141.75, 385, 138, 260.35, 454.9);
+  @include img("../assets/ladderCarton.png");
 }
 .buttonFactSheet {
   @include rect(461, 152, 155, 59 /*, 385, 138, 260.35, 454.9*/);

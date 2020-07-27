@@ -11,17 +11,21 @@ function isElementInViewport(el) {
 }
 
 const mouseHover = (className, callback = { mouseover: () => {}, mouseout: () => {} }) => {
-  const target = document.querySelector(className);
-  if (!target) return;
+  const targets = document.querySelectorAll(className);
+  if (targets.length===0) return;
   const { mouseover, mouseout } = callback;
   let mouseInEvent = null;
-  target.addEventListener("mouseover", () => {
-    mouseInEvent = mouseover();
-  });
-  target.addEventListener("mouseout", () => {
-    mouseInEvent.pause();
-    mouseout();
-  });
+
+  targets.forEach(target=>{
+    console.log(123);
+    target.addEventListener("mouseover", () => {
+      mouseInEvent = mouseover();
+    });
+    target.addEventListener("mouseout", () => {
+      mouseInEvent.pause();
+      mouseout();
+    });
+  })
 };
 const hoverIn = [
   {
@@ -46,33 +50,25 @@ const hoverOut = {
 gsap.registerPlugin(ScrollTrigger);
 
 // 開場動畫
-const a = gsap.timeline().from(
-  ".logo",
-  {
-    duration: 0.3,
-    y: "-100%",
-  },
-  0.9
-);
-// .from(".carton,.vegetableBasket,.cabinet,.fruitCabinet,.taiwanFishery", {
-//   duration: 0.8,
-//   scaleY: 0,
-//   stagger: 0.3,
-//   // ease: "elastic.out(1, 0.5)",
-// });
+const a = gsap
+  .timeline()
+  .from(
+    ".logo",
+    {
+      duration: 0.3,
+      y: "-100%",
+    },
+    0.9
+  )
+  .from(".carton,.vegetableBasket,.cabinet,.fruitCabinet,.taiwanFishery", {
+    duration: 0.4,
+    transformOrigin: "bottom",
+    scaleY: 0,
+    stagger: 0.3,
+    // ease: "elastic.out(1, 0.5)",
+  });
 
 //進場動畫
-gsap.from(".ryan", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "ryan",
-    start: "66% center",
-  },
-  duration: 1.7,
-  scaleY: 0,
-  transformOrigin: "bottom",
-  ease: "elastic.out(1, 0.3)",
-});
 gsap.from(".elsa", {
   duration: 1.7,
   scaleY: 0,
@@ -91,17 +87,6 @@ gsap.from(".ladder", {
   scaleY: 0,
   ease: "elastic.out(1, 0.3)",
 });
-gsap.from(".grandma", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "grandma",
-    start: "28% center",
-  },
-  duration: 1.7,
-  transformOrigin: "bottom",
-  scaleY: 0,
-  ease: "elastic.out(1, 0.3)",
-});
 gsap.from(".hao", {
   scrollTrigger: {
     trigger: ".scrollElement",
@@ -113,37 +98,152 @@ gsap.from(".hao", {
   scaleY: 0,
   ease: "elastic.out(1, 0.3)",
 });
+gsap.from(".mainTableItems", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "mainTableItems",
+    start: "15% center",
+  },
+  duration: 1.7,
+  transformOrigin: "bottom",
+  scaleY: 0,
+  ease: "elastic.out(1, 0.3)",
+});
+gsap.from(".poster", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "poster",
+    start: "25% center",
+  },
+  duration: 1.7,
+  transformOrigin: "bottom",
+  scaleY: 0,
+  ease: "elastic.out(1, 0.3)",
+});
+gsap.from(".grandma", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "grandma",
+    start: "28% center",
+  },
+  duration: 1.7,
+  transformOrigin: "bottom",
+  scaleY: 0,
+  ease: "elastic.out(1, 0.3)",
+});
 
+gsap.from(".tv", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "tv",
+    start: "76% center",
+  },
+  duration: 1.7,
+  transformOrigin: "top",
+  scaleY: 0,
+  ease: "elastic.out(0.2, 0.1)",
+});
+gsap.from(".ryan", {
+  scrollTrigger: {
+    trigger: ".scrollElement",
+    id: "ryan",
+    start: "66% center",
+  },
+  duration: 1.7,
+  scaleY: 0,
+  transformOrigin: "bottom",
+  ease: "elastic.out(1, 0.3)",
+});
 //常駐動畫
+gsap.fromTo(".elsa", {
+  scaleY: 1,
+},{
+  duration: 2.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "bottom",
+  scaleY: 1.03,
+});
+gsap.to(".ladderCarton", {
+  duration: 1.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "left bottom",
+  rotate: "-10",
+});
+gsap.to(".ladderLeftHand", {
+  duration: 1.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "left bottom",
+  rotate: "-10",
+});
+gsap.to(".ladderRightHand", {
+  duration: 1.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "left top",
+  rotate: "-10",
+});
 gsap.to(".haoHand", {
-  duration: 2.3,
+  duration: 2,
   repeat: -1,
   yoyo: true,
   yoyoEase: "power2.inOut",
   transformOrigin: "45px 0px",
   rotate: "-10",
-  // ease: "elastic.out(1, 0.3)",
+});
+gsap.to(".grandmaHand", {
+  duration: 1,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "left bottom",
+  rotate: "-6",
+});
+gsap.to(".ryanLeftHand", {
+  duration: 1.5,
+  repeat: -1,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "right top",
+  rotate: "-10",
+});
+gsap.to(".ryanRightHand", {
+  duration: 1,
+  repeat: -1,
+  delay: 0.4,
+  yoyo: true,
+  yoyoEase: "power2.inOut",
+  transformOrigin: "right top",
+  rotate: "-10",
 });
 
 //hover動畫
-const ELSA = ".elsa";
-const LADDER = ".ladder";
-const HAO = ".hao";
-const MAINTABLEITEMS = ".mainTableItems";
-const POSTER = ".poster";
-const GRANDMA = ".grandma";
-const TV = ".tv";
-const RYAN = ".ryan";
-[ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach((className) => {
-  mouseHover(className, {
-    mouseover: () => {
-      return gsap.fromTo(className, ...hoverIn);
-    },
-    mouseout: () => {
-      gsap.to(className, hoverOut);
-    },
-  });
-});
+const ELSA = [".buttonVisitor,.elsa", ".elsa"];
+const LADDER = [".buttonFactSheet,.ladder", ".ladder"];
+const HAO = [".buttonExhibitor,.hao", ".hao"];
+const MAINTABLEITEMS = [".buttonMNT,.mainitableItems", ".mainTableItems"];
+const POSTER = [".buttonPC,.poster", ".poster"];
+const GRANDMA = [".buttonEvents,.grandma", ".grandma"];
+const TV = [".buttonSVG,.tv", ".tv"];
+const RYAN = [".buttonPSR,.ryan", ".ryan"];
+[ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach(
+  ([hoverClassName, targetClassname]) => {
+    mouseHover(hoverClassName, {
+      mouseover: () => {
+        return gsap.fromTo(targetClassname, ...hoverIn);
+      },
+      mouseout: () => {
+        gsap.to(targetClassname, hoverOut);
+      },
+    });
+  }
+);
 
 // 購物動畫
 gsap.from("#noodles", {
@@ -225,21 +325,6 @@ gsap.from("#juice", {
   x: "-10%",
 });
 
-// 氣泡選單
-// gsap.from("#noodles", {
-//   scrollTrigger: {
-//     trigger: ".scrollElement",
-//     id: "noodles",
-//     start: "10% center",
-//     end: "18% center",
-//     scrub: 1,
-//   },
-//   rotate:180,
-//   opacity: 0,
-//   y: "-50%",
-//   x: "-10%",
-// });
-
 // 滾動視差  因為 resize 後要清掉，然後重新計算 container 的 x，所以要存在一個變數，方便 resize 清理
 let parallaxInstance;
 const ParallaxFn = () => {
@@ -315,6 +400,7 @@ const ParallaxFn = () => {
     );
 };
 
+// 氣泡選單
 const buttonExhibitor = document.querySelector(".buttonExhibitor");
 const buttonEvents = document.querySelector(".buttonEvents");
 const buttonPSR = document.querySelector(".buttonPSR");
@@ -334,18 +420,16 @@ const scrollEvent = () => {
     buttonFactSheet,
     buttonVisitor,
   ].forEach((button) => {
-    const buttonClassName = `.${button.className}`;
-
     const fn = () => {
       if (isElementInViewport(button)) {
         if (button.style.opacity === 1) return;
-        gsap.to(buttonClassName, {
+        gsap.to(button, {
           opacity: 1,
           ease: "power2.out",
         });
       } else {
         if (button.style.opacity === 0) return;
-        gsap.to(buttonClassName, {
+        gsap.to(button, {
           opacity: 0,
           ease: "power2.out",
         });

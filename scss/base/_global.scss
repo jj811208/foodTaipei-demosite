@@ -23,4 +23,8 @@ body {
   width: 100px;
   top: 0;
   z-index: 0;
+
+  @include size(padM){
+    height: 6000px;
+  }
 }
