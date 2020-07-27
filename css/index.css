@@ -365,7 +365,7 @@ body {
   position: absolute;
   width: 9.22213%;
   top: 69.71279%;
-  left: 90.05613%;
+  left: 88.21171%;
   background-image: url("../assets/buttonPSR.png");
   background-position: left top;
   background-size: contain;
@@ -802,6 +802,43 @@ body {
     content: "";
     display: block;
     padding-top: 30.88942%; }
+
+.windowContent {
+  background: #CCE2E1;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 4.5%;
+  right: 4.5%;
+  bottom: 11%; }
+
+.windowClouds {
+  position: absolute;
+  width: 59.98396%;
+  top: 16.31854%;
+  left: 0.80192%;
+  background-image: url("../assets/windowClouds.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .windowClouds::before {
+    content: "";
+    display: block;
+    padding-top: 64.90642%; }
+
+.windowClouds-1 {
+  position: absolute;
+  width: 47.95509%;
+  top: 58.09399%;
+  left: 43.30393%;
+  background-image: url("../assets/windowClouds.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .windowClouds-1::before {
+    content: "";
+    display: block;
+    padding-top: 68.64548%; }
 
 .ratioError {
   display: none; }

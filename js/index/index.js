@@ -64,18 +64,26 @@ gsap.registerPlugin(ScrollTrigger); // 開場動畫
 var a = gsap.timeline().from(".logo", {
   duration: 0.3,
   y: "-100%"
-}, 0.9).from(".carton,.vegetableBasket,.cabinet,.fruitCabinet,.taiwanFishery", {
-  duration: 0.4,
+}, 0.9).from(".backend:not(.background):not(.ladder):not(.elsa):not(.poster):not(.buttonVisitor):not(.buttonFactSheet):not(.buttonExhibitor):not(.buttonMNT):not(.buttonPC):not(.buttonEvents):not(.buttonSVG):not(.buttonPSR)", {
+  duration: 0.5,
   transformOrigin: "bottom",
-  scaleY: 0,
-  stagger: 0.3 // ease: "elastic.out(1, 0.5)",
+  scaleY: 0
+}, "+=.5").from(".middle:not(.hao):not(.tv):not(.mainTableItems)", {
+  duration: 0.5,
+  transformOrigin: "bottom",
+  scaleY: 0
+}, "-=.1").from(".front", {
+  duration: 0.5,
+  transformOrigin: "bottom",
+  scaleY: 0
+}, "-=.1"); //進場動畫
 
-}); //進場動畫
-
+var ElsaDelay = 3.5;
+var ElsaDuration = 1.7;
 gsap.from(".elsa", {
-  duration: 1.7,
+  duration: ElsaDuration,
   scaleY: 0,
-  delay: 1.2,
+  delay: ElsaDelay,
   transformOrigin: "bottom",
   ease: "elastic.out(1, 0.3)"
 });
@@ -157,16 +165,32 @@ gsap.from(".ryan", {
   ease: "elastic.out(1, 0.3)"
 }); //常駐動畫
 
-gsap.fromTo(".elsa", {
-  scaleY: 1
+gsap.fromTo(".windowClouds", {
+  translateX: 200
 }, {
-  duration: 2.5,
+  duration: 15.5,
   repeat: -1,
-  yoyo: true,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "bottom",
-  scaleY: 1.03
+  translateX: -150
 });
+gsap.fromTo(".windowClouds-1", {
+  translateX: 100
+}, {
+  duration: 9.5,
+  repeat: -1,
+  translateX: -240
+});
+setTimeout(function () {
+  gsap.fromTo(".elsa", {
+    scaleY: 1
+  }, {
+    duration: 2.5,
+    repeat: -1,
+    yoyo: true,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "bottom",
+    scaleY: 1.03
+  });
+}, (ElsaDelay + ElsaDuration) * 1000);
 gsap.to(".ladderCarton", {
   duration: 1.5,
   repeat: -1,
@@ -228,7 +252,7 @@ gsap.to(".ryanRightHand", {
 var ELSA = [".buttonVisitor,.elsa", ".elsa"];
 var LADDER = [".buttonFactSheet,.ladder", ".ladder"];
 var HAO = [".buttonExhibitor,.hao", ".hao"];
-var MAINTABLEITEMS = [".buttonMNT,.mainitableItems", ".mainTableItems"];
+var MAINTABLEITEMS = [".buttonMNT,.mainTableItems", ".mainTableItems"];
 var POSTER = [".buttonPC,.poster", ".poster"];
 var GRANDMA = [".buttonEvents,.grandma", ".grandma"];
 var TV = [".buttonSVG,.tv", ".tv"];
