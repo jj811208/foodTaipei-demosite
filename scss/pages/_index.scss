@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   &::before {
     content: "";
@@ -90,7 +90,7 @@
   @include img("../assets/ryanRightHand.png");
 }
 .buttonPSR {
-  @include rect(2246, 534, 230, 65 /*, 2060, 305.03, 410.15, 363.97*/);
+  @include rect(2200, 534, 230, 65 /*, 2060, 305.03, 410.15, 363.97*/);
   @include img("../assets/buttonPSR.png");
 }
 .protagonistContainer {
@@ -98,7 +98,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  height: 100vh;
+  height: 100%;
   width: auto;
 }
 .protagonistSvg {
@@ -229,10 +229,26 @@
   @include img("../assets/background.png");
   background-size: cover;
 }
+.windowContent{
+  background:#CCE2E1;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 4.5%;
+  right: 4.5%;
+  bottom: 11%;
+}
+.windowClouds{
+  @include rect(20, 125, 1496, 971);
+  @include img("../assets/windowClouds.png");
+}
+.windowClouds-1{
+  @include rect(1080, 445, 1196, 821);
+  @include img("../assets/windowClouds.png");
+}
 
 .ratioError {
   display: none;
-
   @media (min-aspect-ratio: #{$layout-width}/#{$layout-height}) {
     display: flex;
     flex-direction: column;

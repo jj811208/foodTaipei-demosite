@@ -12,11 +12,11 @@ function isElementInViewport(el) {
 
 const mouseHover = (className, callback = { mouseover: () => {}, mouseout: () => {} }) => {
   const targets = document.querySelectorAll(className);
-  if (targets.length===0) return;
+  if (targets.length === 0) return;
   const { mouseover, mouseout } = callback;
   let mouseInEvent = null;
 
-  targets.forEach(target=>{
+  targets.forEach((target) => {
     console.log(123);
     target.addEventListener("mouseover", () => {
       mouseInEvent = mouseover();
@@ -25,7 +25,7 @@ const mouseHover = (className, callback = { mouseover: () => {}, mouseout: () =>
       mouseInEvent.pause();
       mouseout();
     });
-  })
+  });
 };
 const hoverIn = [
   {
@@ -60,19 +60,41 @@ const a = gsap
     },
     0.9
   )
-  .from(".carton,.vegetableBasket,.cabinet,.fruitCabinet,.taiwanFishery", {
-    duration: 0.4,
-    transformOrigin: "bottom",
-    scaleY: 0,
-    stagger: 0.3,
-    // ease: "elastic.out(1, 0.5)",
-  });
+  .from(
+    ".backend:not(.background):not(.ladder):not(.elsa):not(.poster):not(.buttonVisitor):not(.buttonFactSheet):not(.buttonExhibitor):not(.buttonMNT):not(.buttonPC):not(.buttonEvents):not(.buttonSVG):not(.buttonPSR)",
+    {
+      duration: 0.5,
+      transformOrigin: "bottom",
+      scaleY: 0,
+    },
+    "+=.5"
+  )
+  .from(
+    ".middle:not(.hao):not(.tv):not(.mainTableItems)",
+    {
+      duration: 0.5,
+      transformOrigin: "bottom",
+      scaleY: 0,
+    },
+    "-=.1"
+  )
+  .from(
+    ".front",
+    {
+      duration: 0.5,
+      transformOrigin: "bottom",
+      scaleY: 0,
+    },
+    "-=.1"
+  );
 
 //進場動畫
+const ElsaDelay = 3.5;
+const ElsaDuration = 1.7;
 gsap.from(".elsa", {
-  duration: 1.7,
+  duration: ElsaDuration,
   scaleY: 0,
-  delay: 1.2,
+  delay: ElsaDelay,
   transformOrigin: "bottom",
   ease: "elastic.out(1, 0.3)",
 });
@@ -154,17 +176,46 @@ gsap.from(".ryan", {
   transformOrigin: "bottom",
   ease: "elastic.out(1, 0.3)",
 });
+
 //常駐動畫
-gsap.fromTo(".elsa", {
-  scaleY: 1,
-},{
-  duration: 2.5,
-  repeat: -1,
-  yoyo: true,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "bottom",
-  scaleY: 1.03,
-});
+gsap.fromTo(
+  ".windowClouds",
+  {
+    translateX: 200,
+  },
+  {
+    duration: 15.5,
+    repeat: -1,
+    translateX: -150,
+  }
+);
+gsap.fromTo(
+  ".windowClouds-1",
+  {
+    translateX: 100,
+  },
+  {
+    duration: 9.5,
+    repeat: -1,
+    translateX: -240,
+  }
+);
+setTimeout(() => {
+  gsap.fromTo(
+    ".elsa",
+    {
+      scaleY: 1,
+    },
+    {
+      duration: 2.5,
+      repeat: -1,
+      yoyo: true,
+      yoyoEase: "power2.inOut",
+      transformOrigin: "bottom",
+      scaleY: 1.03,
+    }
+  );
+}, (ElsaDelay + ElsaDuration) * 1000);
 gsap.to(".ladderCarton", {
   duration: 1.5,
   repeat: -1,
@@ -227,7 +278,7 @@ gsap.to(".ryanRightHand", {
 const ELSA = [".buttonVisitor,.elsa", ".elsa"];
 const LADDER = [".buttonFactSheet,.ladder", ".ladder"];
 const HAO = [".buttonExhibitor,.hao", ".hao"];
-const MAINTABLEITEMS = [".buttonMNT,.mainitableItems", ".mainTableItems"];
+const MAINTABLEITEMS = [".buttonMNT,.mainTableItems", ".mainTableItems"];
 const POSTER = [".buttonPC,.poster", ".poster"];
 const GRANDMA = [".buttonEvents,.grandma", ".grandma"];
 const TV = [".buttonSVG,.tv", ".tv"];
