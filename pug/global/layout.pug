@@ -24,11 +24,15 @@ html
       .ratioError__logo
       .ratioError__text 請恢復至正常螢幕比例以顯示：Food Taipei
     .loadingAsset
-      .loadingAsset__logo
-      .loadingAsset__text Loading...
+      include ../svg/loading
+      .loadingAsset__text 
+      .loadingAsset__cursor
+        include ../svg/GO
     .scrollElement
     script(src="./js/global.js" type="text/javascript")
     script(src="./js/layout/menu.js" type="text/javascript")
     script(src="./js/vendors/gsap/gsap.min.js" type="text/javascript")
     script(src="./js/vendors/gsap/scrollTrigger.min.js" type="text/javascript")
+    script(src="./js/index/loading.js" type="text/javascript")
     block js
+    

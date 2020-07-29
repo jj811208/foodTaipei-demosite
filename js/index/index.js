@@ -1,32 +1,272 @@
-function isElementInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 40 &&
-    rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) /*or $(window).height() */ &&
-    rect.right <=
-      (window.innerWidth || document.documentElement.clientWidth) + 20 /*or $(window).width() */
+gsap.registerPlugin(ScrollTrigger);
+const ElsaDelay = 2.7;
+const ElsaDuration = 1.7;
+
+function animationInit() {
+  // 開場動畫
+  gsap
+    .timeline()
+    .from(
+      ".logo",
+      {
+        duration: 0.3,
+        y: "-100%",
+      },
+      0.4
+    )
+    .from(
+      ".backend:not(.background):not(.ladder):not(.elsa):not(.poster):not(.buttonVisitor):not(.buttonFactSheet):not(.buttonExhibitor):not(.buttonMNT):not(.buttonPC):not(.buttonEvents):not(.buttonSVG):not(.buttonPSR):not(.window):not(.window-1)",
+      {
+        duration: 0.5,
+        transformOrigin: "bottom",
+        scaleY: 0,
+      },
+      "<+.5"
+    )
+    .from(
+      ".middle:not(.hao):not(.tv):not(.mainTableItems)",
+      {
+        duration: 0.5,
+        transformOrigin: "bottom",
+        scaleY: 0,
+      },
+      "<+.3"
+    )
+    .from(
+      ".front:not(.ribbon):not(.ribbon-1):not(.ribbon-2)",
+      {
+        duration: 0.5,
+        transformOrigin: "bottom",
+        scaleY: 0,
+      },
+      "<+.3"
+    )
+    .from(".ribbon,.ribbon-1,.ribbon-2", {
+      duration: 0.5,
+      transformOrigin: "top",
+      scaleY: 0,
+    })
+    .from(
+      ".elsa",
+      {
+        duration: ElsaDuration,
+        scaleY: 0,
+        transformOrigin: "bottom",
+        ease: "elastic.out(1, 0.3)",
+      },
+      ElsaDelay
+    );
+
+  //進場動畫
+  gsap.from(".ladder", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "ladder",
+      start: "8% center",
+    },
+    duration: 1.7,
+    transformOrigin: "bottom",
+    scaleY: 0,
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.from(".hao", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "hao",
+      start: "11% center",
+    },
+    duration: 1.7,
+    transformOrigin: "bottom",
+    scaleY: 0,
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.from(".mainTableItems", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "mainTableItems",
+      start: "15% center",
+    },
+    duration: 1.7,
+    transformOrigin: "bottom",
+    scaleY: 0,
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.from(".poster", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "poster",
+      start: "25% center",
+    },
+    duration: 1.7,
+    transformOrigin: "bottom",
+    scaleY: 0,
+    ease: "elastic.out(1, 0.3)",
+  });
+  gsap.from(".grandma", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "grandma",
+      start: "28% center",
+    },
+    duration: 1.7,
+    transformOrigin: "bottom",
+    scaleY: 0,
+    ease: "elastic.out(1, 0.3)",
+  });
+
+  gsap.from(".tv", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "tv",
+      start: "76% center",
+    },
+    duration: 1.7,
+    transformOrigin: "top",
+    scaleY: 0,
+    ease: "elastic.out(0.2, 0.1)",
+  });
+  gsap.from(".ryan", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "ryan",
+      start: "66% center",
+    },
+    duration: 1.7,
+    scaleY: 0,
+    transformOrigin: "bottom",
+    ease: "elastic.out(1, 0.3)",
+  });
+
+  //常駐動畫
+  gsap.fromTo(
+    ".windowClouds",
+    {
+      translateX: 200,
+    },
+    {
+      duration: 15.5,
+      repeat: -1,
+      translateX: -150,
+    }
   );
+  gsap.fromTo(
+    ".windowClouds-1",
+    {
+      translateX: 100,
+    },
+    {
+      duration: 9.5,
+      repeat: -1,
+      translateX: -240,
+    }
+  );
+  setTimeout(() => {
+    gsap.fromTo(
+      ".elsa",
+      {
+        scaleY: 1,
+      },
+      {
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        yoyoEase: "power2.inOut",
+        transformOrigin: "bottom",
+        scaleY: 1.03,
+      }
+    );
+  }, (ElsaDelay + ElsaDuration) * 1000);
+  gsap.to(".ladderCarton", {
+    duration: 1.5,
+    repeat: -1,
+    yoyo: true,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "left bottom",
+    rotate: "-10",
+  });
+  gsap.to(".ladderLeftHand", {
+    duration: 1.5,
+    repeat: -1,
+    yoyo: true,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "left bottom",
+    rotate: "-10",
+  });
+  gsap.to(".ladderRightHand", {
+    duration: 1.5,
+    repeat: -1,
+    yoyo: true,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "left top",
+    rotate: "-10",
+  });
+  gsap.to(".haoHand", {
+    duration: 2,
+    repeat: -1,
+    yoyo: true,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "45px 0px",
+    rotate: "-10",
+  });
+  gsap
+    .timeline({
+      repeat: -1,
+    })
+    .to(".mainTableItemsLoudly", {
+      duration: 1.5,
+    })
+    // .to(".mainTableItemsLoudly", {
+    //   duration: 0.5,
+    //   repeat: 3,
+    //   yoyo: true,
+    //   scale: 1.1,
+    //   ease: "power2.out",
+    //   transformOrigin: "right bottom",
+    // });
+    .to(".mainTableItemsLoudly", {
+      duration: 0.01,
+      repeat: 200,
+      yoyo: true,
+      transformOrigin: "right bottom",
+      rotate: 2,
+      scaleY: 1,
+    });
+  gsap.to(".grandmaHand", {
+    duration: 1,
+    repeat: -1,
+    yoyo: true,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "left bottom",
+    rotate: "-6",
+  });
+  gsap.to(".ryanLeftHand", {
+    duration: 1.5,
+    repeat: -1,
+    yoyo: true,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "right top",
+    rotate: "-10",
+  });
+  gsap.to(".ryanRightHand", {
+    duration: 1,
+    repeat: -1,
+    delay: 0.4,
+    yoyo: true,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "right top",
+    rotate: "-10",
+  });
 }
 
-const mouseHover = (className, callback = { mouseover: () => {}, mouseout: () => {} }) => {
-  const targets = document.querySelectorAll(className);
-  if (targets.length === 0) return;
-  const { mouseover, mouseout } = callback;
-  let mouseInEvent = null;
-
-  targets.forEach((target) => {
-    console.log(123);
-    target.addEventListener("mouseover", () => {
-      mouseInEvent = mouseover();
-    });
-    target.addEventListener("mouseout", () => {
-      mouseInEvent.pause();
-      mouseout();
-    });
-  });
-};
+//hover動畫
+const ELSA = [".buttonVisitor,.elsa", ".elsa"];
+const LADDER = [".buttonFactSheet,.ladder", ".ladder"];
+const HAO = [".buttonExhibitor,.hao", ".hao"];
+const MAINTABLEITEMS = [".buttonMNT,.mainTableItems", ".mainTableItems"];
+const POSTER = [".buttonPC,.poster", ".poster"];
+const GRANDMA = [".buttonEvents,.grandma", ".grandma"];
+const TV = [".buttonSVG,.tv", ".tv"];
+const RYAN = [".buttonPSR,.ryan", ".ryan"];
 const hoverIn = [
   {
     rotate: 2,
@@ -46,243 +286,6 @@ const hoverOut = {
   transformOrigin: "bottom center",
   rotate: 0,
 };
-
-gsap.registerPlugin(ScrollTrigger);
-
-// 開場動畫
-const a = gsap
-  .timeline()
-  .from(
-    ".logo",
-    {
-      duration: 0.3,
-      y: "-100%",
-    },
-    0.9
-  )
-  .from(
-    ".backend:not(.background):not(.ladder):not(.elsa):not(.poster):not(.buttonVisitor):not(.buttonFactSheet):not(.buttonExhibitor):not(.buttonMNT):not(.buttonPC):not(.buttonEvents):not(.buttonSVG):not(.buttonPSR)",
-    {
-      duration: 0.5,
-      transformOrigin: "bottom",
-      scaleY: 0,
-    },
-    "+=.5"
-  )
-  .from(
-    ".middle:not(.hao):not(.tv):not(.mainTableItems)",
-    {
-      duration: 0.5,
-      transformOrigin: "bottom",
-      scaleY: 0,
-    },
-    "-=.1"
-  )
-  .from(
-    ".front",
-    {
-      duration: 0.5,
-      transformOrigin: "bottom",
-      scaleY: 0,
-    },
-    "-=.1"
-  );
-
-//進場動畫
-const ElsaDelay = 3.5;
-const ElsaDuration = 1.7;
-gsap.from(".elsa", {
-  duration: ElsaDuration,
-  scaleY: 0,
-  delay: ElsaDelay,
-  transformOrigin: "bottom",
-  ease: "elastic.out(1, 0.3)",
-});
-gsap.from(".ladder", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "ladder",
-    start: "8% center",
-  },
-  duration: 1.7,
-  transformOrigin: "bottom",
-  scaleY: 0,
-  ease: "elastic.out(1, 0.3)",
-});
-gsap.from(".hao", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "hao",
-    start: "11% center",
-  },
-  duration: 1.7,
-  transformOrigin: "bottom",
-  scaleY: 0,
-  ease: "elastic.out(1, 0.3)",
-});
-gsap.from(".mainTableItems", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "mainTableItems",
-    start: "15% center",
-  },
-  duration: 1.7,
-  transformOrigin: "bottom",
-  scaleY: 0,
-  ease: "elastic.out(1, 0.3)",
-});
-gsap.from(".poster", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "poster",
-    start: "25% center",
-  },
-  duration: 1.7,
-  transformOrigin: "bottom",
-  scaleY: 0,
-  ease: "elastic.out(1, 0.3)",
-});
-gsap.from(".grandma", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "grandma",
-    start: "28% center",
-  },
-  duration: 1.7,
-  transformOrigin: "bottom",
-  scaleY: 0,
-  ease: "elastic.out(1, 0.3)",
-});
-
-gsap.from(".tv", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "tv",
-    start: "76% center",
-  },
-  duration: 1.7,
-  transformOrigin: "top",
-  scaleY: 0,
-  ease: "elastic.out(0.2, 0.1)",
-});
-gsap.from(".ryan", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "ryan",
-    start: "66% center",
-  },
-  duration: 1.7,
-  scaleY: 0,
-  transformOrigin: "bottom",
-  ease: "elastic.out(1, 0.3)",
-});
-
-//常駐動畫
-gsap.fromTo(
-  ".windowClouds",
-  {
-    translateX: 200,
-  },
-  {
-    duration: 15.5,
-    repeat: -1,
-    translateX: -150,
-  }
-);
-gsap.fromTo(
-  ".windowClouds-1",
-  {
-    translateX: 100,
-  },
-  {
-    duration: 9.5,
-    repeat: -1,
-    translateX: -240,
-  }
-);
-setTimeout(() => {
-  gsap.fromTo(
-    ".elsa",
-    {
-      scaleY: 1,
-    },
-    {
-      duration: 2.5,
-      repeat: -1,
-      yoyo: true,
-      yoyoEase: "power2.inOut",
-      transformOrigin: "bottom",
-      scaleY: 1.03,
-    }
-  );
-}, (ElsaDelay + ElsaDuration) * 1000);
-gsap.to(".ladderCarton", {
-  duration: 1.5,
-  repeat: -1,
-  yoyo: true,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "left bottom",
-  rotate: "-10",
-});
-gsap.to(".ladderLeftHand", {
-  duration: 1.5,
-  repeat: -1,
-  yoyo: true,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "left bottom",
-  rotate: "-10",
-});
-gsap.to(".ladderRightHand", {
-  duration: 1.5,
-  repeat: -1,
-  yoyo: true,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "left top",
-  rotate: "-10",
-});
-gsap.to(".haoHand", {
-  duration: 2,
-  repeat: -1,
-  yoyo: true,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "45px 0px",
-  rotate: "-10",
-});
-gsap.to(".grandmaHand", {
-  duration: 1,
-  repeat: -1,
-  yoyo: true,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "left bottom",
-  rotate: "-6",
-});
-gsap.to(".ryanLeftHand", {
-  duration: 1.5,
-  repeat: -1,
-  yoyo: true,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "right top",
-  rotate: "-10",
-});
-gsap.to(".ryanRightHand", {
-  duration: 1,
-  repeat: -1,
-  delay: 0.4,
-  yoyo: true,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "right top",
-  rotate: "-10",
-});
-
-//hover動畫
-const ELSA = [".buttonVisitor,.elsa", ".elsa"];
-const LADDER = [".buttonFactSheet,.ladder", ".ladder"];
-const HAO = [".buttonExhibitor,.hao", ".hao"];
-const MAINTABLEITEMS = [".buttonMNT,.mainTableItems", ".mainTableItems"];
-const POSTER = [".buttonPC,.poster", ".poster"];
-const GRANDMA = [".buttonEvents,.grandma", ".grandma"];
-const TV = [".buttonSVG,.tv", ".tv"];
-const RYAN = [".buttonPSR,.ryan", ".ryan"];
 [ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach(
   ([hoverClassName, targetClassname]) => {
     mouseHover(hoverClassName, {
@@ -460,6 +463,23 @@ const buttonMNT = document.querySelector(".buttonMNT");
 const buttonPC = document.querySelector(".buttonPC");
 const buttonFactSheet = document.querySelector(".buttonFactSheet");
 const buttonVisitor = document.querySelector(".buttonVisitor");
+[
+  buttonExhibitor,
+  buttonEvents,
+  buttonPSR,
+  buttonSVG,
+  buttonMNT,
+  buttonPC,
+  buttonFactSheet,
+  buttonVisitor,
+].forEach((button) => {
+  gsap.to(button, {
+    startAt: {
+      opacity: 0,
+    },
+  });
+});
+
 const scrollEvent = () => {
   [
     buttonExhibitor,
@@ -489,42 +509,4 @@ const scrollEvent = () => {
     fn();
     setTimeout(fn, 1000);
   });
-};
-
-var debounceId;
-var resizeDebounce = () => {
-  if (debounceId) clearTimeout(debounceId);
-  debounceId = setTimeout(() => {
-    if (parallaxInstance && parallaxInstance) {
-      // ParallaxFn() 的時候 要確保scrollbar 和 動畫 維持初始狀態
-      window.scrollTo(0, 0);
-      document.body.style.overflow = "hidden";
-
-      // 等待動畫跑到對的地方
-      setTimeout(() => {
-        document.body.style.overflow = "unset";
-        parallaxInstance.clear();
-        ParallaxFn();
-      }, 1500);
-    }
-  }, 500);
-};
-
-//載入所有資源再進入場景
-window.onload = function () {
-  ParallaxFn();
-  scrollEvent();
-  window.addEventListener("scroll", () => {
-    scrollEvent();
-  });
-  if (!isMobile)
-    window.addEventListener("resize", () => {
-      resizeDebounce();
-    });
-
-  setTimeout(() => {
-    document.querySelector(".loadingAsset").classList.add("loadingAsset__loaded");
-    ScrollTrigger.refresh();
-  }, 500);
-  document.querySelector(".container").classList.add("container__loaded");
 };

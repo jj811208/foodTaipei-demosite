@@ -1,5 +1,5 @@
 .container {
-  // display: none;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -23,22 +23,22 @@
   left: 24px;
   top: 0;
   position: fixed;
-  @include size(padM){
+  @include size(padM) {
     max-width: 65vw;
-    height:auto;
+    height: auto;
   }
 }
 .ribbon {
   @include rect(786.76, -127.03, 617.12, 231.47);
   @include img("../assets/ribbon.png");
-}
-.ribbon-1 {
-  @include rect(1366, -149, 653, 300);
-  @include img("../assets/ribbon-1.png");
-}
-.ribbon-2 {
-  @include rect(2127.02, -81.14, 617.12, 231.47);
-  @include img("../assets/ribbon-2.png");
+  &-1 {
+    @include rect(1366, -155, 653, 300);
+    @include img("../assets/ribbon-1.png");
+  }
+  &-2 {
+    @include rect(2127.02, -81.14, 617.12, 231.47);
+    @include img("../assets/ribbon-2.png");
+  }
 }
 .vegetableBasket {
   @include rect(486, 612, 371, 264);
@@ -118,7 +118,15 @@
 }
 .mainTableItems {
   @include rect(835.03, 263.74, 404.97, 193.22);
-  @include img("../assets/mainTableItems.png");
+  // @include img("../assets/mainTableItems.png");
+}
+.mainTableItemsLoudly {
+  @include rect(853.09, 358.59, 113.6, 82.49, 835.03, 263.74, 404.97, 193.22);
+  @include img("../assets/mainTableItemsLoudly.png");
+}
+.mainTableItemsAll {
+  @include rect(936, 263.74, 304, 167.83, 835.03, 263.74, 404.97, 193.22);
+  @include img("../assets/mainTableItemsAll.png");
 }
 .buttonMNT {
   @include rect(881, 238, 258, 63 /*, 835.03, 263.74, 404.97, 193.22*/);
@@ -135,6 +143,53 @@
 .taiwanFishery {
   @include rect(847, 472, 561.5, 303.69);
   @include img("../assets/taiwanFishery.png");
+}
+.fishEye {
+  background-color: #fff;
+  border-radius: 50%;
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: #303a43;
+    top: 17%;
+    bottom: 17%;
+    left: 17%;
+    right: 17%;
+    border-radius: 50%;
+  }
+  &-1 {
+    @include rect(941, 524, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-2 {
+    @include rect(992, 524, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-3 {
+    @include rect(1043, 524, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-4 {
+    @include rect(1095, 524, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-5 {
+    @include rect(1146, 524, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-6 {
+    @include rect(1129, 627, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-7 {
+    @include rect(1154, 636, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-8 {
+    @include rect(1200, 662, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-9 {
+    @include rect(1227, 663, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-10 {
+    @include rect(1025, 687, 10, 10,847, 472, 561.5, 303.69);
+  }
+  &-11 {
+    @include rect(1040, 689, 10, 10,847, 472, 561.5, 303.69);
+  }
 }
 .poster {
   @include rect(1267, 83, 145, 160.93);
@@ -195,6 +250,10 @@
 .cabinet {
   @include rect(700, 72, 344.76, 436.19);
   @include img("../assets/cabinet.png");
+  &-1 {
+    @include rect(10, 157, 345, 364);
+    @include img("../assets/cabinet-1.png");
+  }
 }
 .carton {
   @include rect(516, 213, 197, 282);
@@ -208,10 +267,6 @@
   @include rect(149, 337, 119, 56 /*, 10, 192.76, 314.09, 461.28*/);
   @include img("../assets/buttonVisitor.png");
 }
-.cabinet-1 {
-  @include rect(10, 157, 345, 364);
-  @include img("../assets/cabinet-1.png");
-}
 .orangeCabinet {
   @include rect(-28, 157, 580, 411);
   @include img("../assets/orangeCabinet.png");
@@ -219,18 +274,18 @@
 .window {
   @include rect(2345, -3, 224, 129);
   @include img("../assets/window.png");
-}
-.window-1 {
-  @include rect(658, -2, 224, 129);
-  @include img("../assets/window-1.png");
+  &-1 {
+    @include rect(658, -2, 224, 129);
+    @include img("../assets/window-1.png");
+  }
 }
 .background {
   @include rect(0, -5, 2496, 771);
   @include img("../assets/background.png");
   background-size: cover;
 }
-.windowContent{
-  background:#CCE2E1;
+.windowContent {
+  background: #cce2e1;
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -238,13 +293,13 @@
   right: 4.5%;
   bottom: 11%;
 }
-.windowClouds{
+.windowClouds {
   @include rect(20, 125, 1496, 971);
   @include img("../assets/windowClouds.png");
-}
-.windowClouds-1{
-  @include rect(1080, 445, 1196, 821);
-  @include img("../assets/windowClouds.png");
+  &-1 {
+    @include rect(1080, 445, 1196, 821);
+    @include img("../assets/windowClouds.png");
+  }
 }
 
 .ratioError {
@@ -288,9 +343,12 @@
   top: -10vh;
   background: #fff;
   transition: all 0.6s;
+  cursor: none;
+  transition: opacity 0.3s;
 
   &__loaded {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
   }
 
   &__logo {
@@ -304,5 +362,35 @@
   &__text {
     color: #bdbdbd;
     font-size: 24px;
+  }
+
+  &__cursor {
+    position: absolute;
+    transition: opacity 0.3;
+
+    &__star {
+      fill: grey;
+      transform: scale(0.6);
+      transition: all 0.3s;
+      transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transform-origin: center center;
+
+      .loadingAsset__clickable & {
+        fill: #ffce54;
+        transform: scale(1);
+      }
+    }
+    &__go {
+      opacity: 0;
+      transition: opacity 0.3s;
+
+      .loadingAsset__clickable & {
+        opacity: 1;
+      }
+    }
+
+    .loadingAsset__clickable & {
+      opacity: 1;
+    }
   }
 }
