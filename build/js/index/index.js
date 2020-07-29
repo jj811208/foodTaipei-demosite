@@ -12,6 +12,12 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 gsap.registerPlugin(ScrollTrigger);
 var ElsaDelay = 2.7;
 var ElsaDuration = 1.7;
@@ -122,6 +128,36 @@ function animationInit() {
     ease: "elastic.out(1, 0.3)"
   }); //常駐動畫
 
+  var eyeAnimation = {
+    yoyo: true,
+    duration: 0.5,
+    repeat: 1
+  };
+  gsap.timeline({
+    repeat: -1
+  }).to(".fishEye-1", _objectSpread({}, eyeAnimation, {
+    scaleX: 0.01
+  }), 0).to(".fishEye-2", _objectSpread({}, eyeAnimation, {
+    scaleX: 0.01
+  }), "<-.1").to(".fishEye-3", _objectSpread({}, eyeAnimation, {
+    scaleX: 0.01
+  }), "<-.1").to(".fishEye-4", _objectSpread({}, eyeAnimation, {
+    scaleX: 0.01
+  }), "<-.35").to(".fishEye-5", _objectSpread({}, eyeAnimation, {
+    scaleX: 0.01
+  }), "<-.3").to(".fishEye-6", _objectSpread({}, eyeAnimation, {
+    scaleY: 0.01
+  }), "<-.3").to(".fishEye-7", _objectSpread({}, eyeAnimation, {
+    scaleY: 0.01
+  }), "<-.3").to(".fishEye-8", _objectSpread({}, eyeAnimation, {
+    scaleY: 0.01
+  }), "<-.9").to(".fishEye-9", _objectSpread({}, eyeAnimation, {
+    scaleY: 0.01
+  }), "<-.33").to(".fishEye-10", _objectSpread({}, eyeAnimation, {
+    scaleY: 0.01
+  }), "<-.13").to(".fishEye-11", _objectSpread({}, eyeAnimation, {
+    scaleY: 0.01
+  }), "<-.23");
   gsap.fromTo(".windowClouds", {
     translateX: 200
   }, {
@@ -224,130 +260,170 @@ function animationInit() {
     yoyoEase: "power2.inOut",
     transformOrigin: "right top",
     rotate: "-10"
+  }); //hover動畫
+
+  var ELSA = [".buttonVisitor,.elsa", ".elsa"];
+  var LADDER = [".buttonFactSheet,.ladder", ".ladder"];
+  var HAO = [".buttonExhibitor,.hao", ".hao"];
+  var MAINTABLEITEMS = [".buttonMNT,.mainTableItems", ".mainTableItems"];
+  var POSTER = [".buttonPC,.poster", ".poster"];
+  var GRANDMA = [".buttonEvents,.grandma", ".grandma"];
+  var TV = [".buttonSVG,.tv", ".tv"];
+  var RYAN = [".buttonPSR,.ryan", ".ryan"];
+  var hoverIn = [{
+    rotate: 2
+  }, {
+    duration: 0.2,
+    repeat: -1,
+    yoyo: true,
+    yoyoEase: "power1.inOut",
+    transformOrigin: "bottom center",
+    rotate: -2
+  }];
+  var hoverOut = {
+    duration: 0.3,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "bottom center",
+    rotate: 0
+  };
+  [ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach(function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+        hoverClassName = _ref2[0],
+        targetClassname = _ref2[1];
+
+    mouseHover(hoverClassName, {
+      mouseover: function mouseover() {
+        var _gsap;
+
+        return (_gsap = gsap).fromTo.apply(_gsap, [targetClassname].concat(hoverIn));
+      },
+      mouseout: function mouseout() {
+        gsap.to(targetClassname, hoverOut);
+      }
+    });
+  }); // 購物動畫
+  // 1280
+
+  gsap.to(".noodles", {
+    rotate: 49,
+    scale: 0.67,
+    y: -600,
+    x: 240,
+    duration: 0.001,
+    opacity: 0
   });
-} //hover動畫
-
-
-var ELSA = [".buttonVisitor,.elsa", ".elsa"];
-var LADDER = [".buttonFactSheet,.ladder", ".ladder"];
-var HAO = [".buttonExhibitor,.hao", ".hao"];
-var MAINTABLEITEMS = [".buttonMNT,.mainTableItems", ".mainTableItems"];
-var POSTER = [".buttonPC,.poster", ".poster"];
-var GRANDMA = [".buttonEvents,.grandma", ".grandma"];
-var TV = [".buttonSVG,.tv", ".tv"];
-var RYAN = [".buttonPSR,.ryan", ".ryan"];
-var hoverIn = [{
-  rotate: 2
-}, {
-  duration: 0.2,
-  repeat: -1,
-  yoyo: true,
-  yoyoEase: "power1.inOut",
-  transformOrigin: "bottom center",
-  rotate: -2
-}];
-var hoverOut = {
-  duration: 0.3,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "bottom center",
-  rotate: 0
-};
-[ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach(function (_ref) {
-  var _ref2 = _slicedToArray(_ref, 2),
-      hoverClassName = _ref2[0],
-      targetClassname = _ref2[1];
-
-  mouseHover(hoverClassName, {
-    mouseover: function mouseover() {
-      var _gsap;
-
-      return (_gsap = gsap).fromTo.apply(_gsap, [targetClassname].concat(hoverIn));
+  gsap.fromTo(".noodles", {
+    rotate: 49,
+    scale: 0.67,
+    y: -600,
+    x: 240,
+    opacity: 1
+  }, {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "noodles1",
+      start: "0% top",
+      end: "10% center",
+      scrub: 0.001,
+      markers: true
     },
-    mouseout: function mouseout() {
-      gsap.to(targetClassname, hoverOut);
-    }
+    startAt: {
+      rotate: 49,
+      scale: 0.67,
+      y: -600,
+      x: 240
+    },
+    ease: Linear.easeNone,
+    rotate: 49,
+    scale: 0.67,
+    y: -600,
+    x: 82
   });
-}); // 購物動畫
+  gsap.fromTo(".noodles", {
+    rotate: 49,
+    scale: 0.67,
+    y: -600,
+    x: 82
+  }, {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "noodles2",
+      start: "10% center",
+      end: "16% center",
+      scrub: 0.01,
+      markers: true
+    },
+    ease: Linear.easeNone,
+    rotate: 0,
+    scale: 1,
+    // rotate: -180,
+    y: 0,
+    x: 0
+  });
+  gsap.from(".chocolate", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "chocolate",
+      start: "24% center",
+      end: "32% center",
+      scrub: 1
+    },
+    rotate: -180,
+    y: -900,
+    x: -300
+  });
+  gsap.from(".crab", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "crab",
+      start: "38% center",
+      end: "46% center",
+      scrub: 1
+    },
+    rotate: -180,
+    y: -900,
+    x: -300
+  });
+  gsap.from(".avocado", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "avocado",
+      start: "52% center",
+      end: "60% center",
+      scrub: 1
+    },
+    rotate: -180,
+    y: -900,
+    x: -300
+  });
+  gsap.from(".wine", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "wine",
+      start: "66% center",
+      end: "74% center",
+      scrub: 1
+    },
+    rotate: -180,
+    y: -900,
+    x: -300
+  });
+  gsap.from(".juice", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "juice",
+      start: "80% center",
+      end: "88% center",
+      scrub: 1
+    },
+    rotate: -180,
+    y: -900,
+    x: -300
+  });
+} // 滾動視差  因為 resize 後要清掉，然後重新計算 container 的 x，所以要存在一個變數，方便 resize 清理
 
-gsap.from("#noodles", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "noodles",
-    start: "10% center",
-    end: "18% center",
-    scrub: 1
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%"
-});
-gsap.from("#chocolate", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "chocolate",
-    start: "24% center",
-    end: "32% center",
-    scrub: 1
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%"
-});
-gsap.from("#crab", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "crab",
-    start: "38% center",
-    end: "46% center",
-    scrub: 1
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%"
-});
-gsap.from("#Avocado", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "Avocado",
-    start: "52% center",
-    end: "60% center",
-    scrub: 1
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%"
-});
-gsap.from("#wine", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "wine",
-    start: "66% center",
-    end: "74% center",
-    scrub: 1
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%"
-});
-gsap.from("#juice", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "juice",
-    start: "80% center",
-    end: "88% center",
-    scrub: 1
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%"
-}); // 滾動視差  因為 resize 後要清掉，然後重新計算 container 的 x，所以要存在一個變數，方便 resize 清理
 
+var containerDOM = document.querySelector(".container");
 var parallaxInstance;
 
 var ParallaxFn = function ParallaxFn() {
@@ -359,14 +435,17 @@ var ParallaxFn = function ParallaxFn() {
       scrub: 0.1
     }
   }).to(".container", {
-    x: function x(_, dom, __) {
+    x: function x(_, dom) {
       var percent = (dom.offsetWidth - window.innerWidth) / dom.offsetWidth * 100;
-      console.log("-".concat(percent, "%"));
       return "-".concat(percent, "%");
-    } // left: "100%",
-
+    }
   }, 0).to(".backend", {
-    x: "50px"
+    x: function x() {
+      var delta = containerDOM.offsetHeight / 10.32;
+      console.log(delta);
+      return delta;
+    } //"50px",
+
   }, 0).to(".ryan, .wineCabinet", {
     x: "-5%"
   }, 0).to(".grandma", {
@@ -374,9 +453,14 @@ var ParallaxFn = function ParallaxFn() {
   }, 0).to(".buttonEvents", {
     x: "-280%"
   }, 0).to(".front", {
-    x: "-100px"
-  }, 0).to(".protagonistSvg", {
-    x: 1136
+    x: function x() {
+      var delta = containerDOM.offsetHeight / 5.16;
+      console.log(delta);
+      return -delta;
+    } //"-100px",
+
+  }, 0).to(".richman", {
+    x: "152%"
   }, 0).to(".supportingRole", {
     x: "-130%"
   }, 0);

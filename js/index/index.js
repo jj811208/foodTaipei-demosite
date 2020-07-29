@@ -138,6 +138,103 @@ function animationInit() {
   });
 
   //常駐動畫
+  const eyeAnimation = {
+    yoyo: true,
+    duration: 0.5,
+    repeat: 1,
+  };
+  gsap
+    .timeline({
+      repeat: -1,
+    })
+    .to(
+      ".fishEye-1",
+      {
+        ...eyeAnimation,
+        scaleX: 0.01,
+      },
+      0
+    )
+    .to(
+      ".fishEye-2",
+      {
+        ...eyeAnimation,
+        scaleX: 0.01,
+      },
+      "<-.1"
+    )
+    .to(
+      ".fishEye-3",
+      {
+        ...eyeAnimation,
+        scaleX: 0.01,
+      },
+      "<-.1"
+    )
+    .to(
+      ".fishEye-4",
+      {
+        ...eyeAnimation,
+        scaleX: 0.01,
+      },
+      "<-.35"
+    )
+    .to(
+      ".fishEye-5",
+      {
+        ...eyeAnimation,
+        scaleX: 0.01,
+      },
+      "<-.3"
+    )
+    .to(
+      ".fishEye-6",
+      {
+        ...eyeAnimation,
+        scaleY: 0.01,
+      },
+      "<-.3"
+    )
+    .to(
+      ".fishEye-7",
+      {
+        ...eyeAnimation,
+        scaleY: 0.01,
+      },
+      "<-.3"
+    )
+    .to(
+      ".fishEye-8",
+      {
+        ...eyeAnimation,
+        scaleY: 0.01,
+      },
+      "<-.9"
+    )
+    .to(
+      ".fishEye-9",
+      {
+        ...eyeAnimation,
+        scaleY: 0.01,
+      },
+      "<-.33"
+    )
+    .to(
+      ".fishEye-10",
+      {
+        ...eyeAnimation,
+        scaleY: 0.01,
+      },
+      "<-.13"
+    )
+    .to(
+      ".fishEye-11",
+      {
+        ...eyeAnimation,
+        scaleY: 0.01,
+      },
+      "<-.23"
+    );
   gsap.fromTo(
     ".windowClouds",
     {
@@ -256,130 +353,179 @@ function animationInit() {
     transformOrigin: "right top",
     rotate: "-10",
   });
+
+  //hover動畫
+  const ELSA = [".buttonVisitor,.elsa", ".elsa"];
+  const LADDER = [".buttonFactSheet,.ladder", ".ladder"];
+  const HAO = [".buttonExhibitor,.hao", ".hao"];
+  const MAINTABLEITEMS = [".buttonMNT,.mainTableItems", ".mainTableItems"];
+  const POSTER = [".buttonPC,.poster", ".poster"];
+  const GRANDMA = [".buttonEvents,.grandma", ".grandma"];
+  const TV = [".buttonSVG,.tv", ".tv"];
+  const RYAN = [".buttonPSR,.ryan", ".ryan"];
+  const hoverIn = [
+    {
+      rotate: 2,
+    },
+    {
+      duration: 0.2,
+      repeat: -1,
+      yoyo: true,
+      yoyoEase: "power1.inOut",
+      transformOrigin: "bottom center",
+      rotate: -2,
+    },
+  ];
+  const hoverOut = {
+    duration: 0.3,
+    yoyoEase: "power2.inOut",
+    transformOrigin: "bottom center",
+    rotate: 0,
+  };
+  [ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach(
+    ([hoverClassName, targetClassname]) => {
+      mouseHover(hoverClassName, {
+        mouseover: () => {
+          return gsap.fromTo(targetClassname, ...hoverIn);
+        },
+        mouseout: () => {
+          gsap.to(targetClassname, hoverOut);
+        },
+      });
+    }
+  );
+
+  // 購物動畫
+
+  // 1280
+  gsap.to(".noodles", {
+    rotate: 49,
+    scale: 0.67,
+    y: -600,
+    x: 240,
+    duration: 0.001,
+    opacity:0,
+  });
+  gsap.fromTo(
+    ".noodles",
+    {
+      rotate: 49,
+      scale: 0.67,
+      y: -600,
+      x: 240,
+      opacity:1,
+    },
+    {
+      scrollTrigger: {
+        trigger: ".scrollElement",
+        id: "noodles1",
+        start: "0% top",
+        end: "10% center",
+        scrub: 0.001,
+        markers: true,
+      },
+      startAt: {
+        rotate: 49,
+        scale: 0.67,
+        y: -600,
+        x: 240,
+      },
+      ease: Linear.easeNone,
+      rotate: 49,
+      scale: 0.67,
+      y: -600,
+      x: 82,
+    }
+  );
+  gsap.fromTo(
+    ".noodles",
+    {
+      rotate: 49,
+      scale: 0.67,
+      y: -600,
+      x: 82,
+    },
+    {
+      scrollTrigger: {
+        trigger: ".scrollElement",
+        id: "noodles2",
+        start: "10% center",
+        end: "16% center",
+        scrub: 0.01,
+        markers: true,
+      },
+      ease: Linear.easeNone,
+      rotate: 0,
+      scale: 1,
+      // rotate: -180,
+      y: 0,
+      x: 0,
+    }
+  );
+  gsap.from(".chocolate", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "chocolate",
+      start: "24% center",
+      end: "32% center",
+      scrub: 1,
+    },
+    rotate: -180,
+    y: -900,
+    x: -300,
+  });
+  gsap.from(".crab", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "crab",
+      start: "38% center",
+      end: "46% center",
+      scrub: 1,
+    },
+    rotate: -180,
+    y: -900,
+    x: -300,
+  });
+  gsap.from(".avocado", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "avocado",
+      start: "52% center",
+      end: "60% center",
+      scrub: 1,
+    },
+    rotate: -180,
+    y: -900,
+    x: -300,
+  });
+  gsap.from(".wine", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "wine",
+      start: "66% center",
+      end: "74% center",
+      scrub: 1,
+    },
+    rotate: -180,
+    y: -900,
+    x: -300,
+  });
+  gsap.from(".juice", {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      id: "juice",
+      start: "80% center",
+      end: "88% center",
+      scrub: 1,
+    },
+    rotate: -180,
+    y: -900,
+    x: -300,
+  });
 }
 
-//hover動畫
-const ELSA = [".buttonVisitor,.elsa", ".elsa"];
-const LADDER = [".buttonFactSheet,.ladder", ".ladder"];
-const HAO = [".buttonExhibitor,.hao", ".hao"];
-const MAINTABLEITEMS = [".buttonMNT,.mainTableItems", ".mainTableItems"];
-const POSTER = [".buttonPC,.poster", ".poster"];
-const GRANDMA = [".buttonEvents,.grandma", ".grandma"];
-const TV = [".buttonSVG,.tv", ".tv"];
-const RYAN = [".buttonPSR,.ryan", ".ryan"];
-const hoverIn = [
-  {
-    rotate: 2,
-  },
-  {
-    duration: 0.2,
-    repeat: -1,
-    yoyo: true,
-    yoyoEase: "power1.inOut",
-    transformOrigin: "bottom center",
-    rotate: -2,
-  },
-];
-const hoverOut = {
-  duration: 0.3,
-  yoyoEase: "power2.inOut",
-  transformOrigin: "bottom center",
-  rotate: 0,
-};
-[ELSA, LADDER, HAO, MAINTABLEITEMS, POSTER, GRANDMA, TV, RYAN].forEach(
-  ([hoverClassName, targetClassname]) => {
-    mouseHover(hoverClassName, {
-      mouseover: () => {
-        return gsap.fromTo(targetClassname, ...hoverIn);
-      },
-      mouseout: () => {
-        gsap.to(targetClassname, hoverOut);
-      },
-    });
-  }
-);
-
-// 購物動畫
-gsap.from("#noodles", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "noodles",
-    start: "10% center",
-    end: "18% center",
-    scrub: 1,
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%",
-});
-gsap.from("#chocolate", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "chocolate",
-    start: "24% center",
-    end: "32% center",
-    scrub: 1,
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%",
-});
-gsap.from("#crab", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "crab",
-    start: "38% center",
-    end: "46% center",
-    scrub: 1,
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%",
-});
-gsap.from("#Avocado", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "Avocado",
-    start: "52% center",
-    end: "60% center",
-    scrub: 1,
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%",
-});
-gsap.from("#wine", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "wine",
-    start: "66% center",
-    end: "74% center",
-    scrub: 1,
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%",
-});
-gsap.from("#juice", {
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    id: "juice",
-    start: "80% center",
-    end: "88% center",
-    scrub: 1,
-  },
-  rotate: -180,
-  opacity: 0,
-  y: "-50%",
-  x: "-10%",
-});
-
 // 滾動視差  因為 resize 後要清掉，然後重新計算 container 的 x，所以要存在一個變數，方便 resize 清理
+const containerDOM = document.querySelector(".container");
 let parallaxInstance;
 const ParallaxFn = () => {
   parallaxInstance = gsap
@@ -394,19 +540,22 @@ const ParallaxFn = () => {
     .to(
       ".container",
       {
-        x: (_, dom, __) => {
+        x: (_, dom) => {
           const percent = ((dom.offsetWidth - window.innerWidth) / dom.offsetWidth) * 100;
-          console.log(`-${percent}%`);
           return `-${percent}%`;
         },
-        // left: "100%",
       },
       0
     )
     .to(
       ".backend",
       {
-        x: "50px",
+        x: () => {
+          const delta = containerDOM.offsetHeight / 10.32;
+          console.log(delta)
+          return delta;
+        },
+        //"50px",
       },
       0
     )
@@ -434,14 +583,18 @@ const ParallaxFn = () => {
     .to(
       ".front",
       {
-        x: "-100px",
+        x: () => {
+          const delta = containerDOM.offsetHeight / 5.16;
+          console.log(delta)
+          return -delta;
+        }, //"-100px",
       },
       0
     )
     .to(
-      ".protagonistSvg",
+      ".richman",
       {
-        x: 1136,
+        x: "152%",
       },
       0
     )

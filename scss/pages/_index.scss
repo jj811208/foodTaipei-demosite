@@ -93,21 +93,48 @@
   @include rect(2200, 534, 230, 65 /*, 2060, 305.03, 410.15, 363.97*/);
   @include img("../assets/buttonPSR.png");
 }
-.protagonistContainer {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: auto;
-}
-.protagonistSvg {
-  display: block;
-}
-// .protagonist {
-//   @include rect(167, 340, 748.07, 550);
-//   @include img("../assets/protagonist.png");
+// .protagonistContainer {
+//   display: block;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   height: 100%;
+//   width: auto;
 // }
+// .protagonistSvg {
+//   display: block;
+// }
+.richman {
+  @include rect(167, 340, 748.07, 550);
+}
+.protagonist {
+  @include rect(167, 340, 748.07, 550, 167, 340, 748.07, 550);
+  @include img("../assets/protagonist.png");
+}
+.noodles {
+  @include rect(711, 590.69, 69.23 * 1.4, 74* 1.4, 167 , 340, 748.07, 550);
+  @include img("../assets/noodles.png");
+}
+.chocolate {
+  @include rect(770.05, 563, 104.55 * 1.32, 90.35 * 1.32, 167, 340, 748.07, 550);
+  @include img("../assets/chocolate.png");
+}
+.crab {
+  @include rect(588, 485.76, 177.41 * 1.4, 141.87 * 1.4, 167, 340, 748.07, 550);
+  @include img("../assets/crab.png");
+}
+.avocado {
+  @include rect(744, 500.87, 66.53 * 1.4, 114.51 * 1.4, 167, 340, 748.07, 550);
+  @include img("../assets/avocado.png");
+}
+.wine {
+  @include rect(568, 430.83, 51 * 3, 112 * 3, 167, 340, 748.07, 550);
+  @include img("../assets/wine.png");
+}
+.juice {
+  @include rect(830.1, 510, 56.91 * 1.55, 120.73 * 1.55, 167, 340, 748.07, 550);
+  @include img("../assets/juice.png");
+}
 .tv {
   @include rect(2120, -8, 360, 342);
   @include img("../assets/tv.png");
@@ -158,37 +185,41 @@
     border-radius: 50%;
   }
   &-1 {
-    @include rect(941, 524, 10, 10,847, 472, 561.5, 303.69);
+    @include rect(936, 524, 10, 10, 847, 472, 561.5, 303.69);
   }
   &-2 {
-    @include rect(992, 524, 10, 10,847, 472, 561.5, 303.69);
+    @include rect(987, 524, 10, 10, 847, 472, 561.5, 303.69);
   }
   &-3 {
-    @include rect(1043, 524, 10, 10,847, 472, 561.5, 303.69);
+    @include rect(1038, 524, 10, 10, 847, 472, 561.5, 303.69);
   }
   &-4 {
-    @include rect(1095, 524, 10, 10,847, 472, 561.5, 303.69);
+    @include rect(1090, 524, 10, 10, 847, 472, 561.5, 303.69);
   }
   &-5 {
-    @include rect(1146, 524, 10, 10,847, 472, 561.5, 303.69);
+    @include rect(1141, 524, 10, 10, 847, 472, 561.5, 303.69);
   }
   &-6 {
-    @include rect(1129, 627, 10, 10,847, 472, 561.5, 303.69);
+    transform: rotate(4deg);
+    @include rect(1127, 625, 12, 12, 847, 472, 561.5, 303.69);
   }
   &-7 {
-    @include rect(1154, 636, 10, 10,847, 472, 561.5, 303.69);
+    transform: rotate(4deg);
+    @include rect(1152, 634, 12, 12, 847, 472, 561.5, 303.69);
   }
   &-8 {
-    @include rect(1200, 662, 10, 10,847, 472, 561.5, 303.69);
+    @include rect(1196, 658, 12, 12, 847, 472, 561.5, 303.69);
   }
   &-9 {
-    @include rect(1227, 663, 10, 10,847, 472, 561.5, 303.69);
+    @include rect(1224, 659, 12, 12, 847, 472, 561.5, 303.69);
   }
   &-10 {
-    @include rect(1025, 687, 10, 10,847, 472, 561.5, 303.69);
+    transform: rotate(17deg);
+    @include rect(1028, 690, 13, 13, 847, 472, 561.5, 303.69);
   }
   &-11 {
-    @include rect(1040, 689, 10, 10,847, 472, 561.5, 303.69);
+    transform: rotate(17deg);
+    @include rect(1042, 693, 13, 13, 847, 472, 561.5, 303.69);
   }
 }
 .poster {

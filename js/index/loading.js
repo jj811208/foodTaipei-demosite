@@ -18,7 +18,7 @@ gsap
 let mouseX = 0;
 let mouseY = 0;
 const cursor = document.querySelector(".loadingAsset__cursor");
-TweenMax.to({}, 0.016, {
+gsap.to({}, 0.016, {
   repeat: -1,
   onRepeat: () => {
     TweenMax.set(cursor, {
@@ -32,18 +32,6 @@ TweenMax.to({}, 0.016, {
 window.addEventListener("mousemove", (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
-});
-
-const loadingAsset = document.querySelector(".loadingAsset");
-let canClick=false;
-loadingAsset.addEventListener("click", (e) => {
-  if(canClick){
-    animationInit();
-    document.querySelector(".container").classList.add("container__loaded");
-    setTimeout(() => {
-      loadingAsset.classList.add("loadingAsset__loaded");
-    }, 100);
-  }
 });
 
 let debounceId;
@@ -67,8 +55,6 @@ const resizeDebounce = () => {
 
 //載入所有資源再進入場景
 window.onload = function () {
-  ParallaxFn();
-  // scrollEvent();
   window.addEventListener("scroll", () => {
     scrollEvent();
   });
@@ -81,7 +67,17 @@ window.onload = function () {
     // 因為如果是重新整理 有可能不在一開始的位置
     window.scrollTo(0, 0);
     ScrollTrigger.refresh();
-    document.querySelector(".loadingAsset").classList.add("loadingAsset__clickable");
-    canClick=true;
-  }, 2500);
+
+    const loadingAsset = document.querySelector(".loadingAsset");
+    loadingAsset.classList.add("loadingAsset__clickable");
+
+    loadingAsset.addEventListener("click", (e) => {
+      document.querySelector(".container").classList.add("container__loaded");
+      setTimeout(() => {
+        animationInit();
+        ParallaxFn();
+        loadingAsset.classList.add("loadingAsset__loaded");
+      }, 100);
+    });
+  }, 500);
 };
