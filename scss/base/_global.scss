@@ -1,6 +1,6 @@
 html {
   font-size: 16px;
-  background: #333;
+  background: #303A43;
   height: 100%;
 }
 body {
@@ -14,11 +14,6 @@ body {
   scrollbar-width: none; /* Firefox */
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  @media (min-aspect-ratio: #{$layout-width}/#{$layout-height}) {
-    .container {
-      display: none;
-    }
-  }
 }
 .scrollElement {
   position: absolute;

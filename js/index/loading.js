@@ -1,4 +1,4 @@
-const loadingtransform = { y: -60, duration: 1, yoyo: true, repeat: 3, ease: "power1.inOut" };
+const loadingtransform = { y: -20, duration: 0.4, yoyo: true, repeat: 3, ease: "power1.inOut" };
 const speed = ".2";
 gsap
   .timeline({
@@ -75,9 +75,12 @@ window.onload = function () {
       document.querySelector(".container").classList.add("container__loaded");
       setTimeout(() => {
         animationInit();
+        menuInit();
         ParallaxFn();
         loadingAsset.classList.add("loadingAsset__loaded");
       }, 100);
     });
   }, 500);
 };
+
+//如果有兩個 一個在貨架上 一個在車裡 我只要去算 到某一點trigger的時候 把貨架上的隱藏起來 然後把車裡的顯示出來飛就好了 這樣我就只需要知道那一瞬間的點有中就好
