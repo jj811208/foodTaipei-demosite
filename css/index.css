@@ -125,9 +125,9 @@ body {
   width: 100px;
   top: 0;
   z-index: 0; }
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     .scrollElement {
-      height: 6000px; } }
+      height: 7200px; } }
 
 .container {
   display: none;
@@ -155,7 +155,7 @@ body {
   left: 24px;
   top: 0;
   position: fixed; }
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     .logo {
       max-width: 65vw;
       height: auto; } }
@@ -182,7 +182,7 @@ body {
           box-shadow: 0 4px 32px -6px #444444cc;
   cursor: pointer;
   z-index: 2; }
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     .menu {
       height: 48px;
       width: 48px;
@@ -533,6 +533,30 @@ body {
     content: "";
     display: block;
     padding-top: 73.52253%; }
+  @media (max-width: 600px) {
+    .richman {
+      display: none; } }
+
+.richman-mobile {
+  display: none; }
+  @media (max-width: 600px) {
+    .richman-mobile {
+      position: absolute;
+      width: 100.76183%;
+      top: 0.13055%;
+      left: 0.0401%;
+      display: block;
+      position: fixed;
+      left: 50vw;
+      top: auto;
+      bottom: 0;
+      -webkit-transform: translate(-50%, 12%);
+          -ms-transform: translate(-50%, 12%);
+              transform: translate(-50%, 12%); }
+      .richman-mobile::before {
+        content: "";
+        display: block;
+        padding-top: 73.5376%; } }
 
 .protagonist {
   position: absolute;
@@ -978,11 +1002,21 @@ body {
     display: block;
     padding-top: 195.09986%; }
 
-.haoHand {
+.haoHandContainer {
   position: absolute;
   width: 89.49426%;
   top: 54.9719%;
-  left: -7.69817%;
+  left: -7.69817%; }
+  .haoHandContainer::before {
+    content: "";
+    display: block;
+    padding-top: 64.16511%; }
+
+.haoHand {
+  position: absolute;
+  width: 80.8735%;
+  top: 0%;
+  left: 0%;
   background-image: url("../assets/haoHand.png");
   background-position: left top;
   background-size: contain;
@@ -990,7 +1024,79 @@ body {
   .haoHand::before {
     content: "";
     display: block;
-    padding-top: 64.16511%; }
+    padding-top: 79.34009%; }
+
+.milkTea {
+  position: absolute;
+  width: 35.01997%;
+  top: 5.81058%;
+  left: 64.98003%;
+  background-image: url("../assets/milkTea.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .milkTea::before {
+    content: "";
+    display: block;
+    padding-top: 171.61977%; }
+
+.pearl {
+  background: #562424;
+  border-radius: 50%; }
+  .pearl-1 {
+    position: absolute;
+    width: 9.62738%;
+    top: 63.88692%;
+    left: 48.89734%; }
+    .pearl-1::before {
+      content: "";
+      display: block;
+      padding-top: 100%; }
+  .pearl-2 {
+    position: absolute;
+    width: 9.62738%;
+    top: 63.01843%;
+    left: 29.62738%; }
+    .pearl-2::before {
+      content: "";
+      display: block;
+      padding-top: 100%; }
+  .pearl-3 {
+    position: absolute;
+    width: 9.62738%;
+    top: 70.7905%;
+    left: 63.71103%; }
+    .pearl-3::before {
+      content: "";
+      display: block;
+      padding-top: 100%; }
+  .pearl-4 {
+    position: absolute;
+    width: 9.62738%;
+    top: 80.71606%;
+    left: 55.55894%; }
+    .pearl-4::before {
+      content: "";
+      display: block;
+      padding-top: 100%; }
+  .pearl-5 {
+    position: absolute;
+    width: 9.62738%;
+    top: 73.37823%;
+    left: 39.25475%; }
+    .pearl-5::before {
+      content: "";
+      display: block;
+      padding-top: 100%; }
+  .pearl-6 {
+    position: absolute;
+    width: 9.62738%;
+    top: 80.71606%;
+    left: 25.93156%; }
+    .pearl-6::before {
+      content: "";
+      display: block;
+      padding-top: 100%; }
 
 .buttonExhibitor {
   position: absolute;
@@ -1401,6 +1507,9 @@ body {
   -webkit-transition: opacity 0.3s;
   -o-transition: opacity 0.3s;
   transition: opacity 0.3s; }
+  @media (max-width: 900px) {
+    .loadingAsset svg {
+      width: 100%; } }
   .loadingAsset__loaded {
     opacity: 0;
     pointer-events: none; }

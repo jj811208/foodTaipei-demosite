@@ -240,7 +240,7 @@ function animationInit() {
     transformOrigin: "left top",
     rotate: "-10"
   });
-  gsap.to(".haoHand", {
+  gsap.to(".haoHandContainer", {
     duration: 2,
     repeat: -1,
     yoyo: true,
@@ -371,44 +371,31 @@ var ParallaxFn = function ParallaxFn() {
       return delta;
     } //"-100px",
 
-  }, 0).to(".richman", {
+  }, 0).to(".richman:not(.richman-mobile)", {
     x: "152%"
   }, 0).to(".supportingRole", {
     x: "-130%"
   }, 0); // 購物動畫
 
-  gsap.to(".noodles", {
-    duration: 0.0001,
-    opacity: 0
-  });
-  gsap.to(".chocolate", {
-    duration: 0.0001,
-    opacity: 0
-  });
-  gsap.to(".crab", {
-    duration: 0.0001,
-    opacity: 0
-  });
-  gsap.to(".avocado", {
-    duration: 0.0001,
-    opacity: 0
-  });
-  gsap.to(".wine", {
-    duration: 0.0001,
-    opacity: 0
-  });
-  gsap.to(".juice", {
+  gsap.to(".noodles,.chocolate,.crab,.avocado,.wine,.juice", {
     duration: 0.0001,
     opacity: 0
   }); //1017
 
+  var to = {
+    ease: Linear.easeNone,
+    yPercent: 0,
+    xPercent: 0,
+    rotate: 0,
+    scale: 1
+  };
   gsap.fromTo(".noodles", {
     yPercent: -482,
     xPercent: 50,
     //48.3,
     rotate: 50,
     scale: 0.65
-  }, {
+  }, _objectSpread({
     scrollTrigger: {
       trigger: ".scrollElement",
       start: "10% center",
@@ -416,24 +403,23 @@ var ParallaxFn = function ParallaxFn() {
       scrub: 0.01
     },
     onStart: function onStart() {
-      document.querySelector(".noodles").style.opacity = 1;
+      document.querySelectorAll(".noodles").forEach(function (n) {
+        n.style.opacity = 1;
+      });
       document.querySelector(".noodles-o").style.opacity = 0;
     },
     onReverseComplete: function onReverseComplete() {
-      document.querySelector(".noodles").style.opacity = 0;
+      document.querySelectorAll(".noodles").forEach(function (n) {
+        n.style.opacity = 0;
+      });
       document.querySelector(".noodles-o").style.opacity = 1;
-    },
-    ease: Linear.easeNone,
-    yPercent: 0,
-    xPercent: 0,
-    rotate: 0,
-    scale: 1
-  });
+    }
+  }, to));
   gsap.fromTo(".crab", {
     yPercent: 40.06,
     xPercent: -24.695,
     rotate: -360
-  }, {
+  }, _objectSpread({
     scrollTrigger: {
       trigger: ".scrollElement",
       start: "17% center",
@@ -441,26 +427,25 @@ var ParallaxFn = function ParallaxFn() {
       scrub: 0.01
     },
     onStart: function onStart() {
-      document.querySelector(".crab").style.opacity = 1;
+      document.querySelectorAll(".crab").forEach(function (c) {
+        c.style.opacity = 1;
+      });
       document.querySelector(".crab-o").style.opacity = 0;
     },
     onReverseComplete: function onReverseComplete() {
-      document.querySelector(".crab").style.opacity = 0;
+      document.querySelectorAll(".crab").forEach(function (c) {
+        c.style.opacity = 0;
+      });
       document.querySelector(".crab-o").style.opacity = 1;
-    },
-    ease: Linear.easeNone,
-    yPercent: 0,
-    xPercent: 0,
-    rotate: 0,
-    scale: 1
-  });
+    }
+  }, to));
   gsap.fromTo(".chocolate", {
     yPercent: -363.337,
     xPercent: 212.62,
     //48.3,
     rotate: -15,
     scale: 0.85
-  }, {
+  }, _objectSpread({
     scrollTrigger: {
       trigger: ".scrollElement",
       start: "25% center",
@@ -468,26 +453,27 @@ var ParallaxFn = function ParallaxFn() {
       scrub: 0.01
     },
     onStart: function onStart() {
+      document.querySelectorAll(".chocolate").forEach(function (c) {
+        c.style.opacity = 1;
+      });
       document.querySelector(".chocolate").style.opacity = 1;
       document.querySelector(".chocolate-o").style.opacity = 0;
     },
     onReverseComplete: function onReverseComplete() {
+      document.querySelectorAll(".chocolate").forEach(function (c) {
+        c.style.opacity = 0;
+      });
       document.querySelector(".chocolate").style.opacity = 0;
       document.querySelector(".chocolate-o").style.opacity = 1;
-    },
-    ease: Linear.easeNone,
-    yPercent: 0,
-    xPercent: 0,
-    rotate: 0,
-    scale: 1
-  });
+    }
+  }, to));
   gsap.fromTo(".juice", {
     yPercent: -179,
     xPercent: 419,
     //48.3,
     rotate: -23,
     scale: 0.5
-  }, {
+  }, _objectSpread({
     scrollTrigger: {
       trigger: ".scrollElement",
       start: "35% center",
@@ -495,26 +481,25 @@ var ParallaxFn = function ParallaxFn() {
       scrub: 0.01
     },
     onStart: function onStart() {
-      document.querySelector(".juice").style.opacity = 1;
+      document.querySelectorAll(".juice").forEach(function (j) {
+        j.style.opacity = 1;
+      });
       document.querySelector(".juice-o").style.opacity = 0;
     },
     onReverseComplete: function onReverseComplete() {
-      document.querySelector(".juice").style.opacity = 0;
+      document.querySelectorAll(".juice").forEach(function (j) {
+        j.style.opacity = 0;
+      });
       document.querySelector(".juice-o").style.opacity = 1;
-    },
-    ease: Linear.easeNone,
-    yPercent: 0,
-    xPercent: 0,
-    rotate: 0,
-    scale: 1
-  });
+    }
+  }, to));
   gsap.fromTo(".avocado", {
     yPercent: -128.445,
     xPercent: 417.32,
     //48.3,
     rotate: 50,
     scale: 0.65
-  }, {
+  }, _objectSpread({
     scrollTrigger: {
       trigger: ".scrollElement",
       start: "47% center",
@@ -522,26 +507,25 @@ var ParallaxFn = function ParallaxFn() {
       scrub: 0.01
     },
     onStart: function onStart() {
-      document.querySelector(".avocado").style.opacity = 1;
+      document.querySelectorAll(".avocado").forEach(function (a) {
+        a.style.opacity = 1;
+      });
       document.querySelector(".avocado-o").style.opacity = 0;
     },
     onReverseComplete: function onReverseComplete() {
-      document.querySelector(".avocado").style.opacity = 0;
+      document.querySelectorAll(".avocado").forEach(function (a) {
+        a.style.opacity = 0;
+      });
       document.querySelector(".avocado-o").style.opacity = 1;
-    },
-    ease: Linear.easeNone,
-    yPercent: 0,
-    xPercent: 0,
-    rotate: 0,
-    scale: 1
-  });
+    }
+  }, to));
   gsap.fromTo(".wine", {
     yPercent: -7.168,
     xPercent: 359.395,
     //48.3,
     rotate: 25,
     scale: 0.8
-  }, {
+  }, _objectSpread({
     scrollTrigger: {
       trigger: ".scrollElement",
       start: "59% center",
@@ -549,19 +533,18 @@ var ParallaxFn = function ParallaxFn() {
       scrub: 0.01
     },
     onStart: function onStart() {
-      document.querySelector(".wine").style.opacity = 1;
+      document.querySelectorAll(".wine").forEach(function (w) {
+        w.style.opacity = 1;
+      });
       document.querySelector(".wine-o").style.opacity = 0;
     },
     onReverseComplete: function onReverseComplete() {
-      document.querySelector(".wine").style.opacity = 0;
+      document.querySelectorAll(".wine").forEach(function (w) {
+        w.style.opacity = 0;
+      });
       document.querySelector(".wine-o").style.opacity = 1;
-    },
-    ease: Linear.easeNone,
-    yPercent: 0,
-    xPercent: 0,
-    rotate: 0,
-    scale: 1
-  });
+    }
+  }, to));
 }; // 氣泡選單
 
 
