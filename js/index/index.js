@@ -56,39 +56,51 @@ function animationInit() {
       },
       ElsaDelay
     )
-    .from(".ladder", {
-      //   scrollTrigger: {
-      //     trigger: ".scrollElement",
-      //     id: "ladder",
-      //     start: "8% center",
-      //   },
-      duration: 1.7,
-      transformOrigin: "bottom",
-      scaleY: 0,
-      ease: "elastic.out(1, 0.3)",
-    },ElsaDelay)
-    .from(".hao", {
-      // scrollTrigger: {
-      //   trigger: ".scrollElement",
-      //   id: "hao",
-      //   start: "11% center",
-      // },
-      duration: 1.7,
-      transformOrigin: "bottom",
-      scaleY: 0,
-      ease: "elastic.out(1, 0.3)",
-    },ElsaDelay)
-    .from(".mainTableItems", {
-      // scrollTrigger: {
-      //   trigger: ".scrollElement",
-      //   id: "mainTableItems",
-      //   start: "15% center",
-      // },
-      duration: 1.7,
-      transformOrigin: "bottom",
-      scaleY: 0,
-      ease: "elastic.out(1, 0.3)",
-    },ElsaDelay); 
+    .from(
+      ".ladder",
+      {
+        //   scrollTrigger: {
+        //     trigger: ".scrollElement",
+        //     id: "ladder",
+        //     start: "8% center",
+        //   },
+        duration: 1.7,
+        transformOrigin: "bottom",
+        scaleY: 0,
+        ease: "elastic.out(1, 0.3)",
+      },
+      ElsaDelay
+    )
+    .from(
+      ".hao",
+      {
+        // scrollTrigger: {
+        //   trigger: ".scrollElement",
+        //   id: "hao",
+        //   start: "11% center",
+        // },
+        duration: 1.7,
+        transformOrigin: "bottom",
+        scaleY: 0,
+        ease: "elastic.out(1, 0.3)",
+      },
+      ElsaDelay
+    )
+    .from(
+      ".mainTableItems",
+      {
+        // scrollTrigger: {
+        //   trigger: ".scrollElement",
+        //   id: "mainTableItems",
+        //   start: "15% center",
+        // },
+        duration: 1.7,
+        transformOrigin: "bottom",
+        scaleY: 0,
+        ease: "elastic.out(1, 0.3)",
+      },
+      ElsaDelay
+    );
 
   //進場動畫
   gsap.from(".ladder", {
@@ -332,7 +344,7 @@ function animationInit() {
     transformOrigin: "left top",
     rotate: "-10",
   });
-  gsap.to(".haoHand", {
+  gsap.to(".haoHandContainer", {
     duration: 2,
     repeat: -1,
     yoyo: true,
@@ -497,7 +509,7 @@ const ParallaxFn = () => {
       0
     )
     .to(
-      ".richman",
+      ".richman:not(.richman-mobile)",
       {
         x: "152%",
       },
@@ -512,31 +524,18 @@ const ParallaxFn = () => {
     );
 
   // 購物動畫
-  gsap.to(".noodles", {
-    duration: 0.0001,
-    opacity: 0,
-  });
-  gsap.to(".chocolate", {
-    duration: 0.0001,
-    opacity: 0,
-  });
-  gsap.to(".crab", {
-    duration: 0.0001,
-    opacity: 0,
-  });
-  gsap.to(".avocado", {
-    duration: 0.0001,
-    opacity: 0,
-  });
-  gsap.to(".wine", {
-    duration: 0.0001,
-    opacity: 0,
-  });
-  gsap.to(".juice", {
+  gsap.to(".noodles,.chocolate,.crab,.avocado,.wine,.juice", {
     duration: 0.0001,
     opacity: 0,
   });
   //1017
+  const to = {
+    ease: Linear.easeNone,
+    yPercent: 0,
+    xPercent: 0,
+    rotate: 0,
+    scale: 1,
+  };
   gsap.fromTo(
     ".noodles",
     {
@@ -553,18 +552,18 @@ const ParallaxFn = () => {
         scrub: 0.01,
       },
       onStart: () => {
-        document.querySelector(".noodles").style.opacity = 1;
+        document.querySelectorAll(".noodles").forEach((n) => {
+          n.style.opacity = 1;
+        });
         document.querySelector(".noodles-o").style.opacity = 0;
       },
       onReverseComplete: () => {
-        document.querySelector(".noodles").style.opacity = 0;
+        document.querySelectorAll(".noodles").forEach((n) => {
+          n.style.opacity = 0;
+        });
         document.querySelector(".noodles-o").style.opacity = 1;
       },
-      ease: Linear.easeNone,
-      yPercent: 0,
-      xPercent: 0,
-      rotate: 0,
-      scale: 1,
+      ...to,
     }
   );
 
@@ -583,18 +582,18 @@ const ParallaxFn = () => {
         scrub: 0.01,
       },
       onStart: () => {
-        document.querySelector(".crab").style.opacity = 1;
+        document.querySelectorAll(".crab").forEach((c) => {
+          c.style.opacity = 1;
+        });
         document.querySelector(".crab-o").style.opacity = 0;
       },
       onReverseComplete: () => {
-        document.querySelector(".crab").style.opacity = 0;
+        document.querySelectorAll(".crab").forEach((c) => {
+          c.style.opacity = 0;
+        });
         document.querySelector(".crab-o").style.opacity = 1;
       },
-      ease: Linear.easeNone,
-      yPercent: 0,
-      xPercent: 0,
-      rotate: 0,
-      scale: 1,
+      ...to,
     }
   );
   gsap.fromTo(
@@ -613,18 +612,20 @@ const ParallaxFn = () => {
         scrub: 0.01,
       },
       onStart: () => {
+        document.querySelectorAll(".chocolate").forEach((c) => {
+          c.style.opacity = 1;
+        });
         document.querySelector(".chocolate").style.opacity = 1;
         document.querySelector(".chocolate-o").style.opacity = 0;
       },
       onReverseComplete: () => {
+        document.querySelectorAll(".chocolate").forEach((c) => {
+          c.style.opacity = 0;
+        });
         document.querySelector(".chocolate").style.opacity = 0;
         document.querySelector(".chocolate-o").style.opacity = 1;
       },
-      ease: Linear.easeNone,
-      yPercent: 0,
-      xPercent: 0,
-      rotate: 0,
-      scale: 1,
+      ...to,
     }
   );
   gsap.fromTo(
@@ -643,18 +644,18 @@ const ParallaxFn = () => {
         scrub: 0.01,
       },
       onStart: () => {
-        document.querySelector(".juice").style.opacity = 1;
+        document.querySelectorAll(".juice").forEach((j) => {
+          j.style.opacity = 1;
+        });
         document.querySelector(".juice-o").style.opacity = 0;
       },
       onReverseComplete: () => {
-        document.querySelector(".juice").style.opacity = 0;
+        document.querySelectorAll(".juice").forEach((j) => {
+          j.style.opacity = 0;
+        });
         document.querySelector(".juice-o").style.opacity = 1;
       },
-      ease: Linear.easeNone,
-      yPercent: 0,
-      xPercent: 0,
-      rotate: 0,
-      scale: 1,
+      ...to,
     }
   );
   gsap.fromTo(
@@ -673,18 +674,18 @@ const ParallaxFn = () => {
         scrub: 0.01,
       },
       onStart: () => {
-        document.querySelector(".avocado").style.opacity = 1;
+        document.querySelectorAll(".avocado").forEach((a) => {
+          a.style.opacity = 1;
+        });
         document.querySelector(".avocado-o").style.opacity = 0;
       },
       onReverseComplete: () => {
-        document.querySelector(".avocado").style.opacity = 0;
+        document.querySelectorAll(".avocado").forEach((a) => {
+          a.style.opacity = 0;
+        });
         document.querySelector(".avocado-o").style.opacity = 1;
       },
-      ease: Linear.easeNone,
-      yPercent: 0,
-      xPercent: 0,
-      rotate: 0,
-      scale: 1,
+      ...to,
     }
   );
   gsap.fromTo(
@@ -703,18 +704,18 @@ const ParallaxFn = () => {
         scrub: 0.01,
       },
       onStart: () => {
-        document.querySelector(".wine").style.opacity = 1;
+        document.querySelectorAll(".wine").forEach((w) => {
+          w.style.opacity = 1;
+        });
         document.querySelector(".wine-o").style.opacity = 0;
       },
       onReverseComplete: () => {
-        document.querySelector(".wine").style.opacity = 0;
+        document.querySelectorAll(".wine").forEach((w) => {
+          w.style.opacity = 0;
+        });
         document.querySelector(".wine-o").style.opacity = 1;
       },
-      ease: Linear.easeNone,
-      yPercent: 0,
-      xPercent: 0,
-      rotate: 0,
-      scale: 1,
+      ...to,
     }
   );
 };

@@ -22,7 +22,7 @@ body {
   top: 0;
   z-index: 0;
 
-  @include size(padM){
-    height: 6000px;
+  @include size(padS){
+    height: 7200px;
   }
 }
