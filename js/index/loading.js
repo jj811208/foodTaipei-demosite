@@ -50,19 +50,20 @@ var resizeDebounce = function resizeDebounce() {
 
 
 window.onload = function () {
-  window.addEventListener("scroll", function () {
-    scrollEvent();
-  });
   if (!isMobile) window.addEventListener("resize", function () {
     resizeDebounce();
   });
   setTimeout(function () {
-    // 因為如果是重新整理 有可能不在一開始的位置
+    // 如果是重新整理 有可能不在一開始的位置
     window.scrollTo(0, 0);
     ScrollTrigger.refresh();
     var loadingAsset = document.querySelector(".loadingAsset");
     loadingAsset.classList.add("loadingAsset__clickable");
-    loadingAsset.addEventListener("click", function (e) {
+
+    var loadedClickEvent = function loadedClickEvent(e) {
+      window.addEventListener("scroll", function () {
+        scrollEvent();
+      });
       document.querySelector(".container").classList.add("container__loaded");
       setTimeout(function () {
         animationInit();
@@ -70,6 +71,11 @@ window.onload = function () {
         ParallaxFn();
         loadingAsset.classList.add("loadingAsset__loaded");
       }, 100);
-    });
-  }, 500);
+      console.log(123);
+      window.removeEventListener('scroll', loadedClickEvent);
+    };
+
+    window.addEventListener("scroll", loadedClickEvent);
+    loadingAsset.addEventListener("click", loadedClickEvent);
+  }, 2500);
 }; //如果有兩個 一個在貨架上 一個在車裡 我只要去算 到某一點trigger的時候 把貨架上的隱藏起來 然後把車裡的顯示出來飛就好了 這樣我就只需要知道那一瞬間的點有中就好
