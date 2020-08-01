@@ -6,7 +6,7 @@ function isElementInViewport(el) {
   var rect = el.getBoundingClientRect();
   return rect.top >= 0 && rect.left >= -20 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
   /*or $(window).height() */
-  && rect.right <= (window.innerWidth || document.documentElement.clientWidth) - 20
+  && rect.right <= (window.innerWidth || document.documentElement.clientWidth) + 20
   /*or $(window).width() */
   ;
 }

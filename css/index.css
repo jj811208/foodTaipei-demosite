@@ -384,7 +384,7 @@ body {
 .grandma {
   position: absolute;
   width: 21.85646%;
-  top: 50.13055%;
+  top: 52.74151%;
   left: 61.26704%; }
   .grandma::before {
     content: "";
@@ -393,8 +393,8 @@ body {
 
 .grandmaBody {
   position: absolute;
-  width: 49.16529%;
-  top: -3.58974%;
+  width: 52.83434%;
+  top: -6.15385%;
   left: 4.58631%;
   background-image: url("../assets/grandmaBody.png");
   background-position: left top;
@@ -403,12 +403,12 @@ body {
   .grandmaBody::before {
     content: "";
     display: block;
-    padding-top: 155.22388%; }
+    padding-top: 144.44444%; }
 
 .grandmaHand {
   position: absolute;
   width: 63.65804%;
-  top: 36.41026%;
+  top: 31.28205%;
   left: 37.05742%;
   background-image: url("../assets/grandmaHand.png");
   background-position: left top;
@@ -546,9 +546,9 @@ body {
 
 .buttonPSR {
   position: absolute;
-  width: 11.06656%;
+  width: 9.19006%;
   top: 69.71279%;
-  left: 88.21171%;
+  left: 87.40978%;
   background-image: url("../assets/buttonPSR.png");
   background-position: left top;
   background-size: contain;
@@ -556,7 +556,7 @@ body {
   .buttonPSR::before {
     content: "";
     display: block;
-    padding-top: 28.26087%; }
+    padding-top: 34.03141%; }
 
 .richman {
   position: absolute;
@@ -712,7 +712,7 @@ body {
 
 .buttonSVG {
   position: absolute;
-  width: 12.51002%;
+  width: 10.10425%;
   top: 9.92167%;
   left: 85.72574%;
   background-image: url("../assets/buttonSVG.png");
@@ -722,7 +722,7 @@ body {
   .buttonSVG::before {
     content: "";
     display: block;
-    padding-top: 24.23077%; }
+    padding-top: 30%; }
 
 .mainTableItems {
   position: absolute;
@@ -782,7 +782,7 @@ body {
 
 .buttonMNT {
   position: absolute;
-  width: 12.41379%;
+  width: 10.10425%;
   top: 33.94256%;
   left: 35.68565%;
   background-image: url("../assets/buttonMNT.png");
@@ -792,7 +792,7 @@ body {
   .buttonMNT::before {
     content: "";
     display: block;
-    padding-top: 24.4186%; }
+    padding-top: 30%; }
 
 .supportingRole {
   position: absolute;
@@ -1010,7 +1010,7 @@ body {
 
 .buttonPC {
   position: absolute;
-  width: 10.39294%;
+  width: 8.46832%;
   top: 20.49608%;
   left: 55.65357%;
   background-image: url("../assets/buttonPC.png");
@@ -1020,7 +1020,7 @@ body {
   .buttonPC::before {
     content: "";
     display: block;
-    padding-top: 27.31481%; }
+    padding-top: 33.52273%; }
 
 .yellowTable {
   position: absolute;
