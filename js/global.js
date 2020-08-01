@@ -4,9 +4,9 @@ var isMobile = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
 
 function isElementInViewport(el) {
   var rect = el.getBoundingClientRect();
-  return rect.top >= 0 && rect.left >= 40 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  return rect.top >= 0 && rect.left >= -20 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
   /*or $(window).height() */
-  && rect.right <= (window.innerWidth || document.documentElement.clientWidth) + 20
+  && rect.right <= (window.innerWidth || document.documentElement.clientWidth) - 20
   /*or $(window).width() */
   ;
 }

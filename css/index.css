@@ -102,7 +102,7 @@ input, select {
           box-sizing: border-box; }
 
 html {
-  font-size: 16px;
+  font-size: 20px;
   background: #303A43;
   height: 100%; }
 
@@ -283,14 +283,48 @@ body {
       -webkit-transition: all 0.3s;
       -o-transition: all 0.3s;
       transition: all 0.3s;
-      left: 0;
+      left: -32px;
       top: 50%;
       -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
               transform: translateY(-50%);
-      opacity: 0; }
+      -webkit-transform-origin: top;
+          -ms-transform-origin: top;
+              transform-origin: top;
+      opacity: 0;
+      -webkit-animation-name: shake;
+              animation-name: shake;
+      -webkit-animation-duration: .8s;
+              animation-duration: .8s;
+      -webkit-animation-timing-function: linear;
+              animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate;
+              animation-direction: alternate; }
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(15deg) translateY(-50%);
+            transform: rotate(15deg) translateY(-50%); }
+  50% {
+    -webkit-transform: rotate(-15deg) translateY(-50%);
+            transform: rotate(-15deg) translateY(-50%); }
+  100% {
+    -webkit-transform: rotate(15deg) translateY(-50%);
+            transform: rotate(15deg) translateY(-50%); } }
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(15deg) translateY(-50%);
+            transform: rotate(15deg) translateY(-50%); }
+  50% {
+    -webkit-transform: rotate(-15deg) translateY(-50%);
+            transform: rotate(-15deg) translateY(-50%); }
+  100% {
+    -webkit-transform: rotate(15deg) translateY(-50%);
+            transform: rotate(15deg) translateY(-50%); } }
     .menu__item:hover svg {
-      left: -24px;
       opacity: 1; }
 
 .ribbon {
@@ -387,7 +421,7 @@ body {
 
 .buttonEvents {
   position: absolute;
-  width: 4.81155%;
+  width: 5.77386%;
   top: 78.98172%;
   left: 71.251%;
   background-image: url("../assets/buttonEvents.png");
@@ -512,7 +546,7 @@ body {
 
 .buttonPSR {
   position: absolute;
-  width: 9.22213%;
+  width: 11.06656%;
   top: 69.71279%;
   left: 88.21171%;
   background-image: url("../assets/buttonPSR.png");
@@ -678,7 +712,7 @@ body {
 
 .buttonSVG {
   position: absolute;
-  width: 10.42502%;
+  width: 12.51002%;
   top: 9.92167%;
   left: 85.72574%;
   background-image: url("../assets/buttonSVG.png");
@@ -720,8 +754,8 @@ body {
 
 .mainTableItemsLoudly {
   position: absolute;
-  width: 28.05146%;
-  top: 49.08912%;
+  width: 29.28612%;
+  top: 51.67685%;
   left: 4.45959%;
   background-image: url("../assets/mainTableItemsLoudly.png");
   background-position: left top;
@@ -730,11 +764,25 @@ body {
   .mainTableItemsLoudly::before {
     content: "";
     display: block;
-    padding-top: 72.61444%; }
+    padding-top: 75.45531%; }
+
+.mainTableItemsVoice {
+  position: absolute;
+  width: 12.34659%;
+  top: 46.71359%;
+  left: -2.47673%;
+  background-image: url("../assets/mainTableItemsVoice.png");
+  background-position: left top;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .mainTableItemsVoice::before {
+    content: "";
+    display: block;
+    padding-top: 150%; }
 
 .buttonMNT {
   position: absolute;
-  width: 10.34483%;
+  width: 12.41379%;
   top: 33.94256%;
   left: 35.68565%;
   background-image: url("../assets/buttonMNT.png");
@@ -962,8 +1010,8 @@ body {
 
 .buttonPC {
   position: absolute;
-  width: 8.66079%;
-  top: 18.27676%;
+  width: 10.39294%;
+  top: 20.49608%;
   left: 55.65357%;
   background-image: url("../assets/buttonPC.png");
   background-position: left top;
@@ -1046,8 +1094,8 @@ body {
   .pearl-1 {
     position: absolute;
     width: 9.62738%;
-    top: 63.88692%;
-    left: 48.89734%; }
+    top: 57.70117%;
+    left: 29.62738%; }
     .pearl-1::before {
       content: "";
       display: block;
@@ -1055,8 +1103,8 @@ body {
   .pearl-2 {
     position: absolute;
     width: 9.62738%;
-    top: 63.01843%;
-    left: 29.62738%; }
+    top: 58.56966%;
+    left: 48.89734%; }
     .pearl-2::before {
       content: "";
       display: block;
@@ -1064,7 +1112,7 @@ body {
   .pearl-3 {
     position: absolute;
     width: 9.62738%;
-    top: 70.7905%;
+    top: 65.47324%;
     left: 63.71103%; }
     .pearl-3::before {
       content: "";
@@ -1073,8 +1121,8 @@ body {
   .pearl-4 {
     position: absolute;
     width: 9.62738%;
-    top: 80.71606%;
-    left: 55.55894%; }
+    top: 82.48848%;
+    left: 47.22433%; }
     .pearl-4::before {
       content: "";
       display: block;
@@ -1082,7 +1130,7 @@ body {
   .pearl-5 {
     position: absolute;
     width: 9.62738%;
-    top: 73.37823%;
+    top: 68.06097%;
     left: 39.25475%; }
     .pearl-5::before {
       content: "";
@@ -1091,8 +1139,8 @@ body {
   .pearl-6 {
     position: absolute;
     width: 9.62738%;
-    top: 80.71606%;
-    left: 25.93156%; }
+    top: 75.39879%;
+    left: 55.55894%; }
     .pearl-6::before {
       content: "";
       display: block;
@@ -1100,7 +1148,7 @@ body {
 
 .buttonExhibitor {
   position: absolute;
-  width: 5.53328%;
+  width: 6.63994%;
   top: 42.75457%;
   left: 21.45148%;
   background-image: url("../assets/buttonExhibitor.png");
@@ -1252,7 +1300,7 @@ body {
 
 .buttonFactSheet {
   position: absolute;
-  width: 6.21492%;
+  width: 7.4579%;
   top: 19.84334%;
   left: 18.48436%;
   background-image: url("../assets/buttonFactSheet.png");
@@ -1266,7 +1314,7 @@ body {
 
 .cabinet {
   position: absolute;
-  width: 13.82358%;
+  width: 13.8332%;
   top: 9.39948%;
   left: 28.06736%;
   background-image: url("../assets/cabinet.png");
@@ -1276,7 +1324,7 @@ body {
   .cabinet::before {
     content: "";
     display: block;
-    padding-top: 126.5199%; }
+    padding-top: 143.76812%; }
   .cabinet-1 {
     position: absolute;
     width: 13.8332%;
@@ -1294,7 +1342,7 @@ body {
 .noodles-o {
   position: absolute;
   width: 12.36222%;
-  top: 10.54586%;
+  top: 9.17032%;
   left: 69.63685%;
   background-image: url("../assets/noodles.png");
   background-position: left top;
@@ -1338,7 +1386,7 @@ body {
 
 .buttonVisitor {
   position: absolute;
-  width: 4.77145%;
+  width: 5.72574%;
   top: 43.99478%;
   left: 5.97434%;
   background-image: url("../assets/buttonVisitor.png");
