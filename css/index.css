@@ -103,7 +103,7 @@ input, select {
 
 html {
   font-size: 20px;
-  background: #303A43;
+  background: #303a43;
   height: 100%; }
 
 body {
@@ -121,44 +121,14 @@ body {
 
 .scrollElement {
   position: absolute;
-  height: 11000px;
   width: 100px;
   top: 0;
   z-index: 0; }
-  @media (max-width: 600px) {
-    .scrollElement {
-      height: 7200px; } }
-
-.container {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  overflow: hidden; }
-  .container::before {
-    content: "";
-    display: block;
-    height: 100%;
-    width: 325.58747vh; }
-  .container__loaded {
-    display: block; }
-  @media (min-aspect-ratio: 2494 / 766) {
-    .container {
-      display: none; } }
-
-.scenery {
-  pointer-events: none; }
-
-.logo {
-  height: 18vh;
-  left: 24px;
-  top: 0;
-  position: fixed; }
-  @media (max-width: 600px) {
-    .logo {
-      max-width: 65vw;
-      height: auto; } }
+  .loaded .scrollElement {
+    height: 11000px; }
+    @media (max-width: 600px) {
+      .loaded .scrollElement {
+        height: 7200px; } }
 
 .menu {
   position: fixed;
@@ -296,8 +266,8 @@ body {
       opacity: 0;
       -webkit-animation-name: shake;
               animation-name: shake;
-      -webkit-animation-duration: .8s;
-              animation-duration: .8s;
+      -webkit-animation-duration: 0.8s;
+              animation-duration: 0.8s;
       -webkit-animation-timing-function: linear;
               animation-timing-function: linear;
       -webkit-animation-iteration-count: infinite;
@@ -328,6 +298,37 @@ body {
             transform: rotate(15deg) translateY(-50%); } }
     .menu__item:hover svg {
       opacity: 1; }
+
+.container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden; }
+  .container::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 325.58747vh; }
+  .container__loaded {
+    display: block; }
+  @media (min-aspect-ratio: 2494 / 766) {
+    .container {
+      display: none; } }
+
+.scenery {
+  pointer-events: none; }
+
+.logo {
+  height: 18vh;
+  left: 24px;
+  top: 0;
+  position: fixed; }
+  @media (max-width: 600px) {
+    .logo {
+      max-width: 65vw;
+      height: auto; } }
 
 .ribbon {
   position: absolute;

@@ -55,6 +55,7 @@ window.onload = function () {
   });
   setTimeout(function () {
     // 如果是重新整理 有可能不在一開始的位置
+    document.querySelector('html').classList.add('loaded');
     window.scrollTo(0, 0);
     ScrollTrigger.refresh();
     var loadingAsset = document.querySelector(".loadingAsset");
@@ -71,11 +72,10 @@ window.onload = function () {
         ParallaxFn();
         loadingAsset.classList.add("loadingAsset__loaded");
       }, 100);
-      console.log(123);
       window.removeEventListener('scroll', loadedClickEvent);
     };
 
     window.addEventListener("scroll", loadedClickEvent);
     loadingAsset.addEventListener("click", loadedClickEvent);
   }, 2500);
-}; //如果有兩個 一個在貨架上 一個在車裡 我只要去算 到某一點trigger的時候 把貨架上的隱藏起來 然後把車裡的顯示出來飛就好了 這樣我就只需要知道那一瞬間的點有中就好
+};
