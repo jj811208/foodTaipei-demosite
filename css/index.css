@@ -265,7 +265,9 @@ body {
     transition: -webkit-transform 0.3s;
     -o-transition: transform 0.3s;
     transition: transform 0.3s;
-    transition: transform 0.3s, -webkit-transform 0.3s; }
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    -webkit-box-shadow: 0 4px 32px -6px #444444cc;
+            box-shadow: 0 4px 32px -6px #444444cc; }
     .menu--active + .menu__list {
       -webkit-transform: translateX(-100%);
           -ms-transform: translateX(-100%);
@@ -945,7 +947,7 @@ body {
             transform: rotate(4deg);
     position: absolute;
     width: 2.13713%;
-    top: 53.34387%;
+    top: 52.6853%;
     left: 54.31879%; }
     .fishEye-7::before {
       content: "";
@@ -975,8 +977,8 @@ body {
             transform: rotate(17deg);
     position: absolute;
     width: 2.31523%;
-    top: 71.78373%;
-    left: 32.23508%; }
+    top: 70.79588%;
+    left: 32.05699%; }
     .fishEye-10::before {
       content: "";
       display: block;
@@ -987,8 +989,8 @@ body {
             transform: rotate(17deg);
     position: absolute;
     width: 2.31523%;
-    top: 72.77158%;
-    left: 34.72841%; }
+    top: 72.44229%;
+    left: 34.55031%; }
     .fishEye-11::before {
       content: "";
       display: block;

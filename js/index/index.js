@@ -47,7 +47,10 @@ function animationInit() {
     duration: ElsaDuration,
     scaleY: 0,
     transformOrigin: "bottom",
-    ease: "elastic.out(1, 0.3)"
+    ease: "elastic.out(1, 0.3)",
+    onStart: function onStart() {
+      setTimeout(scrollEvent, (ElsaDuration - 0.4) * 1000);
+    }
   }, ElsaDelay).from(".ladder", {
     duration: 1.7,
     transformOrigin: "bottom",
@@ -64,25 +67,25 @@ function animationInit() {
     scaleY: 0,
     ease: "elastic.out(1, 0.3)"
   }, ElsaDelay); //進場動畫
+  // gsap.from(".ladder", {
+  //   duration: 1.7,
+  //   transformOrigin: "bottom",
+  //   scaleY: 0,
+  //   ease: "elastic.out(1, 0.3)",
+  // });
+  // gsap.from(".hao", {
+  //   duration: 1.7,
+  //   transformOrigin: "bottom",
+  //   scaleY: 0,
+  //   ease: "elastic.out(1, 0.3)",
+  // });
+  // gsap.from(".mainTableItems", {
+  //   duration: 1.7,
+  //   transformOrigin: "bottom",
+  //   scaleY: 0,
+  //   ease: "elastic.out(1, 0.3)",
+  // });
 
-  gsap.from(".ladder", {
-    duration: 1.7,
-    transformOrigin: "bottom",
-    scaleY: 0,
-    ease: "elastic.out(1, 0.3)"
-  });
-  gsap.from(".hao", {
-    duration: 1.7,
-    transformOrigin: "bottom",
-    scaleY: 0,
-    ease: "elastic.out(1, 0.3)"
-  });
-  gsap.from(".mainTableItems", {
-    duration: 1.7,
-    transformOrigin: "bottom",
-    scaleY: 0,
-    ease: "elastic.out(1, 0.3)"
-  });
   gsap.from(".poster", {
     scrollTrigger: {
       trigger: ".scrollElement",
