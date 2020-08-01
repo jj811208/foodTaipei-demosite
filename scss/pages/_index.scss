@@ -121,14 +121,30 @@
     svg {
       position: absolute;
       transition: all 0.3s;
-      left: 0;
+      left: -32px;
       top: 50%;
       transform: translateY(-50%);
+      transform-origin: top;
       opacity: 0;
+      animation-name: shake;
+      animation-duration: .8s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      @keyframes shake {
+        0%{
+          transform: rotate(15deg) translateY(-50%);
+        }
+        50%{
+          transform: rotate(-15deg) translateY(-50%);
+        }
+        100%{
+          transform: rotate(15deg) translateY(-50%);
+        }
+      }
     }
     &:hover {
       svg {
-        left: -24px;
         opacity: 1;
       }
     }
@@ -165,7 +181,7 @@
   @include img("../assets/grandmaHand.png");
 }
 .buttonEvents {
-  @include rect(1777, 605, 120, 60 /*, 1528, 384, 545.1, 390*/);
+  @include rect(1777, 605, 120*1.2, 60 *1.2/*, 1528, 384, 545.1, 390*/);
   @include img("../assets/buttonEvents.png");
 }
 .wineCabinet {
@@ -202,7 +218,7 @@
   @include img("../assets/ryanRightHand.png");
 }
 .buttonPSR {
-  @include rect(2200, 534, 230, 65 /*, 2060, 305.03, 410.15, 363.97*/);
+  @include rect(2200, 534, 230*1.2, 65*1.2 /*, 2060, 305.03, 410.15, 363.97*/);
   @include img("../assets/buttonPSR.png");
 }
 // .protagonistContainer {
@@ -270,7 +286,7 @@
   @include img("../assets/tv.png");
 }
 .buttonSVG {
-  @include rect(2138, 76, 260, 63 /*, 2120, -8, 360, 342*/);
+  @include rect(2138, 76, 260*1.2, 63*1.2 /*, 2120, -8, 360, 342*/);
   @include img("../assets/buttonSVG.png");
 }
 .mainTableItems {
@@ -282,11 +298,15 @@
   @include img("../assets/mainTableItemsStar.png");
 }
 .mainTableItemsLoudly {
-  @include rect(853.09, 358.59, 113.6, 82.49, 835.03, 263.74, 404.97, 193.22);
+  @include rect(853.09, 363.59, 118.6, 89.49, 835.03, 263.74, 404.97, 193.22);
   @include img("../assets/mainTableItemsLoudly.png");
 }
+.mainTableItemsVoice {
+  @include rect(825, 354, 50, 75, 835.03, 263.74, 404.97, 193.22);
+  @include img("../assets/mainTableItemsVoice.png");
+}
 .buttonMNT {
-  @include rect(890, 260, 258, 63 /*, 835.03, 263.74, 404.97, 193.22*/);
+  @include rect(890, 260, 258*1.2, 63*1.2 /*, 835.03, 263.74, 404.97, 193.22*/);
   @include img("../assets/buttonMNT.png");
 }
 .supportingRole {
@@ -368,7 +388,7 @@
   @include img("../assets/poster.png");
 }
 .buttonPC {
-  @include rect(1388, 140, 216, 59 /*, 1267, 83, 145, 160.93*/);
+  @include rect(1388, 157, 216*1.2, 59*1.2 /*, 1267, 83, 145, 160.93*/);
   @include img("../assets/buttonPC.png");
 }
 .yellowTable {
@@ -394,26 +414,26 @@
   background: #562424;
   border-radius: 50%;
   &-1 {
-    @include rect(744.15, 396.09, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include rect(731.48, 389.11, 6.33, 6.33, 712, 324, 65.75, 112.84);
   }
   &-2 {
-    @include rect(731.48, 395.11, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include rect(744.15, 390.09, 6.33, 6.33, 712, 324, 65.75, 112.84);
   }
   &-3 {
-    @include rect(753.89, 403.88, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include rect(753.89, 397.88, 6.33, 6.33, 712, 324, 65.75, 112.84);
   }
   &-4 {
-    @include rect(748.53, 415.08, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include rect(743.05, 417.08, 6.33, 6.33, 712, 324, 65.75, 112.84);
   }
   &-5 {
-    @include rect(737.81, 406.8, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include rect(737.81, 400.8, 6.33, 6.33, 712, 324, 65.75, 112.84);
   }
   &-6 {
-    @include rect(729.05, 415.08, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include rect(748.53, 409.08, 6.33, 6.33, 712, 324, 65.75, 112.84);
   }
 }
 .buttonExhibitor {
-  @include rect(535, 327.5, 138, 64.5 /*, 606.15, 92, 209.79, 409.3*/);
+  @include rect(535, 327.5, 138*1.2, 64.5*1.2 /*, 606.15, 92, 209.79, 409.3*/);
   @include img("../assets/buttonExhibitor.png");
 }
 .worldCabinet {
@@ -458,11 +478,11 @@
   @include img("../assets/ladderCarton.png");
 }
 .buttonFactSheet {
-  @include rect(461, 152, 155, 59 /*, 385, 138, 260.35, 454.9*/);
+  @include rect(461, 152, 155*1.2, 59*1.2 /*, 385, 138, 260.35, 454.9*/);
   @include img("../assets/buttonFactSheet.png");
 }
 .cabinet {
-  @include rect(700, 72, 344.76, 436.19);
+  @include rect(700, 72, 345, 496);
   @include img("../assets/cabinet.png");
   &-1 {
     @include rect(10, 157, 345, 364);
@@ -470,7 +490,7 @@
   }
 }
 .noodles-o {
-  @include rect(940.08, 118, 42.62, 45.8, 700, 72, 344.76, 436.19);
+  @include rect(940.08, 112, 42.62, 45.8, 700, 72, 344.76, 436.19);
   @include img("../assets/noodles.png");
   transform: rotate(50deg) scale(1.44);
 }
@@ -484,7 +504,7 @@
   @include img("../assets/elsa.png");
 }
 .buttonVisitor {
-  @include rect(149, 337, 119, 56 /*, 10, 192.76, 314.09, 461.28*/);
+  @include rect(149, 337, 119*1.2, 56*1.2 /*, 10, 192.76, 314.09, 461.28*/);
   @include img("../assets/buttonVisitor.png");
 }
 .orangeCabinet {
