@@ -210,47 +210,105 @@ function animationInit() {
     transformOrigin: "left top",
     rotate: "-10"
   });
-  var pearlTimingFunction = "SlowMo.ease.config(0.7,0.7, false)";
+  var pearlTimingFunction = "CustomEase.create(\"custom\", \"M0,0,C0,0,0.031,0.471,0.1,0.5,0.166,0.528,0.775,0.485,0.844,0.52,0.912,0.554,1,1,1,1\")";
   gsap.timeline({
     repeat: -1,
-    yoyo: true,
-    ease: "power2.inOut"
+    yoyo: true
   }).to(".haoHandContainer", {
     transformOrigin: "45px 0px",
     rotate: "-10",
     duration: 2,
     ease: "power2.inOut"
-  }, 0).to(".pearl-1", {
-    x: -1,
-    y: 15,
-    duration: 2,
-    ease: pearlTimingFunction
-  }, 0).to(".pearl-2", {
-    x: -4,
-    y: 19,
-    duration: 2,
-    ease: pearlTimingFunction
-  }, 0).to(".pearl-3", {
-    x: -7,
-    y: 16,
-    duration: 2,
-    ease: pearlTimingFunction
-  }, 0).to(".pearl-4", {
-    x: -7,
-    y: 8,
-    duration: 2,
-    ease: pearlTimingFunction
-  }, 0).to(".pearl-5", {
-    x: -4,
-    y: 16,
-    duration: 2,
-    ease: pearlTimingFunction
-  }, 0).to(".pearl-6", {
-    x: -7,
-    y: 11,
-    duration: 2,
-    ease: pearlTimingFunction
   }, 0);
+  var pearlUpFunction = Power2.easeInOut;
+  var pearlUpDuration = 2.4;
+  var pearlDownFunction = Power2.easeInOut;
+  var pearlDownDuration = 1.6;
+  var pearlDelay = 0;
+  gsap.timeline({
+    repeat: -1,
+    delay: pearlDelay
+  }).to(".pearl-1", {
+    x: -1,
+    y: 22,
+    duration: pearlUpDuration,
+    ease: pearlDownFunction
+  }, 0).to(".pearl-1", {
+    x: 0,
+    y: 0,
+    duration: pearlDownDuration,
+    ease: pearlUpFunction
+  });
+  gsap.timeline({
+    repeat: -1,
+    delay: pearlDelay
+  }).to(".pearl-2", {
+    x: -6,
+    y: 28,
+    duration: pearlUpDuration,
+    ease: pearlDownFunction
+  }, 0).to(".pearl-2", {
+    x: 0,
+    y: 0,
+    duration: pearlDownDuration,
+    ease: pearlUpFunction
+  });
+  gsap.timeline({
+    repeat: -1,
+    delay: pearlDelay
+  }).to(".pearl-3", {
+    x: -15,
+    y: 26,
+    duration: pearlUpDuration,
+    ease: pearlDownFunction
+  }, 0).to(".pearl-3", {
+    x: 0,
+    y: 0,
+    duration: pearlDownDuration,
+    ease: pearlUpFunction
+  });
+  gsap.timeline({
+    repeat: -1,
+    delay: pearlDelay
+  }).to(".pearl-4", {
+    x: -15,
+    y: 8,
+    duration: pearlUpDuration,
+    ease: pearlDownFunction
+  }, 0).to(".pearl-4", {
+    x: 0,
+    y: 0,
+    duration: pearlDownDuration,
+    ease: pearlUpFunction
+  });
+  gsap.timeline({
+    repeat: -1,
+    delay: pearlDelay
+  }).to(".pearl-5", {
+    x: -8,
+    y: 22,
+    duration: pearlUpDuration,
+    ease: pearlDownFunction
+  }, 0).to(".pearl-5", {
+    x: 0,
+    y: 0,
+    duration: pearlDownDuration,
+    ease: pearlUpFunction
+  });
+  gsap.timeline({
+    repeat: -1,
+    delay: pearlDelay
+  }).to(".pearl-6", {
+    x: -15,
+    y: 18,
+    duration: pearlUpDuration,
+    ease: pearlDownFunction
+  }, 0).to(".pearl-6", {
+    x: 0,
+    y: 0,
+    duration: pearlDownDuration,
+    ease: pearlUpFunction
+  });
   gsap.timeline({
     repeat: -1,
     repeatDelay: 2
@@ -619,8 +677,9 @@ var ParallaxFn = function ParallaxFn() {
     rotate: 25,
     scale: 0.8
   }, _objectSpread({}, to, {
-    xPercent: 40,
-    yPercent: -30
+    xPercent: 130,
+    yPercent: -34,
+    rotate: 16
   })).to(".wine", to);
 }; // 氣泡選單
 
