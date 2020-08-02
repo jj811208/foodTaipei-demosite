@@ -1,7 +1,7 @@
 "use strict";
 
 function menuInit() {
-  var menuDOM = document.querySelector(".menu");
+  var menuDOM = document.querySelector(".menu__container");
   menuDOM.addEventListener("click", function () {
     menuDOM.classList.toggle("menu--active");
   });

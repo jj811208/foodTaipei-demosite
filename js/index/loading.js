@@ -77,5 +77,5 @@ window.onload = function () {
 
     window.addEventListener("scroll", loadedClickEvent);
     loadingAsset.addEventListener("click", loadedClickEvent);
-  }, 2500);
+  }, 500);
 };
