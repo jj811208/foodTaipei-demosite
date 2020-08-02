@@ -1,5 +1,5 @@
 function menuInit() {
-  const menuDOM = document.querySelector(".menu");
+  const menuDOM = document.querySelector(".menu__container");
   menuDOM.addEventListener("click", () => {
     menuDOM.classList.toggle("menu--active");
   });

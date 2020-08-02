@@ -1,6 +1,6 @@
 html {
   font-size: 20px;
-  background: #303A43;
+  background: #303a43;
   height: 100%;
 }
 body {
@@ -17,12 +17,13 @@ body {
 }
 .scrollElement {
   position: absolute;
-  height: 11000px;
   width: 100px;
   top: 0;
   z-index: 0;
-
-  @include size(padS){
-    height: 7200px;
+  .loaded & {
+    height: 11000px;
+    @include size(padS) {
+      height: 7200px;
+    }
   }
 }

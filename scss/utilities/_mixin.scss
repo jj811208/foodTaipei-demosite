@@ -73,6 +73,26 @@
     padding-top: $height / $width * 100%;
   }
 }
+@mixin rectM(
+  $x,
+  $y,
+  $width,
+  $height,
+  $parentX: 0,
+  $parentY: 0,
+  $parentW: $layout-widthM,
+  $parentH: $layout-heightM
+) {
+  position: absolute;
+  width: $width/$parentW * 100%;
+  top: ($y - $parentY) / $parentH * 100%;
+  left: ($x - $parentX) / $parentW * 100%;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: $height / $width * 100%;
+  }
+}
 
 @mixin img($url) {
   background-image: url($url);

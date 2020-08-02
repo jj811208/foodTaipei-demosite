@@ -16,7 +16,7 @@ function isElementInViewport(el) {
     rect.bottom <=
       (window.innerHeight || document.documentElement.clientHeight) /*or $(window).height() */ &&
     rect.right <=
-      (window.innerWidth || document.documentElement.clientWidth) - 20 /*or $(window).width() */
+      (window.innerWidth || document.documentElement.clientWidth) + 20 /*or $(window).width() */
   );
 }
 

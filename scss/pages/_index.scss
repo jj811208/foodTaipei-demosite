@@ -28,165 +28,73 @@
   top: 0;
   position: fixed;
   @include size(padS) {
-    max-width: 65vw;
-    height: auto;
-  }
-}
-.menu {
-  position: fixed;
-  height: 80px;
-  width: 80px;
-  right: 32px;
-  top: 32px;
-  border-radius: 50%;
-  color: #2d3640;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 32px -6px #444444cc;
-  cursor: pointer;
-  z-index: 2;
-  @include size(padS) {
-    height: 48px;
-    width: 48px;
-    right: 16px;
-    top: 16px;
-  }
-  &--active {
-    box-shadow: none;
-  }
-  &__icon {
-    position: relative;
-    background: currentColor;
-    height: 4px;
-    width: 28px;
-    .menu--active & {
-      background: #fff;
-    }
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: currentColor;
-      transform: translateY(-10px);
-      content: "";
-      transition: transform 0.3s;
-      transform-origin: center;
-      .menu--active & {
-        transform: rotate(45deg);
-      }
-    }
-    &::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: currentColor;
-      transform: translateY(10px);
-      transform-origin: center;
-      content: "";
-      transition: transform 0.3s;
-      .menu--active & {
-        transform: rotate(-45deg);
-      }
-    }
-  }
-
-  &__list {
-    height: 100vh;
-    width: 320px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-left: 60px;
-    position: fixed;
-    left: 100%;
-    background: #fff;
-    transition: transform 0.3s;
-    .menu--active + & {
-      transform: translateX(-100%);
-    }
-  }
-  &__item {
-    cursor: pointer;
-    transition: all 0.3s;
-    position: relative;
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
-    svg {
-      position: absolute;
-      transition: all 0.3s;
-      left: -32px;
-      top: 50%;
-      transform: translateY(-50%);
-      transform-origin: top;
-      opacity: 0;
-      animation-name: shake;
-      animation-duration: .8s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-      @keyframes shake {
-        0%{
-          transform: rotate(15deg) translateY(-50%);
-        }
-        50%{
-          transform: rotate(-15deg) translateY(-50%);
-        }
-        100%{
-          transform: rotate(15deg) translateY(-50%);
-        }
-      }
-    }
-    &:hover {
-      svg {
-        opacity: 1;
-      }
-    }
+    display: none;
   }
 }
 
 .ribbon {
   @include rect(786.76, -127.03, 617.12, 231.47);
   @include img("../assets/ribbon.png");
+  @include size(padS) {
+    @include rectM(566.61, -46, 407, 152.6);
+  }
   &-1 {
     @include rect(1366, -155, 653, 300);
     @include img("../assets/ribbon-1.png");
+    @include size(padS) {
+      @include rectM(948.5, -87, 323, 152.6);
+    }
   }
   &-2 {
     @include rect(2127.02, -81.14, 617.12, 231.47);
     @include img("../assets/ribbon-2.png");
+    @include size(padS) {
+      @include rectM(1443.38, -33.5, 407, 152.6);
+    }
   }
 }
 .vegetableBasket {
   @include rect(486, 612, 371, 264);
   @include img("../assets/vegetableBasket.png");
+  @include size(padS) {
+    @include rectM(311.38, 429.1, 243, 174.8);
+  }
 }
 .grandma {
-  @include rect(1528, 384, 545.1, 390);
-  // @include img("../assets/grandma.png");
+  @include rect(1528, 404, 545.1, 390);
+  @include size(padS) {
+    @include rectM(1094, 343.37, 319, 228.23);
+  }
 }
 
 .grandmaBody {
-  @include rect(1553, 370, 268, 416, 1528, 384, 545.1, 390);
+  @include rect(1553, 380, 288, 416, 1528, 404, 545.1, 390);
   @include img("../assets/grandmaBody.png");
+  @include size(padS) {
+    @include rectM(1094, 343.37, 178.34, 228.23, 1094, 343.37, 319, 228.23);
+  }
 }
 .grandmaHand {
-  @include rect(1730, 526, 347, 143, 1528, 384, 545.1, 390);
+  @include rect(1730, 526, 347, 143, 1528, 404, 545.1, 390);
   @include img("../assets/grandmaHand.png");
+  @include size(padS) {
+    @include rectM(1220, 433, 170, 75, 1094, 343.37, 319, 228.23);
+  }
 }
 .buttonEvents {
-  @include rect(1777, 605, 120*1.2, 60 *1.2/*, 1528, 384, 545.1, 390*/);
+  @include rect(1777, 605, 120 * 1.2, 60 * 1.2 /*, 1528, 384, 545.1, 390*/);
   @include img("../assets/buttonEvents.png");
+  @include size(padS) {
+    @include rectM(1216, 471, 120, 64);
+    @include img("../assets/buttonEventsM.png");
+  }
 }
 .wineCabinet {
   @include rect(2061, 430, 451, 438);
   @include img("../assets/wineCabinet.png");
+  @include size(padS) {
+    @include rectM(1411, 367.7, 269.8, 262);
+  }
 }
 .wine-o {
   @include rect(2100, 554, 51, 187.36, 2061, 430, 451, 438);
@@ -196,42 +104,54 @@
 .fruitCabinet {
   @include rect(-129, 607.99, 641.86, 366.72);
   @include img("../assets/fruitCabinet.png");
+  @include size(padS) {
+    @include rectM(-107, 436.2, 419.7, 239.8);
+  }
 }
 .refrigerator {
   @include rect(1298, 452, 569, 428);
   @include img("../assets/refrigerator.png");
+  @include size(padS) {
+    @include rectM(842, 376, 363.12, 273.1);
+  }
 }
 .ryan {
   @include rect(2060, 320.03, 410.15, 363.97);
-  // @include img("../assets/ryan.png");
+  @include size(padS) {
+    @include rectM(1413.63, 294, 245.36, 217.74);
+  }
 }
 .ryanBody {
   @include rect(2229.68, 305.03, 240.47, 363.97, 2060, 305.03, 410.15, 363.97);
   @include img("../assets/ryanBody.png");
+  @include size(padS) {
+    @include rectM(1515.63, 293, 143, 217.74, 1413.63, 294, 245.36, 217.74);
+  }
 }
 .ryanLeftHand {
   @include rect(2254.17, 414.35, 213.84, 212.56, 2060, 305.03, 410.15, 363.97);
   @include img("../assets/ryanLeftHand.png");
+  @include size(padS) {
+    @include rectM(1509.77, 358.4, 147.9, 127.16, 1413.63, 294, 245.36, 217.74);
+  }
 }
 .ryanRightHand {
   @include rect(2060, 339.18, 291.92, 182.21, 2060, 305.03, 410.15, 363.97);
   @include img("../assets/ryanRightHand.png");
+  @include size(padS) {
+    @include rectM(1413.63, 313, 174.6, 109, 1413.63, 294, 245.36, 217.74);
+  }
 }
 .buttonPSR {
-  @include rect(2200, 534, 230*1.2, 65*1.2 /*, 2060, 305.03, 410.15, 363.97*/);
+  //29411
+  @include rect(2180, 534, 191 * 1.2, 65 * 1.2 /*, 2060, 305.03, 410.15, 363.97*/);
   @include img("../assets/buttonPSR.png");
+  @include size(padS) {
+    @include rectM(1409, 470, 230, 65);
+    @include img("../assets/buttonPSRM.png");
+  }
 }
-// .protagonistContainer {
-//   display: block;
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   height: 100%;
-//   width: auto;
-// }
-// .protagonistSvg {
-//   display: block;
-// }
+
 .richman {
   @include rect(167, 340, 748.07, 550);
   @include size(padS) {
@@ -261,7 +181,6 @@
 .chocolate {
   @include rect(770.05, 563, 104.55 * 1.32, 90.35 * 1.32, 167, 340, 748.07, 550);
   @include img("../assets/chocolate.png");
-
   transform: rotate(-16deg);
 }
 .crab {
@@ -281,51 +200,87 @@
   @include img("../assets/juice.png");
   transform: rotate(-24deg);
 }
+
 .tv {
   @include rect(2120, -8, 360, 342);
   @include img("../assets/tv.png");
+  @include size(padS) {
+    @include rectM(1407, 19, 260, 246);
+  }
 }
 .buttonSVG {
-  @include rect(2138, 76, 260*1.2, 63*1.2 /*, 2120, -8, 360, 342*/);
+  //33734
+  @include rect(2138, 76, 210 * 1.2, 63 * 1.2 /*, 2120, -8, 360, 342*/);
   @include img("../assets/buttonSVG.png");
+
+  @include size(padS) {
+    @include rectM(1397, 80, 260, 64.5);
+    @include img("../assets/buttonSVGM.png");
+  }
 }
 .mainTableItems {
   @include rect(835.03, 263.74, 404.97, 193.22);
   @include img("../assets/mainTableItemsAll.png");
+  @include size(padS) {
+    @include rectM(599.4, 239.24, 210.15, 100.26);
+  }
 }
 .mainTableItemsStar {
   @include rect(936, 335, 119.54, 144, 835.03, 263.74, 404.97, 193.22);
   @include img("../assets/mainTableItemsStar.png");
+  @include size(padS) {
+    @include rectM(651.79, 268.88, 72.3, 68.66, 599.4, 239.24, 210.15, 100.26);
+  }
 }
 .mainTableItemsLoudly {
   @include rect(853.09, 363.59, 118.6, 89.49, 835.03, 263.74, 404.97, 193.22);
   @include img("../assets/mainTableItemsLoudly.png");
+  @include size(padS) {
+    @include rectM(608.77, 288, 70.95, 50.81, 599.4, 239.24, 210.15, 100.26);
+  }
 }
 .mainTableItemsVoice {
   @include rect(825, 354, 50, 75, 835.03, 263.74, 404.97, 193.22);
   @include img("../assets/mainTableItemsVoice.png");
+  @include size(padS) {
+    @include rectM(588.77, 280.83, 38.95, 40.81, 599.4, 239.24, 210.15, 100.26);
+  }
 }
 .buttonMNT {
-  @include rect(890, 260, 258*1.2, 63*1.2 /*, 835.03, 263.74, 404.97, 193.22*/);
+  //3.33493
+  @include rect(890, 260, 210 * 1.2, 63 * 1.2 /*, 835.03, 263.74, 404.97, 193.22*/);
   @include img("../assets/buttonMNT.png");
+  @include size(padS) {
+    @include rectM(600, 164, 258, 64.5);
+    @include img("../assets/buttonMNTM.png");
+  }
 }
 .supportingRole {
   @include rect(1374, 202, 486.26, 392);
   @include img("../assets/supportingRole.png");
+  @include size(padS) {
+    @include rectM(896.1, 214, 278.6, 234.25);
+  }
 }
 .internationalFruit {
   @include rect(1960, 270, 551.1, 358);
   @include img("../assets/internationalFruit.png");
+  @include size(padS) {
+    @include rectM(1315, 254, 355.65, 231);
+  }
 }
 .avocado-o {
   @include rect(1975.43, 348, 40.5, 69.71, 1960, 270, 551.1, 358);
   @include img("../assets/avocado.png");
-
   transform: scale(1.3);
 }
 .taiwanFishery {
   @include rect(847, 472, 561.5, 303.69);
   @include img("../assets/taiwanFishery.png");
+  @include size(padS) {
+    @include rectM(643, 336, 305.6, 186);
+    @include img("../assets/taiwanFisheryM.png");
+  }
 }
 .crab-o {
   @include rect(847, 612.48, 177.41, 141.87, 847, 472, 561.5, 303.69);
@@ -347,98 +302,179 @@
   }
   &-1 {
     @include rect(936, 524, 10, 10, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(688.22, 365.46, 5.55, 5.55, 643, 336, 305.6, 186);
+    }
   }
   &-2 {
     @include rect(987, 524, 10, 10, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(716.23, 365.46, 5.55, 5.55, 643, 336, 305.6, 186);
+    }
   }
   &-3 {
     @include rect(1038, 524, 10, 10, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(744.23, 365.46, 5.55, 5.55, 643, 336, 305.6, 186);
+    }
   }
   &-4 {
     @include rect(1090, 524, 10, 10, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(772.24, 365.46, 5.55, 5.55, 643, 336, 305.6, 186);
+    }
   }
   &-5 {
     @include rect(1141, 524, 10, 10, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(800.24, 365.46, 5.55, 5.55, 643, 336, 305.6, 186);
+    }
   }
   &-6 {
     transform: rotate(4deg);
     @include rect(1127, 625, 12, 12, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(793.39, 420.7, 6.66, 6.66, 643, 336, 305.6, 186);
+    }
   }
   &-7 {
     transform: rotate(4deg);
-    @include rect(1152, 634, 12, 12, 847, 472, 561.5, 303.69);
+    @include rect(1152, 632, 12, 12, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(808.01, 426.5, 6.66, 6.66, 643, 336, 305.6, 186);
+    }
   }
   &-8 {
     @include rect(1196, 658, 12, 12, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(831.32, 440.39, 6.66, 6.66, 643, 336, 305.6, 186);
+    }
   }
   &-9 {
     @include rect(1224, 659, 12, 12, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(845.96, 441.54, 6.66, 6.66, 643, 336, 305.6, 186);
+    }
   }
   &-10 {
     transform: rotate(17deg);
-    @include rect(1028, 690, 13, 13, 847, 472, 561.5, 303.69);
+    @include rect(1027, 687, 13, 13, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(738.2, 454.47, 7.3, 7.3, 643, 336, 305.6, 186);
+    }
   }
   &-11 {
     transform: rotate(17deg);
-    @include rect(1042, 693, 13, 13, 847, 472, 561.5, 303.69);
+    @include rect(1041, 692, 13, 13, 847, 472, 561.5, 303.69);
+    @include size(padS) {
+      @include rectM(745.28, 456.61, 7.3, 7.3, 643, 336, 305.6, 186);
+    }
   }
 }
 .poster {
   @include rect(1267, 83, 145, 160.93);
   @include img("../assets/poster.png");
+  @include size(padS) {
+    @include rectM(817, 104, 100, 111);
+  }
 }
 .buttonPC {
-  @include rect(1388, 157, 216*1.2, 59*1.2 /*, 1267, 83, 145, 160.93*/);
+  //2.9873
+  @include rect(1388, 157, 176 * 1.2, 59 * 1.2 /*, 1267, 83, 145, 160.93*/);
   @include img("../assets/buttonPC.png");
+  @include size(padS) {
+    @include rectM(889, 80, 216, 64.5);
+    @include img("../assets/buttonPCM.png");
+  }
 }
 .yellowTable {
   @include rect(524, 431, 735, 356);
   @include img("../assets/yellowTable.png");
+  @include size(padS) {
+    @include rectM(438, 336, 381.4, 184.7);
+  }
 }
 .hao {
-  @include rect(606.15, 92, 209.79, 409.3);
+  @include rect(606.15, 86, 209.79, 409.3);
   @include img("../assets/hao.png");
+  @include size(padS) {
+    @include rectM(480.63, 150.12, 108.86, 212.39);
+  }
 }
 .haoHandContainer {
-  @include rect(590, 317, 187.75, 120.47, 606.15, 92, 209.79, 409.3);
+  @include rect(590, 317, 187.75, 120.47, 606.15, 86, 209.79, 409.3);
+  @include size(padS) {
+    @include rectM(472.25, 266.88, 97.43, 62.52, 480.63, 150.12, 108.86, 212.39);
+  }
 }
 .haoHand {
   @include rect(590, 317, 151.84, 120.47, 590, 317, 187.75, 120.47);
   @include img("../assets/haoHand.png");
+  @include size(padS) {
+    @include rectM(472.25, 266.88, 78.79, 62.52, 472.25, 266.88, 97.43, 62.52);
+  }
 }
 .milkTea {
   @include rect(712, 324, 65.75, 112.84, 590, 317, 187.75, 120.47);
   @include img("../assets/milkTea.png");
+  @include size(padS) {
+    @include rectM(535.56, 270.51, 34.12, 58.56, 472.25, 266.88, 97.43, 62.52);
+  }
 }
 .pearl {
   background: #562424;
   border-radius: 50%;
   &-1 {
     @include rect(731.48, 389.11, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include size(padS) {
+      @include rectM(545.67, 304.41, 3.29, 3.29, 535.56, 270.51, 34.12, 58.56);
+    }
   }
   &-2 {
     @include rect(744.15, 390.09, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include size(padS) {
+      @include rectM(552.24, 302.92, 3.29, 3.29, 535.56, 270.51, 34.12, 58.56);
+    }
   }
   &-3 {
     @include rect(753.89, 397.88, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include size(padS) {
+      @include rectM(557.29, 305.96, 3.29, 3.29, 535.56, 270.51, 34.12, 58.56);
+    }
   }
   &-4 {
     @include rect(743.05, 417.08, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include size(padS) {
+      @include rectM(548.4, 316.77, 3.29, 3.29, 535.56, 270.51, 34.12, 58.56);
+    }
   }
   &-5 {
     @include rect(737.81, 400.8, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include size(padS) {
+      @include rectM(548.95, 310.48, 3.29, 3.29, 535.56, 270.51, 34.12, 58.56);
+    }
   }
   &-6 {
     @include rect(748.53, 409.08, 6.33, 6.33, 712, 324, 65.75, 112.84);
+    @include size(padS) {
+      @include rectM(556, 312.77, 3.29, 3.29, 535.56, 270.51, 34.12, 58.56);
+    }
   }
 }
 .buttonExhibitor {
-  @include rect(535, 327.5, 138*1.2, 64.5*1.2 /*, 606.15, 92, 209.79, 409.3*/);
+  @include rect(535, 327.5, 138 * 1.2, 64.5 * 1.2 /*, 606.15, 92, 209.79, 409.3*/);
   @include img("../assets/buttonExhibitor.png");
+  @include size(padS) {
+    @include rectM(444, 80, 138, 64.5);
+    @include img("../assets/buttonExhibitorM.png");
+  }
 }
 .worldCabinet {
   @include rect(1769, 30, 334, 536);
   @include img("../assets/worldCabinet.png");
+  @include size(padS) {
+    @include rectM(1152.7, 66, 241.3, 388.4);
+  }
 }
 .juice-o {
   @include rect(1830, 245.9, 25.44, 54.24, 1769, 30, 334, 536);
@@ -447,10 +483,17 @@
 }
 .candyTableContainer {
   @include rect(1059, 156, 802, 411);
+  @include size(padS) {
+    @include rectM(638.2, 137, 581.14, 297.82);
+  }
 }
 .candyTable {
   @include rect(1059, 156, 802, 411, 1059, 156, 802, 411);
   @include img("../assets/candyTable.png");
+  @include size(padS) {
+    @include rectM(638.2, 137, 581.14, 297.82, 638.2, 137, 581.14, 297.82);
+    @include img("../assets/candyTableM.png");
+  }
 }
 .chocolate-o {
   @include rect(1545, 155, 79.45, 68.65, 1059, 156, 802, 411);
@@ -459,34 +502,58 @@
 }
 .ladder {
   @include rect(385, 138, 260.35, 454.9);
-  // @include img("../assets/ladder.png");
+  @include size(padS) {
+    @include rectM(269, 152, 160.1, 279.77);
+  }
 }
 .ladderBody {
   @include rect(385, 175, 260.35, 417.9, 385, 138, 260.35, 454.9);
   @include img("../assets/ladderBody.png");
+  @include size(padS) {
+    @include rectM(269, 174.76, 160.12, 257.01, 269, 152, 160.1, 279.77);
+  }
 }
 .ladderLeftHand {
   @include rect(428.2, 181.5, 119.35, 97.71, 385, 138, 260.35, 454.9);
   @include img("../assets/ladderLeftHand.png");
+  @include size(padS) {
+    @include rectM(295.57, 178.75, 73.4, 60.09, 269, 152, 160.1, 279.77);
+  }
 }
 .ladderRightHand {
   @include rect(390.07, 251.6, 141.44, 99.08, 385, 138, 260.35, 454.9);
   @include img("../assets/ladderRightHand.png");
+  @include size(padS) {
+    @include rectM(270.6, 221.47, 88.52, 61.33, 269, 152, 160.1, 279.77);
+  }
 }
 .ladderCarton {
   @include rect(458, 138.81, /* 163.3*/ 244.95, /*94.5*/ 141.75, 385, 138, 260.35, 454.9);
   @include img("../assets/ladderCarton.png");
+  @include size(padS) {
+    @include rectM(313.9, 159.4, 100.43 * 1.5, 58.12 * 1.5, 269, 152, 160.1, 279.77);
+  }
 }
 .buttonFactSheet {
-  @include rect(461, 152, 155*1.2, 59*1.2 /*, 385, 138, 260.35, 454.9*/);
+  @include rect(461, 152, 155 * 1.2, 59 * 1.2 /*, 385, 138, 260.35, 454.9*/);
   @include img("../assets/buttonFactSheet.png");
+  @include size(padS) {
+    @include rectM(241, 80, 155, 64.5);
+    @include img("../assets/buttonFactSheetM.png");
+  }
 }
 .cabinet {
   @include rect(700, 72, 345, 496);
   @include img("../assets/cabinet.png");
+  @include size(padS) {
+    @include rectM(493.71, 91, 249.82, 316.07);
+  }
   &-1 {
     @include rect(10, 157, 345, 364);
     @include img("../assets/cabinet-1.png");
+    @include size(padS) {
+      @include rectM(9.6, 85, 278.65, 294);
+    }
   }
 }
 .noodles-o {
@@ -498,31 +565,55 @@
 .carton {
   @include rect(516, 213, 197, 282);
   @include img("../assets/carton.png");
+  @include size(padS) {
+    @include rectM(347.34, 247.81, 125.77, 179.86);
+  }
 }
 .elsa {
   @include rect(10, 192.76, 314.09, 461.28);
   @include img("../assets/elsa.png");
+  @include size(padS) {
+    @include rectM(7.09, 155, 186.55, 274);
+  }
 }
 .buttonVisitor {
-  @include rect(149, 337, 119*1.2, 56*1.2 /*, 10, 192.76, 314.09, 461.28*/);
+  @include rect(149, 337, 119 * 1.2, 56 * 1.2 /*, 10, 192.76, 314.09, 461.28*/);
   @include img("../assets/buttonVisitor.png");
+  @include size(padS) {
+    @include rectM(35, 80, 118, 64.5);
+    @include img("../assets/buttonVisitorM.png");
+  }
 }
 .orangeCabinet {
   @include rect(-28, 157, 580, 411);
   @include img("../assets/orangeCabinet.png");
+  @include size(padS) {
+    @include rectM(-16, 85, 430, 340);
+    display: none;
+  }
 }
 .window {
   @include rect(2345, -3, 224, 129);
   @include img("../assets/window.png");
+  @include size(padS) {
+    @include rectM(1570.1, -2.47, 162.31, 93.48);
+  }
   &-1 {
     @include rect(658, -2, 224, 129);
     @include img("../assets/window-1.png");
+    @include size(padS) {
+      @include rectM(463.27, -2.74, 162.31, 93.48);
+    }
   }
 }
 .background {
   @include rect(0, -5, 2496, 771);
   @include img("../assets/background.png");
   background-size: cover;
+  @include size(padS) {
+    @include rectM(0, -35, 1874.43, 579);
+    @include img("../assets/backgroundM.png");
+  }
 }
 .windowContent {
   background: #cce2e1;
@@ -532,13 +623,22 @@
   left: 4.5%;
   right: 4.5%;
   bottom: 11%;
+  // @include size(padS) {
+  //   @include rectM(,,,);
+  // }
 }
 .windowClouds {
   @include rect(20, 125, 1496, 971);
   @include img("../assets/windowClouds.png");
+  @include size(padS) {
+    // @include rectM(,,,);
+  }
   &-1 {
     @include rect(1080, 445, 1196, 821);
     @include img("../assets/windowClouds.png");
+    @include size(padS) {
+      // @include rectM(,,,);
+    }
   }
 }
 
@@ -587,9 +687,9 @@
   cursor: none;
   transition: opacity 0.3s;
 
-  @include size(padM){
-    svg{
-      width:100%;
+  @include size(padM) {
+    svg {
+      width: 100%;
     }
   }
 
@@ -614,6 +714,9 @@
   &__cursor {
     position: absolute;
     transition: opacity 0.3;
+    @include size(padS) {
+      display:none;
+    }
 
     &__star {
       fill: #ddd;
@@ -626,6 +729,7 @@
         fill: #ffce54;
         transform: scale(1);
       }
+
     }
     &__go {
       opacity: 0;
