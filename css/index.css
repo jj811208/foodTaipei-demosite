@@ -128,7 +128,7 @@ body {
     height: 11000px; }
     @media (max-width: 600px) {
       .loaded .scrollElement {
-        height: 7200px; } }
+        height: 5000px; } }
 
 .menu {
   height: 80px;
