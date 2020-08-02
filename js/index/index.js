@@ -213,12 +213,11 @@ function animationInit() {
     transformOrigin: "left top",
     rotate: "-10"
   });
-  var pearlTimingFunction = "CustomEase.create(\"custom\", \"M0,0,C0,0,0.031,0.471,0.1,0.5,0.166,0.528,0.775,0.485,0.844,0.52,0.912,0.554,1,1,1,1\")";
   gsap.timeline({
     repeat: -1,
     yoyo: true
   }).to(".haoHandContainer", {
-    transformOrigin: "45px 0px",
+    transformOrigin: "25% 0px",
     rotate: "-10",
     duration: 2,
     ease: "power2.inOut"
@@ -232,13 +231,13 @@ function animationInit() {
     repeat: -1,
     delay: pearlDelay
   }).to(".pearl-1", {
-    x: -1,
-    y: 22,
+    xPercent: -16,
+    yPercent: 340,
     duration: pearlUpDuration,
     ease: pearlDownFunction
   }, 0).to(".pearl-1", {
-    x: 0,
-    y: 0,
+    xPercent: 0,
+    yPercent: 0,
     duration: pearlDownDuration,
     ease: pearlUpFunction
   });
@@ -246,13 +245,13 @@ function animationInit() {
     repeat: -1,
     delay: pearlDelay
   }).to(".pearl-2", {
-    x: -6,
-    y: 28,
+    xPercent: -90,
+    yPercent: 430,
     duration: pearlUpDuration,
     ease: pearlDownFunction
   }, 0).to(".pearl-2", {
-    x: 0,
-    y: 0,
+    xPercent: 0,
+    yPercent: 0,
     duration: pearlDownDuration,
     ease: pearlUpFunction
   });
@@ -260,13 +259,13 @@ function animationInit() {
     repeat: -1,
     delay: pearlDelay
   }).to(".pearl-3", {
-    x: -15,
-    y: 26,
+    xPercent: -210,
+    yPercent: 380,
     duration: pearlUpDuration,
     ease: pearlDownFunction
   }, 0).to(".pearl-3", {
-    x: 0,
-    y: 0,
+    xPercent: 0,
+    yPercent: 0,
     duration: pearlDownDuration,
     ease: pearlUpFunction
   });
@@ -274,13 +273,13 @@ function animationInit() {
     repeat: -1,
     delay: pearlDelay
   }).to(".pearl-4", {
-    x: -15,
-    y: 8,
+    xPercent: -234,
+    yPercent: 100,
     duration: pearlUpDuration,
     ease: pearlDownFunction
   }, 0).to(".pearl-4", {
-    x: 0,
-    y: 0,
+    xPercent: 0,
+    yPercent: 0,
     duration: pearlDownDuration,
     ease: pearlUpFunction
   });
@@ -288,13 +287,13 @@ function animationInit() {
     repeat: -1,
     delay: pearlDelay
   }).to(".pearl-5", {
-    x: -8,
-    y: 22,
+    xPercent: -110,
+    yPercent: 350,
     duration: pearlUpDuration,
     ease: pearlDownFunction
   }, 0).to(".pearl-5", {
-    x: 0,
-    y: 0,
+    xPercent: 0,
+    yPercent: 0,
     duration: pearlDownDuration,
     ease: pearlUpFunction
   });
@@ -302,13 +301,13 @@ function animationInit() {
     repeat: -1,
     delay: pearlDelay
   }).to(".pearl-6", {
-    x: -15,
-    y: 18,
+    xPercent: -200,
+    yPercent: 256,
     duration: pearlUpDuration,
     ease: pearlDownFunction
   }, 0).to(".pearl-6", {
-    x: 0,
-    y: 0,
+    xPercent: 0,
+    yPercent: 0,
     duration: pearlDownDuration,
     ease: pearlUpFunction
   });
