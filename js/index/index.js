@@ -112,7 +112,7 @@ function animationInit() {
     scrollTrigger: {
       trigger: ".scrollElement",
       id: "tv",
-      start: "76% center"
+      start: "72% center"
     },
     duration: 1.7,
     transformOrigin: "top",
@@ -493,7 +493,7 @@ var ParallaxFn = function ParallaxFn() {
   }, 0).to(".grandma", {
     xPercent: -60
   }, 0).to(".buttonEvents", {
-    xPercent: -280
+    xPercent: window.innerWidth > 600 ? -280 : -180
   }, 0).to(".front", {
     x: function x() {
       var delta = containerDOM.offsetHeight / -5.16;
@@ -528,15 +528,15 @@ var ParallaxFn = function ParallaxFn() {
     // rwd   and (max-aspect-ratio: 360/620)
     "  (max-width: 600px)": function maxWidth600px() {
       gsap.fromTo(".noodles", {
-        yPercent: -486,
-        xPercent: 50,
+        yPercent: -526,
+        xPercent: 190,
         rotate: 50,
-        scale: 0.65
+        scale: 0.8
       }, _objectSpread({
         scrollTrigger: {
           trigger: ".scrollElement",
-          start: "10% center",
-          end: "16% center",
+          start: "20% center",
+          end: "26% center",
           scrub: 0.01
         },
         onStart: function onStart() {
@@ -555,8 +555,8 @@ var ParallaxFn = function ParallaxFn() {
       gsap.timeline({
         scrollTrigger: {
           trigger: ".scrollElement",
-          start: "17% center",
-          end: "27% center",
+          start: "27% center",
+          end: "32% center",
           scrub: 0.01
         },
         onStart: function onStart() {
@@ -583,8 +583,8 @@ var ParallaxFn = function ParallaxFn() {
       gsap.timeline({
         scrollTrigger: {
           trigger: ".scrollElement",
-          start: "25% center",
-          end: "31% center",
+          start: "39% center",
+          end: "46% center",
           scrub: 0.01
         },
         onStart: function onStart() {
@@ -602,19 +602,16 @@ var ParallaxFn = function ParallaxFn() {
           document.querySelector(".chocolate-o").style.opacity = 1;
         }
       }).fromTo(".chocolate", {
-        yPercent: -363.337,
-        xPercent: 212.62,
+        yPercent: -455.337,
+        xPercent: -22.62,
         rotate: -15,
-        scale: 0.85
-      }, _objectSpread({}, to, {
-        yPercent: -80,
-        xPercent: 40
-      })).to(".chocolate", to);
+        scale: 0.95
+      }, _objectSpread({}, to));
       gsap.timeline({
         scrollTrigger: {
           trigger: ".scrollElement",
-          start: "35% center",
-          end: "45% center",
+          start: "47% center",
+          end: "53% center",
           scrub: 0.01
         },
         onStart: function onStart() {
@@ -631,18 +628,15 @@ var ParallaxFn = function ParallaxFn() {
         }
       }).fromTo(".juice", {
         yPercent: -179,
-        xPercent: 419,
+        xPercent: 9,
         rotate: -23,
-        scale: 0.5
-      }, _objectSpread({}, to, {
-        yPercent: -70,
-        xPercent: 100
-      })).to(".juice", to);
+        scale: 0.65
+      }, _objectSpread({}, to));
       gsap.timeline({
         scrollTrigger: {
           trigger: ".scrollElement",
-          start: "47% center",
-          end: "57% center",
+          start: "53% center",
+          end: "59% center",
           scrub: 0.01
         },
         onStart: function onStart() {
@@ -659,15 +653,15 @@ var ParallaxFn = function ParallaxFn() {
         }
       }).fromTo(".avocado", {
         yPercent: -128.445,
-        xPercent: 417.32,
-        rotate: 50,
-        scale: 0.65
+        xPercent: 107.32,
+        rotate: 10,
+        scale: 0.8
       }, _objectSpread({}, to)).to(".avocado", to);
       gsap.timeline({
         scrollTrigger: {
           trigger: ".scrollElement",
-          start: "59% center",
-          end: "72% center",
+          start: "60% center",
+          end: "66% center",
           scrub: 0.01
         },
         onStart: function onStart() {
@@ -684,12 +678,12 @@ var ParallaxFn = function ParallaxFn() {
         }
       }).fromTo(".wine", {
         yPercent: -7.168,
-        xPercent: 359.395,
+        xPercent: 170.395,
         rotate: 25,
         scale: 0.8
       }, _objectSpread({}, to, {
         xPercent: 130,
-        yPercent: -34,
+        yPercent: -14,
         rotate: 16
       })).to(".wine", to);
     },
@@ -884,7 +878,6 @@ var buttonVisitor = document.querySelector(".buttonVisitor");
 
 var scrollEvent = function scrollEvent() {
   [buttonExhibitor, buttonEvents, buttonPSR, buttonSVG, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor].forEach(function (button) {
-    // const fn = () => {
     if (isElementInViewport(button)) {
       if (button.style.opacity !== "0") return;
       gsap.to(button, {
@@ -900,9 +893,6 @@ var scrollEvent = function scrollEvent() {
         scale: 0.7,
         duration: 0.1
       });
-    } // };
-    // fn();
-    // setTimeout(fn, 1000);
-
+    }
   });
-};
+}; // document.querySelector('html').scrollTo({'behavior': 'smooth', 'top': 1000})

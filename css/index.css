@@ -831,8 +831,8 @@ body {
     .noodles {
       position: absolute;
       width: 15.76667%;
-      top: 40.68182%;
-      left: 58.02721%; }
+      top: 44.57792%;
+      left: 66.87075%; }
       .noodles::before {
         content: "";
         display: block;
@@ -858,8 +858,8 @@ body {
     .chocolate {
       position: absolute;
       width: 21.65429%;
-      top: 39.01948%;
-      left: 67.58503%; }
+      top: 43.24026%;
+      left: 79.82993%; }
       .chocolate::before {
         content: "";
         display: block;
@@ -883,7 +883,7 @@ body {
       position: absolute;
       width: 40.33333%;
       top: 28.09091%;
-      left: 31.26531%; }
+      left: 50.65306%; }
       .crab::before {
         content: "";
         display: block;
@@ -906,8 +906,8 @@ body {
     .avocado {
       position: absolute;
       width: 15.13333%;
-      top: 29.15584%;
-      left: 59.94898%; }
+      top: 33.7013%;
+      left: 74.23469%; }
       .avocado::before {
         content: "";
         display: block;
@@ -930,8 +930,8 @@ body {
     .wine {
       position: absolute;
       width: 24.83673%;
-      top: 12.78571%;
-      left: 34.07483%; }
+      top: 21.87662%;
+      left: 43.59864%; }
       .wine::before {
         content: "";
         display: block;
@@ -957,8 +957,8 @@ body {
     .juice {
       position: absolute;
       width: 14.36122%;
-      top: 27.45455%;
-      left: 75.73129%; }
+      top: 34.27273%;
+      left: 87.63605%; }
       .juice::before {
         content: "";
         display: block;
