@@ -249,16 +249,7 @@ body {
   .menu__list {
     height: 100vh;
     width: 320px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    padding-top: 120px;
     padding-left: 60px;
     position: fixed;
     left: 100%;
@@ -268,11 +259,16 @@ body {
     pointer-events: none;
     opacity: 0;
     -webkit-box-shadow: 0 4px 32px -6px #444444cc;
-            box-shadow: 0 4px 32px -6px #444444cc; }
+            box-shadow: 0 4px 32px -6px #444444cc;
+    overflow: auto; }
     @media (max-width: 600px) {
       .menu__list {
         width: 100vw;
-        background: #fff; } }
+        background: #fff;
+        padding-top: 80px;
+        padding-bottom: 24px;
+        display: block;
+        pointer-events: auto; } }
     .menu--active + .menu__list {
       opacity: 1;
       -webkit-transition: opacity 0.3s;
@@ -779,17 +775,16 @@ body {
   @media (max-width: 600px) {
     .richman {
       position: absolute;
-      width: 15.40767%;
+      width: 17.6259%;
       top: 48.41549%;
       left: -1.67866%;
-      width: 112vw;
-      left: -10vw;
+      left: -13vw;
       top: auto;
-      bottom: -8%; }
+      bottom: -10%; }
       .richman::before {
         content: "";
         display: block;
-        padding-top: 103.89105%; } }
+        padding-top: 104.7619%; } }
 
 .protagonist {
   position: absolute;
@@ -817,7 +812,7 @@ body {
       .protagonist::before {
         content: "";
         display: block;
-        padding-top: 103.89105%; } }
+        padding-top: 104.7619%; } }
 
 .noodles {
   position: absolute;
@@ -835,9 +830,9 @@ body {
   @media (max-width: 600px) {
     .noodles {
       position: absolute;
-      width: 18.03658%;
-      top: 46.92884%;
-      left: 66.38132%; }
+      width: 15.76667%;
+      top: 40.68182%;
+      left: 58.02721%; }
       .noodles::before {
         content: "";
         display: block;
@@ -862,9 +857,9 @@ body {
   @media (max-width: 600px) {
     .chocolate {
       position: absolute;
-      width: 24.77183%;
-      top: 45.01124%;
-      left: 77.31518%; }
+      width: 21.65429%;
+      top: 39.01948%;
+      left: 67.58503%; }
       .chocolate::before {
         content: "";
         display: block;
@@ -886,9 +881,9 @@ body {
   @media (max-width: 600px) {
     .crab {
       position: absolute;
-      width: 46.14008%;
-      top: 32.40449%;
-      left: 35.76654%; }
+      width: 40.33333%;
+      top: 28.09091%;
+      left: 31.26531%; }
       .crab::before {
         content: "";
         display: block;
@@ -910,9 +905,9 @@ body {
   @media (max-width: 600px) {
     .avocado {
       position: absolute;
-      width: 17.31206%;
-      top: 33.63296%;
-      left: 68.57977%; }
+      width: 15.13333%;
+      top: 29.15584%;
+      left: 59.94898%; }
       .avocado::before {
         content: "";
         display: block;
@@ -934,9 +929,9 @@ body {
   @media (max-width: 600px) {
     .wine {
       position: absolute;
-      width: 28.41245%;
-      top: 14.74906%;
-      left: 38.98054%; }
+      width: 24.83673%;
+      top: 12.78571%;
+      left: 34.07483%; }
       .wine::before {
         content: "";
         display: block;
@@ -961,9 +956,9 @@ body {
   @media (max-width: 600px) {
     .juice {
       position: absolute;
-      width: 16.42879%;
-      top: 31.67041%;
-      left: 86.63424%; }
+      width: 14.36122%;
+      top: 27.45455%;
+      left: 75.73129%; }
       .juice::before {
         content: "";
         display: block;
