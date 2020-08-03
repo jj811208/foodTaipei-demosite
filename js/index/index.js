@@ -467,7 +467,7 @@ function animationInit() {
 
 
 var containerDOM = document.querySelector(".container");
-var parallaxInstance;
+var parallaxInstance = undefined;
 
 var ParallaxFn = function ParallaxFn() {
   parallaxInstance = gsap.timeline({
@@ -500,8 +500,13 @@ var ParallaxFn = function ParallaxFn() {
       return delta;
     } //"-100px",
 
-  }, 0).to(".richman:not(.richman-mobile)", {
+  }, 0).to(".richman", window.innerWidth > 600 ? {
     xPercent: 152
+  } : {
+    x: function x() {
+      var delta = document.querySelector(".container").offsetWidth - window.innerWidth;
+      return delta;
+    }
   }, 0).to(".supportingRole", {
     xPercent: -130
   }, 0); // 購物動畫
