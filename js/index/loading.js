@@ -34,7 +34,9 @@ var debounceId;
 var resizeDebounce = function resizeDebounce() {
   if (debounceId) clearTimeout(debounceId);
   debounceId = setTimeout(function () {
-    if (parallaxInstance && parallaxInstance) {
+    document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+
+    if (parallaxInstance) {
       // ParallaxFn() 的時候 要確保scrollbar 和 動畫 維持初始狀態
       window.scrollTo(0, 0);
       document.body.style.overflow = "hidden"; // 等待動畫跑到對的地方
@@ -43,7 +45,7 @@ var resizeDebounce = function resizeDebounce() {
         document.body.style.overflow = "unset";
         parallaxInstance.clear();
         ParallaxFn();
-      }, 2200); //等待動畫回到 0 0 的時間
+      }, 2000); //等待動畫回到 0 0 的時間
     }
   }, 500); //debounce時間
 }; //載入所有資源再進入場景
@@ -51,21 +53,7 @@ var resizeDebounce = function resizeDebounce() {
 
 window.onload = function () {
   document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
-
-  if (isMobile) {
-    window.addEventListener("orientationchange", function () {
-      setTimeout(function () {
-        document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
-      }, 100);
-      resizeDebounce();
-    });
-  } else {
-    window.addEventListener("resize", function () {
-      document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
-      resizeDebounce();
-    });
-  } // 如果是重新整理 有可能不在一開始的位置
-
+  window.addEventListener(isMobile ? "orientationchange" : "resize", resizeDebounce); // 如果是重新整理 有可能不在一開始的位置
 
   window.scrollTo(0, 0);
   ScrollTrigger.refresh();
