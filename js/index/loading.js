@@ -46,25 +46,26 @@ var resizeDebounce = function resizeDebounce() {
       }, 2200); //等待動畫回到 0 0 的時間
     }
   }, 500); //debounce時間
-};
+}; //載入所有資源再進入場景
 
-var nowWindowHeight = window.innerHeight; //載入所有資源再進入場景
 
 window.onload = function () {
   window.addEventListener("resize", function () {
-    if (isMobile) {
-      //手機版一次的浮動大一點才會觸發重算
-      if (Math.abs(window.innerHeight - nowWindowHeight) > 120) resizeDebounce();
-      nowWindowHeight = window.innerHeight;
-    } else {
-      resizeDebounce();
-    }
+    document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+    if (!isMobile) resizeDebounce();
   });
+
+  if (isMobile) {
+    window.addEventListener("orientationchange", function () {
+      resizeDebounce();
+    });
+  } // 如果是重新整理 有可能不在一開始的位置
+
+
+  window.scrollTo(0, 0);
+  ScrollTrigger.refresh();
   setTimeout(function () {
-    // 如果是重新整理 有可能不在一開始的位置
     document.querySelector("html").classList.add("loaded");
-    window.scrollTo(0, 0);
-    ScrollTrigger.refresh();
     var loadingAsset = document.querySelector(".loadingAsset");
     loadingAsset.classList.add("loadingAsset__clickable");
 

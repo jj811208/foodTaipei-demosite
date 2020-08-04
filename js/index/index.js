@@ -896,3 +896,17 @@ var scrollEvent = function scrollEvent() {
     }
   });
 }; // document.querySelector('html').scrollTo({'behavior': 'smooth', 'top': 1000})
+// var sh = document.querySelector('html').scrollHeight * 0.47//((1267+300)/2494);
+// document.querySelector('html').scrollTo({'behavior': 'smooth', 'top': sh})
+// document.querySelector('html').scrollHeight
+// 11000
+// document.querySelector('html').scrollTop
+// 8429
+// document.querySelector('html').offsetWidth
+// 751
+// document.querySelector('html').scrollHeight
+// 11000
+// document.querySelector('html').scrollTop
+// 5253
+// document.querySelector('html').offsetWidth
+// 615
