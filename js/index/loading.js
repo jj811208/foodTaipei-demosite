@@ -34,7 +34,33 @@ var debounceId;
 var resizeDebounce = function resizeDebounce() {
   if (debounceId) clearTimeout(debounceId);
   debounceId = setTimeout(function () {
-    document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+    setTimeout(function () {
+      document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+      setTimeout(function () {
+        document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+        setTimeout(function () {
+          document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+          setTimeout(function () {
+            document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+            setTimeout(function () {
+              document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+              setTimeout(function () {
+                document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+                setTimeout(function () {
+                  document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+                  setTimeout(function () {
+                    document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+                    setTimeout(function () {
+                      document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+                    }, 300);
+                  }, 300);
+                }, 300);
+              }, 300);
+            }, 300);
+          }, 300);
+        }, 300);
+      }, 300);
+    }, 300);
 
     if (parallaxInstance) {
       // ParallaxFn() 的時候 要確保scrollbar 和 動畫 維持初始狀態
@@ -47,7 +73,7 @@ var resizeDebounce = function resizeDebounce() {
         ParallaxFn();
       }, 2000); //等待動畫回到 0 0 的時間
     }
-  }, 2500); //debounce時間
+  }, 500); //debounce時間
 }; //載入所有資源再進入場景
 
 
