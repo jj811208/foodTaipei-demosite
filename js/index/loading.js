@@ -50,13 +50,16 @@ var resizeDebounce = function resizeDebounce() {
 
 
 window.onload = function () {
-  window.addEventListener("resize", function () {
-    document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
-    if (!isMobile) resizeDebounce();
-  });
+  if (!isMobile) {
+    window.addEventListener("resize", function () {
+      document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+      resizeDebounce();
+    });
+  }
 
   if (isMobile) {
     window.addEventListener("orientationchange", function () {
+      document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
       resizeDebounce();
     });
   } // 如果是重新整理 有可能不在一開始的位置
