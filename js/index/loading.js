@@ -47,7 +47,7 @@ var resizeDebounce = function resizeDebounce() {
         ParallaxFn();
       }, 2000); //等待動畫回到 0 0 的時間
     }
-  }, 500); //debounce時間
+  }, 2500); //debounce時間
 }; //載入所有資源再進入場景
 
 
