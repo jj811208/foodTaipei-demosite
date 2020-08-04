@@ -32,7 +32,9 @@ window.addEventListener("mousemove", function (e) {
 var debounceId;
 
 var resizeDebounce = function resizeDebounce() {
-  if (debounceId) clearTimeout(debounceId);
+  if (debounceId) clearTimeout(debounceId); //XXX:乾脆改成interval
+  // if(document.documentElement.style.getPropertyValue('--vh') ===`${window.innerHeight / 100}px`)
+
   debounceId = setTimeout(function () {
     setTimeout(function () {
       document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
