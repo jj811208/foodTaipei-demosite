@@ -11,12 +11,12 @@
   align-items: center;
   box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff, 0 4px 32px -6px #444444cc;
   cursor: pointer;
-  transition: all 0.5s;
+  transition: box-shadow 0.5s;
   position: absolute;
   pointer-events: auto;
   // box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
   .menu--active & {
-    box-shadow: 0 0 0 50vw #fff, 0 0 0 100vh #fff, 0 0 0 0 #44444400;
+    box-shadow: 0 0 0 50vw #fff, 0 0 0 vh(100) #fff, 0 0 0 0 #44444400;
     @include size(padS) {
       box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #44444400;
     }
@@ -32,7 +32,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
+    height: vh(100);
     width: 320px;
     overflow: hidden;
     pointer-events: none;
@@ -93,11 +93,9 @@
   }
 
   &__list {
-    height: 100vh;
+    height: vh(100);
     width: 320px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    padding-top:120px;
     padding-left: 60px;
     position: fixed;
     left: 100%;
@@ -105,14 +103,20 @@
     pointer-events: none;
     opacity: 0;
     box-shadow: 0 4px 32px -6px #444444cc;
+    overflow: auto;
 
     @include size(padS) {
       width: 100vw;
       background: #fff;
+      padding-top:80px;
+      padding-bottom: 24px;
+      display: block;
+      pointer-events: auto;
+
     }
     .menu--active + & {
       opacity: 1;
-      transition: all 0.3s;
+      transition: opacity 0.3s;
       transition-delay: 0.1s;
     }
   }
@@ -128,7 +132,6 @@
     }
     svg {
       position: absolute;
-      transition: all 0.3s;
       left: -32px;
       top: 50%;
       transform: translateY(-50%);
@@ -153,6 +156,7 @@
     }
     &:hover {
       svg {
+        transition: opacity 0.3s;
         opacity: 1;
       }
     }

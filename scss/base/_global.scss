@@ -23,7 +23,7 @@ body {
   .loaded & {
     height: 11000px;
     @include size(padS) {
-      height: 7200px;
+      height: 5000px;
     }
   }
 }

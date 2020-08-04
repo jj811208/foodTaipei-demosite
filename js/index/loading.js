@@ -37,8 +37,49 @@ window.addEventListener("mousemove", (e) => {
 let debounceId;
 const resizeDebounce = () => {
   if (debounceId) clearTimeout(debounceId);
+
+  //XXX:乾脆改成interval
+  // if(document.documentElement.style.getPropertyValue('--vh') ===`${window.innerHeight / 100}px`)
   debounceId = setTimeout(() => {
-    if (parallaxInstance && parallaxInstance) {
+    setTimeout(() => {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+      setTimeout(() => {
+        document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+        setTimeout(() => {
+          document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+          setTimeout(() => {
+            document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+            setTimeout(() => {
+              document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+              setTimeout(() => {
+                document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+                setTimeout(() => {
+                  document.documentElement.style.setProperty(
+                    "--vh",
+                    `${window.innerHeight / 100}px`
+                  );
+                  setTimeout(() => {
+                    document.documentElement.style.setProperty(
+                      "--vh",
+                      `${window.innerHeight / 100}px`
+                    );
+                    setTimeout(() => {
+                      document.documentElement.style.setProperty(
+                        "--vh",
+                        `${window.innerHeight / 100}px`
+                      );
+                    }, 300);
+                  }, 300);
+                }, 300);
+              }, 300);
+            }, 300);
+          }, 300);
+        }, 300);
+      }, 300);
+    }, 300);
+
+    
+    if (parallaxInstance) {
       // ParallaxFn() 的時候 要確保scrollbar 和 動畫 維持初始狀態
       window.scrollTo(0, 0);
       document.body.style.overflow = "hidden";
@@ -48,23 +89,22 @@ const resizeDebounce = () => {
         document.body.style.overflow = "unset";
         parallaxInstance.clear();
         ParallaxFn();
-      }, 1500); //等待動畫回到 0 0 的時間
+      }, 2000); //等待動畫回到 0 0 的時間
     }
   }, 500); //debounce時間
 };
-
 //載入所有資源再進入場景
 window.onload = function () {
-  if (!isMobile)
-    window.addEventListener("resize", () => {
-      resizeDebounce();
-    });
+  document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+
+  window.addEventListener(isMobile ? "orientationchange" : "resize", resizeDebounce);
+
+  // 如果是重新整理 有可能不在一開始的位置
+  window.scrollTo(0, 0);
+  ScrollTrigger.refresh();
 
   setTimeout(() => {
-    // 如果是重新整理 有可能不在一開始的位置
-    document.querySelector('html').classList.add('loaded');
-    window.scrollTo(0, 0);
-    ScrollTrigger.refresh();
+    document.querySelector("html").classList.add("loaded");
 
     const loadingAsset = document.querySelector(".loadingAsset");
     loadingAsset.classList.add("loadingAsset__clickable");
@@ -80,7 +120,7 @@ window.onload = function () {
         ParallaxFn();
         loadingAsset.classList.add("loadingAsset__loaded");
       }, 100);
-      window.removeEventListener('scroll',loadedClickEvent);
+      window.removeEventListener("scroll", loadedClickEvent);
     };
 
     window.addEventListener("scroll", loadedClickEvent);
@@ -88,4 +128,3 @@ window.onload = function () {
     loadingAsset.addEventListener("click", loadedClickEvent);
   }, 500);
 };
-

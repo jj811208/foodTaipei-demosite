@@ -1,56 +1,78 @@
 @mixin size($media) {
   @if $media == desktop {
-    @media (max-width: $media-desktop) { @content; }
+    @media (max-width: $media-desktop) {
+      @content;
+    }
   }
   @if $media == desktop-s {
-    @media (max-width: $media-desktop-s) { @content; }
-  }
-  @else if $media == pad {
-    @media (max-width: $media-pad){ @content; }
-  }
-  @else if $media == padM {
-    @media (max-width: $media-pad-middle) { @content; }
-  }
-  @else if $media == padP {
-    @media (max-width: $media-pad-portrait) { @content; }
-  }
-  @else if $media == padS {
-    @media (max-width: $media-pad-small) { @content; }
-  }
-  @else if $media == phone {
-    @media (max-width: $media-phone) { @content; }
-  }
-  @else if $media == phonexs {
-    @media (max-width: $media-phone-xs) { @content; }
+    @media (max-width: $media-desktop-s) {
+      @content;
+    }
+  } @else if $media == pad {
+    @media (max-width: $media-pad) {
+      @content;
+    }
+  } @else if $media == padM {
+    @media (max-width: $media-pad-middle) {
+      @content;
+    }
+  } @else if $media == padP {
+    @media (max-width: $media-pad-portrait) {
+      @content;
+    }
+  } @else if $media == padS {
+    @media (max-width: $media-pad-small) {
+      // @media (max-aspect-ratio: 360/620) {
+      @content;
+      // }
+    }
+  } @else if $media == phone {
+    @media (max-width: $media-phone) {
+      @content;
+    }
+  } @else if $media == phonexs {
+    @media (max-width: $media-phone-xs) {
+      @content;
+    }
   }
 }
-@mixin maxSize($media){
+@mixin maxSize($media) {
   @if $media == desktop {
-    @media (min-width: $media-desktop) { @content; }
+    @media (min-width: $media-desktop) {
+      @content;
+    }
   }
   @if $media == desktop-s {
-    @media (min-width: $media-desktop-s) { @content; }
-  }
-  @else if $media == pad {
-    @media (min-width: $media-pad){ @content; }
-  }
-  @else if $media == padM {
-    @media (min-width: $media-pad-middle) { @content; }
-  }
-  @else if $media == padP {
-    @media (min-width: $media-pad-portrait) { @content; }
-  }
-  @else if $media == padS {
-    @media (min-width: $media-pad-small) { @content; }
-  }
-  @else if $media == phone {
-    @media (min-width: $media-phone) { @content; }
-  }
-  @else if $media == phonexs {
-    @media (min-width: $media-phone-xs) { @content; }
+    @media (min-width: $media-desktop-s) {
+      @content;
+    }
+  } @else if $media == pad {
+    @media (min-width: $media-pad) {
+      @content;
+    }
+  } @else if $media == padM {
+    @media (min-width: $media-pad-middle) {
+      @content;
+    }
+  } @else if $media == padP {
+    @media (min-width: $media-pad-portrait) {
+      @content;
+    }
+  } @else if $media == padS {
+    @media (min-width: $media-pad-small) {
+      @content;
+    }
+  } @else if $media == phone {
+    @media (min-width: $media-phone) {
+      @content;
+    }
+  } @else if $media == phonexs {
+    @media (min-width: $media-phone-xs) {
+      @content;
+    }
   }
 }
-@mixin font($f){
+@mixin font($f) {
   font-size: #{$f / $font}rem;
 }
 @mixin rect(
@@ -99,4 +121,9 @@
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+//為了解決手機 url bar 高度會讓vh值不斷變動的問題
+@function vh($q) {
+  @return calc(var(--vh, 1vh) * #{$q});
 }

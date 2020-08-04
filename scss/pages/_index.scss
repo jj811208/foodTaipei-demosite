@@ -9,12 +9,11 @@
     content: "";
     display: block;
     height: 100%;
-    width: 100vh * ($layout-width / $layout-height);
+    width: calc(#{vh(100)} * (#{$layout-width / $layout-height}));
   }
   &__loaded {
     display: block;
   }
-
   @media (min-aspect-ratio: #{$layout-width}/#{$layout-height}) {
     display: none;
   }
@@ -23,7 +22,7 @@
   pointer-events: none;
 }
 .logo {
-  height: 18vh;
+  height: vh(18);
   left: 24px;
   top: 0;
   position: fixed;
@@ -155,50 +154,67 @@
 .richman {
   @include rect(167, 340, 748.07, 550);
   @include size(padS) {
-    display: none;
-  }
-}
-.richman-mobile {
-  display: none;
-  @include size(padS) {
-    @include rect(1, 1, 359 * 7, 264 * 7);
-    display: block;
-    position: fixed;
-    left: 50vw;
+    @include rectM(-28, 275, 294, 308);
+    // width: 108vw;
+    // @media (max-aspect-ratio: /) {
+
+    // }
+    left: -13vw;
     top: auto;
-    bottom: 0;
-    transform: translate(-50%, 12%);
+    bottom: -10%;
   }
 }
 .protagonist {
   @include rect(167, 340, 748.07, 550, 167, 340, 748.07, 550);
   @include img("../assets/protagonist.png");
+  @include size(padS) {
+    @include rectM(-28, 275, 294, 308, -28, 275, 294, 308);
+    @include img("../assets/protagonistM.png");
+  }
 }
 .noodles {
   @include rect(711, 590.69, 69.23 * 1.4, 74 * 1.4, 167, 340, 748.07, 550);
   @include img("../assets/noodles.png");
+  @include size(padS) {
+    @include rectM(168.6, 412.3, 33.11 * 1.4, 35.37 * 1.4, -28, 275, 294, 308);
+  }
 }
 .chocolate {
   @include rect(770.05, 563, 104.55 * 1.32, 90.35 * 1.32, 167, 340, 748.07, 550);
   @include img("../assets/chocolate.png");
   transform: rotate(-16deg);
+  @include size(padS) {
+    @include rectM(206.7, 408.18, 48.23 * 1.32, 42.45 * 1.32, -28, 275, 294, 308);
+  }
 }
 .crab {
   @include rect(588, 485.76, 177.41 * 1.4, 141.87 * 1.4, 167, 340, 748.07, 550);
   @include img("../assets/crab.png");
+  @include size(padS) {
+    @include rectM(120.92, 361.52, 84.7 * 1.4, 67.95 * 1.4, -28, 275, 294, 308);
+  }
 }
 .avocado {
   @include rect(744, 500.87, 66.53 * 1.4, 114.51 * 1.4, 167, 340, 748.07, 550);
   @include img("../assets/avocado.png");
+  @include size(padS) {
+    @include rectM(190.25, 378.8, 31.78 * 1.4, 54.88 * 1.4, -28, 275, 294, 308);
+  }
 }
 .wine {
   @include rect(568, 430.83, 51 * 3, 112 * 3, 167, 340, 748.07, 550);
   @include img("../assets/wine.png");
+  @include size(padS) {
+    @include rectM(100.18, 342.38, 24.34 * 3, 96.74 * 3, -28, 275, 294, 308);
+  }
 }
 .juice {
   @include rect(830.1, 510, 56.91 * 1.55, 120.73 * 1.55, 167, 340, 748.07, 550);
   @include img("../assets/juice.png");
   transform: rotate(-24deg);
+  @include size(padS) {
+    @include rectM(229.65, 380.56, 27.24 * 1.55, 57.81 * 1.55, -28, 275, 294, 308);
+  }
 }
 
 .tv {
@@ -560,6 +576,10 @@
   @include rect(940.08, 112, 42.62, 45.8, 700, 72, 344.76, 436.19);
   @include img("../assets/noodles.png");
   transform: rotate(50deg) scale(1.44);
+  @include size(padS) {
+    transform: rotate(50deg) scale(1.32);
+    @include rect(920.08, 110, 42.62, 45.8, 700, 72, 344.76, 436.19);
+  }
 }
 
 .carton {
@@ -650,16 +670,16 @@
     position: fixed;
     align-items: center;
     justify-content: center;
-    height: 120vh;
+    height: vh(120);
     width: 120vw;
     left: -10vw;
-    top: -10vh;
+    top: vh(-10);
     background: #fff;
     transition: all 0.6s;
   }
   &__logo {
     width: 50vw;
-    height: 24vh;
+    height: vh(24);
     background-image: url("../assets/logo.png");
     background-position: center;
     background-size: contain;
@@ -678,10 +698,10 @@
   z-index: 33;
   align-items: center;
   justify-content: center;
-  height: 120vh;
+  height: vh(120);
   width: 120vw;
   left: -10vw;
-  top: -10vh;
+  top: vh(-10);
   background: #fff;
   transition: all 0.6s;
   cursor: none;
@@ -700,7 +720,7 @@
 
   &__logo {
     width: 50vw;
-    height: 24vh;
+    height: vh(24);
     background-image: url("../assets/logo.png");
     background-position: center;
     background-size: contain;
@@ -715,7 +735,7 @@
     position: absolute;
     transition: opacity 0.3;
     @include size(padS) {
-      display:none;
+      display: none;
     }
 
     &__star {
@@ -729,7 +749,6 @@
         fill: #ffce54;
         transform: scale(1);
       }
-
     }
     &__go {
       opacity: 0;

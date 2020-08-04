@@ -112,7 +112,7 @@ function animationInit() {
     scrollTrigger: {
       trigger: ".scrollElement",
       id: "tv",
-      start: "76% center"
+      start: "72% center"
     },
     duration: 1.7,
     transformOrigin: "top",
@@ -467,7 +467,7 @@ function animationInit() {
 
 
 var containerDOM = document.querySelector(".container");
-var parallaxInstance;
+var parallaxInstance = undefined;
 
 var ParallaxFn = function ParallaxFn() {
   parallaxInstance = gsap.timeline({
@@ -493,15 +493,21 @@ var ParallaxFn = function ParallaxFn() {
   }, 0).to(".grandma", {
     xPercent: -60
   }, 0).to(".buttonEvents", {
-    xPercent: -280
+    xPercent: window.innerWidth > 600 ? -280 : -180
   }, 0).to(".front", {
     x: function x() {
       var delta = containerDOM.offsetHeight / -5.16;
       return delta;
     } //"-100px",
 
-  }, 0).to(".richman:not(.richman-mobile)", {
+  }, 0).to(".richman", window.innerWidth > 600 // || window.innerWidth / window.innerHeight > 360 / 620 //這些數字要和 css 的和 min-height ratio 一樣
+  ? {
     xPercent: 152
+  } : {
+    x: function x() {
+      var delta = document.querySelector(".container").offsetWidth - window.innerWidth;
+      return delta;
+    }
   }, 0).to(".supportingRole", {
     xPercent: -130
   }, 0); // 購物動畫
@@ -518,171 +524,338 @@ var ParallaxFn = function ParallaxFn() {
     rotate: 0,
     scale: 1
   };
-  gsap.fromTo(".noodles", {
-    yPercent: -486,
-    xPercent: 50,
-    rotate: 50,
-    scale: 0.65
-  }, _objectSpread({
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      start: "10% center",
-      end: "16% center",
-      scrub: 0.01
+  ScrollTrigger.matchMedia({
+    // rwd   and (max-aspect-ratio: 360/620)
+    "  (max-width: 600px)": function maxWidth600px() {
+      gsap.fromTo(".noodles", {
+        yPercent: -526,
+        xPercent: 190,
+        rotate: 50,
+        scale: 0.8
+      }, _objectSpread({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "20% center",
+          end: "26% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".noodles").forEach(function (n) {
+            n.style.opacity = 1;
+          });
+          document.querySelector(".noodles-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".noodles").forEach(function (n) {
+            n.style.opacity = 0;
+          });
+          document.querySelector(".noodles-o").style.opacity = 1;
+        }
+      }, to));
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "27% center",
+          end: "32% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".crab").forEach(function (c) {
+            c.style.opacity = 1;
+          });
+          document.querySelector(".crab-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".crab").forEach(function (c) {
+            c.style.opacity = 0;
+          });
+          document.querySelector(".crab-o").style.opacity = 1;
+        }
+      }).fromTo(".crab", {
+        yPercent: 40.06,
+        xPercent: -24.695,
+        rotate: -360
+      }, _objectSpread({}, to, {
+        xPercent: -10,
+        yPercent: -60,
+        rotate: -100
+      })).to(".crab", to);
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "39% center",
+          end: "46% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".chocolate").forEach(function (c) {
+            c.style.opacity = 1;
+          });
+          document.querySelector(".chocolate").style.opacity = 1;
+          document.querySelector(".chocolate-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".chocolate").forEach(function (c) {
+            c.style.opacity = 0;
+          });
+          document.querySelector(".chocolate").style.opacity = 0;
+          document.querySelector(".chocolate-o").style.opacity = 1;
+        }
+      }).fromTo(".chocolate", {
+        yPercent: -455.337,
+        xPercent: -22.62,
+        rotate: -15,
+        scale: 0.95
+      }, _objectSpread({}, to));
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "47% center",
+          end: "53% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".juice").forEach(function (j) {
+            j.style.opacity = 1;
+          });
+          document.querySelector(".juice-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".juice").forEach(function (j) {
+            j.style.opacity = 0;
+          });
+          document.querySelector(".juice-o").style.opacity = 1;
+        }
+      }).fromTo(".juice", {
+        yPercent: -179,
+        xPercent: 9,
+        rotate: -23,
+        scale: 0.65
+      }, _objectSpread({}, to));
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "53% center",
+          end: "59% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".avocado").forEach(function (a) {
+            a.style.opacity = 1;
+          });
+          document.querySelector(".avocado-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".avocado").forEach(function (a) {
+            a.style.opacity = 0;
+          });
+          document.querySelector(".avocado-o").style.opacity = 1;
+        }
+      }).fromTo(".avocado", {
+        yPercent: -128.445,
+        xPercent: 107.32,
+        rotate: 10,
+        scale: 0.8
+      }, _objectSpread({}, to)).to(".avocado", to);
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "60% center",
+          end: "66% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".wine").forEach(function (w) {
+            w.style.opacity = 1;
+          });
+          document.querySelector(".wine-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".wine").forEach(function (w) {
+            w.style.opacity = 0;
+          });
+          document.querySelector(".wine-o").style.opacity = 1;
+        }
+      }).fromTo(".wine", {
+        yPercent: -7.168,
+        xPercent: 170.395,
+        rotate: 25,
+        scale: 0.8
+      }, _objectSpread({}, to, {
+        xPercent: 130,
+        yPercent: -14,
+        rotate: 16
+      })).to(".wine", to);
     },
-    onStart: function onStart() {
-      document.querySelectorAll(".noodles").forEach(function (n) {
-        n.style.opacity = 1;
-      });
-      document.querySelector(".noodles-o").style.opacity = 0;
-    },
-    onReverseComplete: function onReverseComplete() {
-      document.querySelectorAll(".noodles").forEach(function (n) {
-        n.style.opacity = 0;
-      });
-      document.querySelector(".noodles-o").style.opacity = 1;
+    // desktop    or (min-aspect-ratio: 360/621)
+    "(min-width: 601px)": function minWidth601px() {
+      gsap.fromTo(".noodles", {
+        yPercent: -486,
+        xPercent: 50,
+        rotate: 50,
+        scale: 0.65
+      }, _objectSpread({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "10% center",
+          end: "16% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".noodles").forEach(function (n) {
+            n.style.opacity = 1;
+          });
+          document.querySelector(".noodles-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".noodles").forEach(function (n) {
+            n.style.opacity = 0;
+          });
+          document.querySelector(".noodles-o").style.opacity = 1;
+        }
+      }, to));
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "17% center",
+          end: "27% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".crab").forEach(function (c) {
+            c.style.opacity = 1;
+          });
+          document.querySelector(".crab-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".crab").forEach(function (c) {
+            c.style.opacity = 0;
+          });
+          document.querySelector(".crab-o").style.opacity = 1;
+        }
+      }).fromTo(".crab", {
+        yPercent: 40.06,
+        xPercent: -24.695,
+        rotate: -360
+      }, _objectSpread({}, to, {
+        xPercent: -10,
+        yPercent: -60,
+        rotate: -100
+      })).to(".crab", to);
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "25% center",
+          end: "31% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".chocolate").forEach(function (c) {
+            c.style.opacity = 1;
+          });
+          document.querySelector(".chocolate").style.opacity = 1;
+          document.querySelector(".chocolate-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".chocolate").forEach(function (c) {
+            c.style.opacity = 0;
+          });
+          document.querySelector(".chocolate").style.opacity = 0;
+          document.querySelector(".chocolate-o").style.opacity = 1;
+        }
+      }).fromTo(".chocolate", {
+        yPercent: -363.337,
+        xPercent: 212.62,
+        rotate: -15,
+        scale: 0.85
+      }, _objectSpread({}, to, {
+        yPercent: -80,
+        xPercent: 40
+      })).to(".chocolate", to);
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "35% center",
+          end: "45% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".juice").forEach(function (j) {
+            j.style.opacity = 1;
+          });
+          document.querySelector(".juice-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".juice").forEach(function (j) {
+            j.style.opacity = 0;
+          });
+          document.querySelector(".juice-o").style.opacity = 1;
+        }
+      }).fromTo(".juice", {
+        yPercent: -179,
+        xPercent: 419,
+        rotate: -23,
+        scale: 0.5
+      }, _objectSpread({}, to, {
+        yPercent: -70,
+        xPercent: 100
+      })).to(".juice", to);
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "47% center",
+          end: "57% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".avocado").forEach(function (a) {
+            a.style.opacity = 1;
+          });
+          document.querySelector(".avocado-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".avocado").forEach(function (a) {
+            a.style.opacity = 0;
+          });
+          document.querySelector(".avocado-o").style.opacity = 1;
+        }
+      }).fromTo(".avocado", {
+        yPercent: -128.445,
+        xPercent: 417.32,
+        rotate: 50,
+        scale: 0.65
+      }, _objectSpread({}, to)).to(".avocado", to);
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scrollElement",
+          start: "59% center",
+          end: "72% center",
+          scrub: 0.01
+        },
+        onStart: function onStart() {
+          document.querySelectorAll(".wine").forEach(function (w) {
+            w.style.opacity = 1;
+          });
+          document.querySelector(".wine-o").style.opacity = 0;
+        },
+        onReverseComplete: function onReverseComplete() {
+          document.querySelectorAll(".wine").forEach(function (w) {
+            w.style.opacity = 0;
+          });
+          document.querySelector(".wine-o").style.opacity = 1;
+        }
+      }).fromTo(".wine", {
+        yPercent: -7.168,
+        xPercent: 359.395,
+        rotate: 25,
+        scale: 0.8
+      }, _objectSpread({}, to, {
+        xPercent: 130,
+        yPercent: -34,
+        rotate: 16
+      })).to(".wine", to);
     }
-  }, to));
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      start: "17% center",
-      end: "27% center",
-      scrub: 0.01
-    },
-    onStart: function onStart() {
-      document.querySelectorAll(".crab").forEach(function (c) {
-        c.style.opacity = 1;
-      });
-      document.querySelector(".crab-o").style.opacity = 0;
-    },
-    onReverseComplete: function onReverseComplete() {
-      document.querySelectorAll(".crab").forEach(function (c) {
-        c.style.opacity = 0;
-      });
-      document.querySelector(".crab-o").style.opacity = 1;
-    }
-  }).fromTo(".crab", {
-    yPercent: 40.06,
-    xPercent: -24.695,
-    rotate: -360
-  }, _objectSpread({}, to, {
-    xPercent: -10,
-    yPercent: -60,
-    rotate: -100
-  })).to(".crab", to);
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      start: "25% center",
-      end: "31% center",
-      scrub: 0.01
-    },
-    onStart: function onStart() {
-      document.querySelectorAll(".chocolate").forEach(function (c) {
-        c.style.opacity = 1;
-      });
-      document.querySelector(".chocolate").style.opacity = 1;
-      document.querySelector(".chocolate-o").style.opacity = 0;
-    },
-    onReverseComplete: function onReverseComplete() {
-      document.querySelectorAll(".chocolate").forEach(function (c) {
-        c.style.opacity = 0;
-      });
-      document.querySelector(".chocolate").style.opacity = 0;
-      document.querySelector(".chocolate-o").style.opacity = 1;
-    }
-  }).fromTo(".chocolate", {
-    yPercent: -363.337,
-    xPercent: 212.62,
-    rotate: -15,
-    scale: 0.85
-  }, _objectSpread({}, to, {
-    yPercent: -80,
-    xPercent: 40
-  })).to(".chocolate", to);
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      start: "35% center",
-      end: "45% center",
-      scrub: 0.01
-    },
-    onStart: function onStart() {
-      document.querySelectorAll(".juice").forEach(function (j) {
-        j.style.opacity = 1;
-      });
-      document.querySelector(".juice-o").style.opacity = 0;
-    },
-    onReverseComplete: function onReverseComplete() {
-      document.querySelectorAll(".juice").forEach(function (j) {
-        j.style.opacity = 0;
-      });
-      document.querySelector(".juice-o").style.opacity = 1;
-    }
-  }).fromTo(".juice", {
-    yPercent: -179,
-    xPercent: 419,
-    rotate: -23,
-    scale: 0.5
-  }, _objectSpread({}, to, {
-    yPercent: -70,
-    xPercent: 100
-  })).to(".juice", to);
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      start: "47% center",
-      end: "57% center",
-      scrub: 0.01
-    },
-    onStart: function onStart() {
-      document.querySelectorAll(".avocado").forEach(function (a) {
-        a.style.opacity = 1;
-      });
-      document.querySelector(".avocado-o").style.opacity = 0;
-    },
-    onReverseComplete: function onReverseComplete() {
-      document.querySelectorAll(".avocado").forEach(function (a) {
-        a.style.opacity = 0;
-      });
-      document.querySelector(".avocado-o").style.opacity = 1;
-    }
-  }).fromTo(".avocado", {
-    yPercent: -128.445,
-    xPercent: 417.32,
-    rotate: 50,
-    scale: 0.65
-  }, _objectSpread({}, to)).to(".avocado", to);
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      start: "59% center",
-      end: "72% center",
-      scrub: 0.01
-    },
-    onStart: function onStart() {
-      document.querySelectorAll(".wine").forEach(function (w) {
-        w.style.opacity = 1;
-      });
-      document.querySelector(".wine-o").style.opacity = 0;
-    },
-    onReverseComplete: function onReverseComplete() {
-      document.querySelectorAll(".wine").forEach(function (w) {
-        w.style.opacity = 0;
-      });
-      document.querySelector(".wine-o").style.opacity = 1;
-    }
-  }).fromTo(".wine", {
-    yPercent: -7.168,
-    xPercent: 359.395,
-    rotate: 25,
-    scale: 0.8
-  }, _objectSpread({}, to, {
-    xPercent: 130,
-    yPercent: -34,
-    rotate: 16
-  })).to(".wine", to);
+  });
 }; // 氣泡選單
 
 
@@ -705,7 +878,6 @@ var buttonVisitor = document.querySelector(".buttonVisitor");
 
 var scrollEvent = function scrollEvent() {
   [buttonExhibitor, buttonEvents, buttonPSR, buttonSVG, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor].forEach(function (button) {
-    // const fn = () => {
     if (isElementInViewport(button)) {
       if (button.style.opacity !== "0") return;
       gsap.to(button, {
@@ -721,9 +893,20 @@ var scrollEvent = function scrollEvent() {
         scale: 0.7,
         duration: 0.1
       });
-    } // };
-    // fn();
-    // setTimeout(fn, 1000);
-
+    }
   });
-};
+}; // document.querySelector('html').scrollTo({'behavior': 'smooth', 'top': 1000})
+// var sh = document.querySelector('html').scrollHeight * 0.47//((1267+300)/2494);
+// document.querySelector('html').scrollTo({'behavior': 'smooth', 'top': sh})
+// document.querySelector('html').scrollHeight
+// 11000
+// document.querySelector('html').scrollTop
+// 8429
+// document.querySelector('html').offsetWidth
+// 751
+// document.querySelector('html').scrollHeight
+// 11000
+// document.querySelector('html').scrollTop
+// 5253
+// document.querySelector('html').offsetWidth
+// 615
