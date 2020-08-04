@@ -50,15 +50,17 @@ var resizeDebounce = function resizeDebounce() {
 
 
 window.onload = function () {
-  if (!isMobile) {
-    window.addEventListener("resize", function () {
-      document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
-      resizeDebounce();
-    });
-  }
+  document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
 
   if (isMobile) {
     window.addEventListener("orientationchange", function () {
+      setTimeout(function () {
+        document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
+      }, 100);
+      resizeDebounce();
+    });
+  } else {
+    window.addEventListener("resize", function () {
       document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
       resizeDebounce();
     });
