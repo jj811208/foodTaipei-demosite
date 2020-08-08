@@ -18,8 +18,17 @@
     display: none;
   }
 }
-.scenery {
-  pointer-events: none;
+.toLeft{
+  position: fixed;
+  left: 24px;
+  bottom:16px;
+  cursor:pointer;
+  width: 200px;
+  height: 80px;
+  opacity: 0;
+  z-index:-2;
+  // pointer-events:none;
+  @include img("../assets/toLeft.png");
 }
 .logo {
   height: vh(18);
@@ -29,6 +38,10 @@
   @include size(padS) {
     display: none;
   }
+}
+
+.scenery {
+  pointer-events: none;
 }
 
 .ribbon {
@@ -45,7 +58,7 @@
     }
   }
   &-2 {
-    @include rect(2127.02, -81.14, 617.12, 231.47);
+    @include rect(2350, -81.14, 617.12, 231.47);
     @include img("../assets/ribbon-2.png");
     @include size(padS) {
       @include rectM(1443.38, -33.5, 407, 152.6);
@@ -60,7 +73,7 @@
   }
 }
 .grandma {
-  @include rect(1528, 404, 545.1, 390);
+  @include rect(1700, 404, 545.1, 390);
   @include size(padS) {
     @include rectM(1094, 343.37, 319, 228.23);
   }
@@ -81,7 +94,7 @@
   }
 }
 .buttonEvents {
-  @include rect(1777, 605, 120 * 1.2, 60 * 1.2 /*, 1528, 384, 545.1, 390*/);
+  @include rect(1977, 605, 120 * 1.2, 60 * 1.2 /*, 1528, 384, 545.1, 390*/);
   @include img("../assets/buttonEvents.png");
   @include size(padS) {
     @include rectM(1216, 471, 120, 64);
@@ -89,7 +102,7 @@
   }
 }
 .wineCabinet {
-  @include rect(2061, 430, 451, 438);
+  @include rect(2460, 430, 451, 438);
   @include img("../assets/wineCabinet.png");
   @include size(padS) {
     @include rectM(1411, 367.7, 269.8, 262);
@@ -115,7 +128,7 @@
   }
 }
 .ryan {
-  @include rect(2060, 320.03, 410.15, 363.97);
+  @include rect(2460, 305, 410.15, 363.97);
   @include size(padS) {
     @include rectM(1413.63, 294, 245.36, 217.74);
   }
@@ -143,7 +156,7 @@
 }
 .buttonPSR {
   //29411
-  @include rect(2180, 534, 191 * 1.2, 65 * 1.2 /*, 2060, 305.03, 410.15, 363.97*/);
+  @include rect(2568, 534, 191 * 1.2, 65 * 1.2 /*, 2060, 305.03, 410.15, 363.97*/);
   @include img("../assets/buttonPSR.png");
   @include size(padS) {
     @include rectM(1409, 470, 230, 65);
@@ -218,7 +231,7 @@
 }
 
 .tv {
-  @include rect(2120, -8, 360, 342);
+  @include rect(2512, -21, 360, 342);
   @include img("../assets/tv.png");
   @include size(padS) {
     @include rectM(1407, 19, 260, 246);
@@ -226,7 +239,7 @@
 }
 .buttonSVG {
   //33734
-  @include rect(2138, 76, 210 * 1.2, 63 * 1.2 /*, 2120, -8, 360, 342*/);
+  @include rect(2448, 67, 210 * 1.2, 63 * 1.2 /*, 2120, -8, 360, 342*/);
   @include img("../assets/buttonSVG.png");
 
   @include size(padS) {
@@ -279,7 +292,7 @@
   }
 }
 .internationalFruit {
-  @include rect(1960, 270, 551.1, 358);
+  @include rect(2400, 270, 551.1, 358);
   @include img("../assets/internationalFruit.png");
   @include size(padS) {
     @include rectM(1315, 254, 355.65, 231);
@@ -517,41 +530,43 @@
   transform: scale(1.3) rotate(-16deg);
 }
 .ladder {
-  @include rect(385, 138, 260.35, 454.9);
+  @include rect(2059, 137.07, 262, 458.48);
   @include size(padS) {
     @include rectM(269, 152, 160.1, 279.77);
   }
 }
 .ladderBody {
-  @include rect(385, 175, 260.35, 417.9, 385, 138, 260.35, 454.9);
-  @include img("../assets/ladderBody.png");
+  @include rect(385, 175, 260.35, 417.9, 385, 138, 262, 458.48);
+  @include img("../assets/ladderBodyD.png");
   @include size(padS) {
+    @include img("../assets/ladderBody.png");
     @include rectM(269, 174.76, 160.12, 257.01, 269, 152, 160.1, 279.77);
   }
 }
 .ladderLeftHand {
-  @include rect(428.2, 181.5, 119.35, 97.71, 385, 138, 260.35, 454.9);
+  @include rect(428.2, 181.5, 119.35, 97.71, 385, 138, 262, 458.48);
   @include img("../assets/ladderLeftHand.png");
   @include size(padS) {
     @include rectM(295.57, 178.75, 73.4, 60.09, 269, 152, 160.1, 279.77);
   }
 }
 .ladderRightHand {
-  @include rect(390.07, 251.6, 141.44, 99.08, 385, 138, 260.35, 454.9);
+  @include rect(390.07, 251.6, 141.44, 99.08, 385, 138, 262, 458.48);
   @include img("../assets/ladderRightHand.png");
   @include size(padS) {
     @include rectM(270.6, 221.47, 88.52, 61.33, 269, 152, 160.1, 279.77);
   }
 }
 .ladderCarton {
-  @include rect(458, 138.81, /* 163.3*/ 244.95, /*94.5*/ 141.75, 385, 138, 260.35, 454.9);
-  @include img("../assets/ladderCarton.png");
+  @include rect(458, 138.81, /* 163.3*/ 244.95, /*94.5*/ 141.75, 385, 138, 262, 458.48);
+  @include img("../assets/ladderCarton2.png");
   @include size(padS) {
+  @include img("../assets/ladderCarton.png");
     @include rectM(313.9, 159.4, 100.43 * 1.5, 58.12 * 1.5, 269, 152, 160.1, 279.77);
   }
 }
 .buttonFactSheet {
-  @include rect(461, 152, 155 * 1.2, 59 * 1.2 /*, 385, 138, 260.35, 454.9*/);
+  @include rect(2135, 152, 155 * 1.2, 59 * 1.2 /*, 385, 138, 260.35, 454.9*/);
   @include img("../assets/buttonFactSheet.png");
   @include size(padS) {
     @include rectM(241, 80, 155, 64.5);
@@ -583,10 +598,18 @@
 }
 
 .carton {
-  @include rect(516, 213, 197, 282);
+  @include rect(436, 211, 197, 376);
   @include img("../assets/carton.png");
   @include size(padS) {
     @include rectM(347.34, 247.81, 125.77, 179.86);
+    @include img("../assets/cartonM.png");
+  }
+}
+.worldCarton{
+  @include rect(2224, 195, 180, 379);
+  @include img("../assets/worldCarton.png");
+  @include size(padS) {
+    display: none;
   }
 }
 .elsa {
@@ -604,16 +627,16 @@
     @include img("../assets/buttonVisitorM.png");
   }
 }
-.orangeCabinet {
-  @include rect(-28, 157, 580, 411);
-  @include img("../assets/orangeCabinet.png");
-  @include size(padS) {
-    @include rectM(-16, 85, 430, 340);
-    display: none;
-  }
-}
+// .orangeCabinet {
+//   @include rect(-28, 157, 580, 411);
+//   @include img("../assets/orangeCabinet.png");
+//   @include size(padS) {
+//     @include rectM(-16, 85, 430, 340);
+//     display: none;
+//   }
+// }
 .window {
-  @include rect(2345, -3, 224, 129);
+  @include rect(2680, -3, 224, 129);
   @include img("../assets/window.png");
   @include size(padS) {
     @include rectM(1570.1, -2.47, 162.31, 93.48);
@@ -627,7 +650,7 @@
   }
 }
 .background {
-  @include rect(0, -5, 2496, 771);
+  @include rect(0, -5, 2881, 771);
   @include img("../assets/background.png");
   background-size: cover;
   @include size(padS) {

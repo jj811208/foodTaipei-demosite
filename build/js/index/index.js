@@ -502,7 +502,7 @@ var ParallaxFn = function ParallaxFn() {
 
   }, 0).to(".richman", window.innerWidth > 600 // || window.innerWidth / window.innerHeight > 360 / 620 //這些數字要和 css 的和 min-height ratio 一樣
   ? {
-    xPercent: 152
+    xPercent: 200
   } : {
     x: function x() {
       var delta = document.querySelector(".container").offsetWidth - window.innerWidth;
@@ -691,7 +691,7 @@ var ParallaxFn = function ParallaxFn() {
     "(min-width: 601px)": function minWidth601px() {
       gsap.fromTo(".noodles", {
         yPercent: -486,
-        xPercent: 50,
+        xPercent: -5,
         rotate: 50,
         scale: 0.65
       }, _objectSpread({
@@ -735,7 +735,7 @@ var ParallaxFn = function ParallaxFn() {
         }
       }).fromTo(".crab", {
         yPercent: 40.06,
-        xPercent: -24.695,
+        xPercent: -84.695,
         rotate: -360
       }, _objectSpread({}, to, {
         xPercent: -10,
@@ -765,7 +765,7 @@ var ParallaxFn = function ParallaxFn() {
         }
       }).fromTo(".chocolate", {
         yPercent: -363.337,
-        xPercent: 212.62,
+        xPercent: 132.62,
         rotate: -15,
         scale: 0.85
       }, _objectSpread({}, to, {
@@ -793,7 +793,7 @@ var ParallaxFn = function ParallaxFn() {
         }
       }).fromTo(".juice", {
         yPercent: -179,
-        xPercent: 419,
+        xPercent: 190,
         rotate: -23,
         scale: 0.5
       }, _objectSpread({}, to, {
@@ -803,8 +803,8 @@ var ParallaxFn = function ParallaxFn() {
       gsap.timeline({
         scrollTrigger: {
           trigger: ".scrollElement",
-          start: "47% center",
-          end: "57% center",
+          start: "60% center",
+          end: "68% center",
           scrub: 0.01
         },
         onStart: function onStart() {
@@ -828,8 +828,8 @@ var ParallaxFn = function ParallaxFn() {
       gsap.timeline({
         scrollTrigger: {
           trigger: ".scrollElement",
-          start: "59% center",
-          end: "72% center",
+          start: "70% center",
+          end: "76% center",
           scrub: 0.01
         },
         onStart: function onStart() {
@@ -867,7 +867,8 @@ var buttonMNT = document.querySelector(".buttonMNT");
 var buttonPC = document.querySelector(".buttonPC");
 var buttonFactSheet = document.querySelector(".buttonFactSheet");
 var buttonVisitor = document.querySelector(".buttonVisitor");
-[buttonExhibitor, buttonEvents, buttonPSR, buttonSVG, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor].forEach(function (button) {
+var buttonToLeft = document.querySelector(".toLeft");
+[buttonExhibitor, buttonEvents, buttonPSR, buttonSVG, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor, buttonToLeft].forEach(function (button) {
   gsap.to(button, {
     startAt: {
       opacity: 0,
@@ -895,18 +896,32 @@ var scrollEvent = function scrollEvent() {
       });
     }
   });
-}; // document.querySelector('html').scrollTo({'behavior': 'smooth', 'top': 1000})
-// var sh = document.querySelector('html').scrollHeight * 0.47//((1267+300)/2494);
-// document.querySelector('html').scrollTo({'behavior': 'smooth', 'top': sh})
-// document.querySelector('html').scrollHeight
-// 11000
-// document.querySelector('html').scrollTop
-// 8429
-// document.querySelector('html').offsetWidth
-// 751
-// document.querySelector('html').scrollHeight
-// 11000
-// document.querySelector('html').scrollTop
-// 5253
-// document.querySelector('html').offsetWidth
-// 615
+  var ladder = document.querySelector(".ladder");
+
+  if (isElementInViewport(ladder)) {
+    if (buttonToLeft.style.opacity !== "0") return;
+    gsap.timeline().to(buttonToLeft, {
+      zIndex: 1
+    }).to(buttonToLeft, {
+      opacity: 1,
+      scale: 1,
+      ease: Back.easeOut.config(7)
+    });
+  } else {
+    if (buttonToLeft.style.opacity !== "1") return;
+    gsap.timeline().to(buttonToLeft, {
+      opacity: 0,
+      zIndex: -2
+    }).to(buttonToLeft, {
+      scale: 0.7,
+      duration: 0.1
+    });
+  }
+};
+
+function toLeft() {
+  document.querySelector("html").scrollTo({
+    behavior: "smooth",
+    top: 0
+  });
+}

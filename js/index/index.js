@@ -707,7 +707,7 @@ const ParallaxFn = () => {
       ".richman",
       window.innerWidth > 600 // || window.innerWidth / window.innerHeight > 360 / 620 //這些數字要和 css 的和 min-height ratio 一樣
         ? {
-            xPercent: 152,
+            xPercent: 200,
           }
         : {
             x: () => {
@@ -838,10 +838,11 @@ const ParallaxFn = () => {
             xPercent: -22.62,
             rotate: -15,
             scale: 0.95,
-          },{
-            ...to
+          },
+          {
+            ...to,
           }
-        )
+        );
       gsap
         .timeline({
           scrollTrigger: {
@@ -874,7 +875,7 @@ const ParallaxFn = () => {
           {
             ...to,
           }
-        )
+        );
       gsap
         .timeline({
           scrollTrigger: {
@@ -954,7 +955,7 @@ const ParallaxFn = () => {
         ".noodles",
         {
           yPercent: -486,
-          xPercent: 50,
+          xPercent: -5,
           rotate: 50,
           scale: 0.65,
         },
@@ -1006,7 +1007,7 @@ const ParallaxFn = () => {
           ".crab",
           {
             yPercent: 40.06,
-            xPercent: -24.695,
+            xPercent: -84.695,
             rotate: -360,
           },
           {
@@ -1044,7 +1045,7 @@ const ParallaxFn = () => {
           ".chocolate",
           {
             yPercent: -363.337,
-            xPercent: 212.62,
+            xPercent: 132.62,
             rotate: -15,
             scale: 0.85,
           },
@@ -1080,7 +1081,7 @@ const ParallaxFn = () => {
           ".juice",
           {
             yPercent: -179,
-            xPercent: 419,
+            xPercent: 190,
             rotate: -23,
             scale: 0.5,
           },
@@ -1095,8 +1096,8 @@ const ParallaxFn = () => {
         .timeline({
           scrollTrigger: {
             trigger: ".scrollElement",
-            start: "47% center",
-            end: "57% center",
+            start: "60% center",
+            end: "68% center",
             scrub: 0.01,
           },
           onStart: () => {
@@ -1129,8 +1130,8 @@ const ParallaxFn = () => {
         .timeline({
           scrollTrigger: {
             trigger: ".scrollElement",
-            start: "59% center",
-            end: "72% center",
+            start: "70% center",
+            end: "76% center",
             scrub: 0.01,
           },
           onStart: () => {
@@ -1175,6 +1176,7 @@ const buttonMNT = document.querySelector(".buttonMNT");
 const buttonPC = document.querySelector(".buttonPC");
 const buttonFactSheet = document.querySelector(".buttonFactSheet");
 const buttonVisitor = document.querySelector(".buttonVisitor");
+const buttonToLeft = document.querySelector(".toLeft");
 [
   buttonExhibitor,
   buttonEvents,
@@ -1184,6 +1186,7 @@ const buttonVisitor = document.querySelector(".buttonVisitor");
   buttonPC,
   buttonFactSheet,
   buttonVisitor,
+  buttonToLeft,
 ].forEach((button) => {
   gsap.to(button, {
     startAt: {
@@ -1224,24 +1227,35 @@ const scrollEvent = () => {
         });
     }
   });
+
+  const ladder = document.querySelector(".ladder");
+  if (isElementInViewport(ladder)) {
+    if (buttonToLeft.style.opacity !== "0") return;
+    gsap
+      .timeline()
+      .to(buttonToLeft, {
+        zIndex: 1,
+      })
+      .to(buttonToLeft, {
+        opacity: 1,
+        scale: 1,
+        ease: Back.easeOut.config(7),
+      });
+  } else {
+    if (buttonToLeft.style.opacity !== "1") return;
+    gsap
+      .timeline()
+      .to(buttonToLeft, {
+        opacity: 0,
+        zIndex: -2,
+      })
+      .to(buttonToLeft, {
+        scale: 0.7,
+        duration: 0.1,
+      });
+  }
 };
 
-
-// document.querySelector('html').scrollTo({'behavior': 'smooth', 'top': 1000})
-
-// var sh = document.querySelector('html').scrollHeight * 0.47//((1267+300)/2494);
-// document.querySelector('html').scrollTo({'behavior': 'smooth', 'top': sh})
-
-// document.querySelector('html').scrollHeight
-// 11000
-// document.querySelector('html').scrollTop
-// 8429
-// document.querySelector('html').offsetWidth
-// 751
-
-// document.querySelector('html').scrollHeight
-// 11000
-// document.querySelector('html').scrollTop
-// 5253
-// document.querySelector('html').offsetWidth
-// 615
+function toLeft() {
+  document.querySelector("html").scrollTo({ behavior: "smooth", top: 0 });
+}
