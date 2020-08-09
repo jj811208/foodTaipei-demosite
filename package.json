@@ -15,9 +15,9 @@
     "node-sass": "^4.13.0"
   },
   "scripts": {
-    "start": "gulp",
     "push": "git add . && git commit -m 'no message' && git push && yarn gh",
-    "gh": "gh-pages -d build"
+    "gh": "gh-pages -d build",
+    "start": "gulp"
   },
   "browserslist": [
     "last 4 version",

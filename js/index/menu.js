@@ -3,12 +3,28 @@ function menuInit() {
   menuDOM.addEventListener("click", () => {
     menuDOM.classList.toggle("menu--active");
   });
-  gsap.timeline().from(
-    ".menu",
-    {
-      duration: 0.3,
-      y: "-100%",
-    },
-    0.4
-  );
+  gsap
+    .timeline({
+      repeat: -1,
+      duration: 2,
+    })
+    .to(".menu svg", {
+      scaleX: 0.8,
+      duration: 1,
+      yoyo: 1,
+    })
+    .to(".menu #topB", {
+      yPercent:-30,
+      duration: 1,
+      yoyo: 1,
+    })
+    .to(".menu #bottomB", {
+      yPercent:30,
+      duration: 1,
+      yoyo: 1,
+    });
 }
+
+// #topB
+// #centerM
+// #bottomB
