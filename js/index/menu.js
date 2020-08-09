@@ -22,7 +22,6 @@ function menuInit() {
     yPercent: 0,
     duration: 1.2
   }, 0.8);
-  console.log(menuAnime);
   mouseHover(".menu", {
     mouseover: function mouseover() {
       menuAnime.pause();
@@ -39,6 +38,9 @@ function menuInit() {
       });
     }
   });
-} // #topB
-// #centerM
-// #bottomB
+}
+
+function langSwitch() {
+  document.querySelector("html").classList.toggle('english');
+  document.querySelector("html").classList.toggle('chinese');
+}
