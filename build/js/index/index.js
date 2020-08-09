@@ -90,7 +90,7 @@ function animationInit() {
     scrollTrigger: {
       trigger: ".scrollElement",
       id: "poster",
-      start: "25% center"
+      start: "15% center"
     },
     duration: 1.7,
     transformOrigin: "bottom",
@@ -526,7 +526,7 @@ var ParallaxFn = function ParallaxFn() {
   };
   ScrollTrigger.matchMedia({
     // rwd   and (max-aspect-ratio: 360/620)
-    "  (max-width: 600px)": function maxWidth600px() {
+    "(max-width: 600px)": function maxWidth600px() {
       gsap.fromTo(".noodles", {
         yPercent: -526,
         xPercent: 190,

@@ -25,24 +25,23 @@
     top: 5px;
     box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #44444400;
   }
-  svg{
+  svg {
     pointer-events: none;
     position: absolute;
     top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  #closeBtn{
+  #closeBtn {
     opacity: 0;
-    transition:opacity .3s;
+    transition: opacity 0.3s;
     .menu--active & {
-
       opacity: 1;
     }
   }
-  #openBtn{
+  #openBtn {
     opacity: 1;
-    transition:opacity .3s;
+    transition: opacity 0.3s;
     .menu--active & {
       opacity: 0;
     }
@@ -75,25 +74,28 @@
       margin-left: 16px;
     }
   }
-  &__text{
+  &__text {
     position: absolute;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:12px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
     font-size: 14px;
     opacity: 0;
-    .menu--active &{
+    .menu--active & {
       display: none;
     }
-    .menu:hover &{
-      transition:opacity .5s;
+    .menu:hover & {
+      transition: opacity 0.5s;
       opacity: 1;
     }
-    &.open{
+    &.open {
       display: none;
-      .menu--active &{
+      .menu--active & {
         display: block;
       }
+    }
+    @include size(padS) {
+      display: none !important;
     }
   }
 
@@ -125,18 +127,22 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
       max-height: 100vh;
       max-width: 100vw;
     }
   }
 }
 
+.languageSwitch {
+  pointer-events: auto;
+}
+
 .greyfilter {
   filter: url(#filter);
   cursor: pointer;
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
 
   &:hover {
     opacity: 0;

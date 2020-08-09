@@ -113,7 +113,7 @@ function animationInit() {
     scrollTrigger: {
       trigger: ".scrollElement",
       id: "poster",
-      start: "25% center",
+      start: "15% center",
     },
     duration: 1.7,
     transformOrigin: "bottom",
@@ -740,7 +740,7 @@ const ParallaxFn = () => {
   };
   ScrollTrigger.matchMedia({
     // rwd   and (max-aspect-ratio: 360/620)
-    "  (max-width: 600px)": function () {
+    "(max-width: 600px)": function () {
       gsap.fromTo(
         ".noodles",
         {

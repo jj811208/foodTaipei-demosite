@@ -18,17 +18,31 @@
     display: none;
   }
 }
-.toLeft{
+.toLeft {
   position: fixed;
   right: 24px;
-  bottom:0;
-  cursor:pointer;
+  bottom: 0;
+  cursor: pointer;
   width: 100px;
   height: 100px;
   opacity: 0;
-  z-index:-2;
+  z-index: -2;
   // pointer-events:none;
   @include img("../assets/toLeft.png");
+}
+.languageSwitch {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  cursor: pointer;
+  width: 200px;
+  height: 172px;
+  .chinese & {
+    @include img("../assets/languageToE.png");
+  }
+  .english & {
+    @include img("../assets/languageToC.png");
+  }
 }
 .logo {
   height: vh(18);
@@ -95,10 +109,20 @@
 }
 .buttonEvents {
   @include rect(1977, 605, 120 * 1.2, 60 * 1.2 /*, 1528, 384, 545.1, 390*/);
-  @include img("../assets/buttonEvents.png");
+  .chinese & {
+    @include img("../assets/buttonEventsC.png");
+  }
+  .english & {
+    @include img("../assets/buttonEvents.png");
+  }
   @include size(padS) {
     @include rectM(1216, 471, 120, 64);
-    @include img("../assets/buttonEventsM.png");
+    .chinese & {
+      @include img("../assets/buttonEventsCM.png");
+    }
+    .english & {
+      @include img("../assets/buttonEventsM.png");
+    }
   }
 }
 .wineCabinet {
@@ -128,7 +152,7 @@
   }
 }
 .ryan {
-  @include rect(2460, 305, 410.15, 363.97);
+  @include rect(2460, 325, 410.15, 363.97);
   @include size(padS) {
     @include rectM(1413.63, 294, 245.36, 217.74);
   }
@@ -157,10 +181,20 @@
 .buttonPSR {
   //29411
   @include rect(2568, 534, 191 * 1.2, 65 * 1.2 /*, 2060, 305.03, 410.15, 363.97*/);
-  @include img("../assets/buttonPSR.png");
+  .chinese & {
+    @include img("../assets/buttonPSRC.png");
+  }
+  .english & {
+    @include img("../assets/buttonPSR.png");
+  }
   @include size(padS) {
     @include rectM(1409, 470, 230, 65);
-    @include img("../assets/buttonPSRM.png");
+    .chinese & {
+      @include img("../assets/buttonPSRCM.png");
+    }
+    .english & {
+      @include img("../assets/buttonPSRM.png");
+    }
   }
 }
 
@@ -240,11 +274,21 @@
 .buttonSVG {
   //33734
   @include rect(2448, 67, 210 * 1.2, 63 * 1.2 /*, 2120, -8, 360, 342*/);
-  @include img("../assets/buttonSVG.png");
+  .chinese & {
+    @include img("../assets/buttonSVGC.png");
+  }
+  .english & {
+    @include img("../assets/buttonSVG.png");
+  }
 
   @include size(padS) {
     @include rectM(1397, 80, 260, 64.5);
-    @include img("../assets/buttonSVGM.png");
+    .chinese & {
+      @include img("../assets/buttonSVGCM.png");
+    }
+    .english & {
+      @include img("../assets/buttonSVGM.png");
+    }
   }
 }
 .mainTableItems {
@@ -278,10 +322,20 @@
 .buttonMNT {
   //3.33493
   @include rect(890, 260, 210 * 1.2, 63 * 1.2 /*, 835.03, 263.74, 404.97, 193.22*/);
-  @include img("../assets/buttonMNT.png");
+  .chinese & {
+    @include img("../assets/buttonMNTC.png");
+  }
+  .english & {
+    @include img("../assets/buttonMNT.png");
+  }
   @include size(padS) {
     @include rectM(600, 164, 258, 64.5);
-    @include img("../assets/buttonMNTM.png");
+    .chinese & {
+      @include img("../assets/buttonMNTCM.png");
+    }
+    .english & {
+      @include img("../assets/buttonMNTM.png");
+    }
   }
 }
 .supportingRole {
@@ -410,10 +464,20 @@
 .buttonPC {
   //2.9873
   @include rect(1388, 157, 176 * 1.2, 59 * 1.2 /*, 1267, 83, 145, 160.93*/);
-  @include img("../assets/buttonPC.png");
+  .chinese & {
+    @include img("../assets/buttonPCC.png");
+  }
+  .english & {
+    @include img("../assets/buttonPC.png");
+  }
   @include size(padS) {
     @include rectM(889, 80, 216, 64.5);
-    @include img("../assets/buttonPCM.png");
+    .chinese & {
+      @include img("../assets/buttonPCCM.png");
+    }
+    .english & {
+      @include img("../assets/buttonPCM.png");
+    }
   }
 }
 .yellowTable {
@@ -492,10 +556,20 @@
 }
 .buttonExhibitor {
   @include rect(535, 327.5, 138 * 1.2, 64.5 * 1.2 /*, 606.15, 92, 209.79, 409.3*/);
-  @include img("../assets/buttonExhibitor.png");
+  .chinese & {
+    @include img("../assets/buttonExhibitorC.png");
+  }
+  .english & {
+    @include img("../assets/buttonExhibitor.png");
+  }
   @include size(padS) {
     @include rectM(444, 80, 138, 64.5);
-    @include img("../assets/buttonExhibitorM.png");
+    .chinese & {
+      @include img("../assets/buttonExhibitorCM.png");
+    }
+    .english & {
+      @include img("../assets/buttonExhibitorM.png");
+    }
   }
 }
 .worldCabinet {
@@ -561,16 +635,26 @@
   @include rect(458, 138.81, /* 163.3*/ 244.95, /*94.5*/ 141.75, 385, 138, 262, 458.48);
   @include img("../assets/ladderCarton2.png");
   @include size(padS) {
-  @include img("../assets/ladderCarton.png");
+    @include img("../assets/ladderCarton.png");
     @include rectM(313.9, 159.4, 100.43 * 1.5, 58.12 * 1.5, 269, 152, 160.1, 279.77);
   }
 }
 .buttonFactSheet {
   @include rect(2135, 152, 155 * 1.2, 59 * 1.2 /*, 385, 138, 260.35, 454.9*/);
-  @include img("../assets/buttonFactSheet.png");
+  .chinese & {
+    @include img("../assets/buttonFactSheetC.png");
+  }
+  .english & {
+    @include img("../assets/buttonFactSheet.png");
+  }
   @include size(padS) {
     @include rectM(241, 80, 155, 64.5);
-    @include img("../assets/buttonFactSheetM.png");
+    .chinese & {
+      @include img("../assets/buttonFactSheetCM.png");
+    }
+    .english & {
+      @include img("../assets/buttonFactSheetM.png");
+    }
   }
 }
 .cabinet {
@@ -605,7 +689,7 @@
     @include img("../assets/cartonM.png");
   }
 }
-.worldCarton{
+.worldCarton {
   @include rect(2224, 195, 180, 379);
   @include img("../assets/worldCarton.png");
   @include size(padS) {
@@ -621,10 +705,20 @@
 }
 .buttonVisitor {
   @include rect(149, 337, 119 * 1.2, 56 * 1.2 /*, 10, 192.76, 314.09, 461.28*/);
-  @include img("../assets/buttonVisitor.png");
+  .chinese & {
+    @include img("../assets/buttonVisitorC.png");
+  }
+  .english & {
+    @include img("../assets/buttonVisitor.png");
+  }
   @include size(padS) {
     @include rectM(35, 80, 118, 64.5);
-    @include img("../assets/buttonVisitorM.png");
+    .chinese & {
+      @include img("../assets/buttonVisitorCM.png");
+    }
+    .english & {
+      @include img("../assets/buttonVisitorM.png");
+    }
   }
 }
 // .orangeCabinet {

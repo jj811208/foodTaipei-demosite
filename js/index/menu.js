@@ -3,7 +3,7 @@ function menuInit() {
   menuDOM.addEventListener("click", () => {
     menuDOM.classList.toggle("menu--active");
   });
-  let menuAnime = gsap
+  const menuAnime = gsap
     .timeline({
       repeat: -1,
       duration: 2,
@@ -36,7 +36,6 @@ function menuInit() {
       },
       0.8
     );
-  console.log(menuAnime);
   mouseHover(".menu", {
     mouseover: () => {
       menuAnime.pause();
@@ -49,6 +48,7 @@ function menuInit() {
   });
 }
 
-// #topB
-// #centerM
-// #bottomB
+function langSwitch(){
+  document.querySelector("html").classList.toggle('english');
+  document.querySelector("html").classList.toggle('chinese');
+}
