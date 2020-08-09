@@ -196,59 +196,6 @@ body {
         display: inline;
         margin-top: 11px;
         margin-left: 16px; } }
-  .menu__icon {
-    position: relative;
-    background: currentColor;
-    height: 4px;
-    width: 28px; }
-    .menu--active .menu__icon {
-      background: #fff; }
-    .menu__icon::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: currentColor;
-      -webkit-transform: translateY(-10px);
-          -ms-transform: translateY(-10px);
-              transform: translateY(-10px);
-      content: "";
-      -webkit-transition: -webkit-transform 0.3s;
-      transition: -webkit-transform 0.3s;
-      -o-transition: transform 0.3s;
-      transition: transform 0.3s;
-      transition: transform 0.3s, -webkit-transform 0.3s;
-      -webkit-transform-origin: center;
-          -ms-transform-origin: center;
-              transform-origin: center; }
-      .menu--active .menu__icon::before {
-        -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-                transform: rotate(45deg); }
-    .menu__icon::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: currentColor;
-      -webkit-transform: translateY(10px);
-          -ms-transform: translateY(10px);
-              transform: translateY(10px);
-      -webkit-transform-origin: center;
-          -ms-transform-origin: center;
-              transform-origin: center;
-      content: "";
-      -webkit-transition: -webkit-transform 0.3s;
-      transition: -webkit-transform 0.3s;
-      -o-transition: transform 0.3s;
-      transition: transform 0.3s;
-      transition: transform 0.3s, -webkit-transform 0.3s; }
-      .menu--active .menu__icon::after {
-        -webkit-transform: rotate(-45deg);
-            -ms-transform: rotate(-45deg);
-                transform: rotate(-45deg); }
   .menu__list {
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
@@ -374,10 +321,10 @@ body {
 
 .toLeft {
   position: fixed;
-  left: 24px;
-  bottom: 16px;
+  right: 24px;
+  bottom: 0;
   cursor: pointer;
-  width: 200px;
+  width: 80px;
   height: 80px;
   opacity: 0;
   z-index: -2;
