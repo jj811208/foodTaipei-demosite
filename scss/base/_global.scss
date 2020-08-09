@@ -27,3 +27,26 @@ body {
     }
   }
 }
+
+.english{
+  .E{
+    // opacity: 1;
+    display:block;
+  }
+  .C{
+    // opacity: 0;
+    // pointer-events: none;
+    display:none !important;
+  }
+}
+.chinese{
+  .E{
+    // opacity: 0;
+    // pointer-events: none;
+    display:none !important;
+  }
+  .C{
+    // opacity: 1;
+    display:block;
+  }
+}

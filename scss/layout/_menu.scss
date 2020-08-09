@@ -6,9 +6,6 @@
   border-radius: 50%;
   color: #2d3640;
   background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff, 0 4px 32px -6px #444444cc;
   cursor: pointer;
   transition: box-shadow 0.7s;
@@ -27,6 +24,28 @@
     right: 16px;
     top: 5px;
     box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #44444400;
+  }
+  svg{
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+  #closeBtn{
+    opacity: 0;
+    transition:opacity .3s;
+    .menu--active & {
+
+      opacity: 1;
+    }
+  }
+  #openBtn{
+    opacity: 1;
+    transition:opacity .3s;
+    .menu--active & {
+      opacity: 0;
+    }
   }
   &__container {
     position: fixed;
@@ -56,45 +75,27 @@
       margin-left: 16px;
     }
   }
-  // &__icon {
-  //   position: relative;
-  //   background: currentColor;
-  //   height: 4px;
-  //   width: 28px;
-  //   .menu--active & {
-  //     background: #fff;
-  //   }
-  //   &::before {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     right: 0;
-  //     bottom: 0;
-  //     background: currentColor;
-  //     transform: translateY(-10px);
-  //     content: "";
-  //     transition: transform 0.3s;
-  //     transform-origin: center;
-  //     .menu--active & {
-  //       transform: rotate(45deg);
-  //     }
-  //   }
-  //   &::after {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     right: 0;
-  //     bottom: 0;
-  //     background: currentColor;
-  //     transform: translateY(10px);
-  //     transform-origin: center;
-  //     content: "";
-  //     transition: transform 0.3s;
-  //     .menu--active & {
-  //       transform: rotate(-45deg);
-  //     }
-  //   }
-  // }
+  &__text{
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:12px;
+    font-size: 14px;
+    opacity: 0;
+    .menu--active &{
+      display: none;
+    }
+    .menu:hover &{
+      transition:opacity .5s;
+      opacity: 1;
+    }
+    &.open{
+      display: none;
+      .menu--active &{
+        display: block;
+      }
+    }
+  }
 
   &__list {
     height: vh(100);
@@ -127,47 +128,6 @@
       transform: translate(-50%,-50%);
       max-height: 100vh;
       max-width: 100vw;
-    }
-  }
-  &__item {
-    cursor: pointer;
-    position: relative;
-    pointer-events: none;
-    .menu--active + * & {
-      pointer-events: auto;
-    }
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
-    svg {
-      position: absolute;
-      left: -32px;
-      top: 50%;
-      transform: translateY(-50%);
-      transform-origin: top;
-      opacity: 0;
-      animation-name: shake;
-      animation-duration: 0.8s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-      @keyframes shake {
-        0% {
-          transform: rotate(15deg) translateY(-50%);
-        }
-        50% {
-          transform: rotate(-15deg) translateY(-50%);
-        }
-        100% {
-          transform: rotate(15deg) translateY(-50%);
-        }
-      }
-    }
-    &:hover {
-      svg {
-        transition: opacity 0.3s;
-        opacity: 1;
-      }
     }
   }
 }
