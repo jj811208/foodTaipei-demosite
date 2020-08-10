@@ -31,8 +31,9 @@
   @include img("../assets/toLeft.png");
 }
 .languageSwitch {
-  position: absolute;
+  position: fixed;
   right: -4px;
+  pointer-events: auto;
   bottom: -4px;
   cursor: pointer;
   width: 200px;
@@ -42,6 +43,13 @@
   }
   .english & {
     @include img("../assets/languageToC.png");
+  }
+
+  @include size(padS) {
+    width: 140px;
+    height: 116px;
+    right: -24px;
+    z-index: 5;
   }
 }
 .logo {
@@ -580,7 +588,7 @@
   }
 }
 .juice-o {
-  @include rect(1830, 245.9, 25.44, 54.24, 1769, 30, 334, 536);
+  @include rect(1830, 247.9, 25.44, 54.24, 1769, 30, 334, 536);
   @include img("../assets/juice.png");
   transform: scale(1.8) rotate(-24deg);
 }

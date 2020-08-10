@@ -38,17 +38,21 @@ function menuInit() {
     );
   mouseHover(".menu", {
     mouseover: () => {
-      menuAnime.pause();
-      return gsap.to(".menu svg", { yPercent: -12, duration: 0.2 });
+      if (window.innerWidth > 600) {
+        menuAnime.pause();
+        return gsap.to(".menu svg", { yPercent: -12, duration: 0.2 });
+      }
     },
     mouseout: () => {
-      menuAnime.play();
-      gsap.to(".menu svg", { yPercent: 0, duration: 0.2 });
+      if (window.innerWidth > 600) {
+        menuAnime.play();
+        gsap.to(".menu svg", { yPercent: 0, duration: 0.2 });
+      }
     },
   });
 }
 
-function langSwitch(){
-  document.querySelector("html").classList.toggle('english');
-  document.querySelector("html").classList.toggle('chinese');
+function langSwitch() {
+  document.querySelector("html").classList.toggle("english");
+  document.querySelector("html").classList.toggle("chinese");
 }
