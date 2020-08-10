@@ -421,7 +421,7 @@ body {
         padding-top: 37.49386%; } }
   .ribbon-1 {
     position: absolute;
-    width: 22.67361%;
+    width: 17.46528%;
     top: -20.23499%;
     left: 47.43056%;
     background-image: url("../assets/ribbon-1.png");
@@ -431,7 +431,7 @@ body {
     .ribbon-1::before {
       content: "";
       display: block;
-      padding-top: 45.94181%; }
+      padding-top: 59.64215%; }
     @media (max-width: 600px) {
       .ribbon-1 {
         position: absolute;
@@ -445,7 +445,7 @@ body {
   .ribbon-2 {
     position: absolute;
     width: 21.42778%;
-    top: -10.59269%;
+    top: -13.20366%;
     left: 81.59722%;
     background-image: url("../assets/ribbon-2.png");
     background-position: left top;
