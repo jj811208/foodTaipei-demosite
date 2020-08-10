@@ -24,23 +24,27 @@ function menuInit() {
   }, 0.8);
   mouseHover(".menu", {
     mouseover: function mouseover() {
-      menuAnime.pause();
-      return gsap.to(".menu svg", {
-        yPercent: -12,
-        duration: 0.2
-      });
+      if (window.innerWidth > 600) {
+        menuAnime.pause();
+        return gsap.to(".menu svg", {
+          yPercent: -12,
+          duration: 0.2
+        });
+      }
     },
     mouseout: function mouseout() {
-      menuAnime.play();
-      gsap.to(".menu svg", {
-        yPercent: 0,
-        duration: 0.2
-      });
+      if (window.innerWidth > 600) {
+        menuAnime.play();
+        gsap.to(".menu svg", {
+          yPercent: 0,
+          duration: 0.2
+        });
+      }
     }
   });
 }
 
 function langSwitch() {
-  document.querySelector("html").classList.toggle('english');
-  document.querySelector("html").classList.toggle('chinese');
+  document.querySelector("html").classList.toggle("english");
+  document.querySelector("html").classList.toggle("chinese");
 }
