@@ -26,18 +26,20 @@
   width: 100px;
   height: 100px;
   opacity: 0;
-  z-index: -2;
-  // pointer-events:none;
+  pointer-events:none;
   @include img("../assets/toLeft.png");
 }
 .languageSwitch {
   position: fixed;
   right: -4px;
-  pointer-events: auto;
   bottom: -4px;
   cursor: pointer;
   width: 200px;
   height: 172px;
+  
+  .menu--active + * &{
+    pointer-events: auto;
+  }
   .chinese & {
     @include img("../assets/languageToE.png");
   }

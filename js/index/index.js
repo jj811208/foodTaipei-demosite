@@ -1192,7 +1192,6 @@ const buttonMNT = document.querySelector(".buttonMNT");
 const buttonPC = document.querySelector(".buttonPC");
 const buttonFactSheet = document.querySelector(".buttonFactSheet");
 const buttonVisitor = document.querySelector(".buttonVisitor");
-const buttonToLeft = document.querySelector(".toLeft");
 [
   buttonExhibitor,
   buttonEvents,
@@ -1202,7 +1201,6 @@ const buttonToLeft = document.querySelector(".toLeft");
   buttonPC,
   buttonFactSheet,
   buttonVisitor,
-  buttonToLeft,
 ].forEach((button) => {
   gsap.to(button, {
     startAt: {
@@ -1244,32 +1242,18 @@ const scrollEvent = () => {
     }
   });
 
-  const ladder = document.querySelector(".ladder");
-  if (isElementInViewport(ladder)) {
-    if (buttonToLeft.style.opacity !== "0") return;
-    gsap
-      .timeline()
-      .to(buttonToLeft, {
-        zIndex: 1,
-      })
-      .to(buttonToLeft, {
-        opacity: 1,
-        scale: 1,
-        ease: Back.easeOut.config(7),
-      });
-  } else {
-    if (buttonToLeft.style.opacity !== "1") return;
-    gsap
-      .timeline()
-      .to(buttonToLeft, {
-        opacity: 0,
-        zIndex: -2,
-      })
-      .to(buttonToLeft, {
-        scale: 0.7,
-        duration: 0.1,
-      });
-  }
+  const buttonToLeft = document.querySelector(".toLeft");
+
+  gsap.to(buttonToLeft, {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      start: "48% center",
+      end: "48% center",
+      scrub: 0.1,
+    },
+    opacity: 1,
+    pointerEvents: "auto",
+  });
 };
 
 function toLeft() {

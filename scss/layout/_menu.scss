@@ -115,7 +115,6 @@
     pointer-events: none;
     opacity: 0;
     box-shadow: 0 4px 32px -6px #444444cc;
-    overflow: auto;
 
     @include size(padS) {
       width: 100vw;
@@ -124,12 +123,16 @@
       padding-bottom: 24px;
       display: block;
       pointer-events: auto;
+      overflow: hidden;
     }
     .menu--active + & {
       z-index: 3;
       opacity: 1;
       transition: opacity 0.3s;
       transition-delay: 0.2s;
+      @include size(padS) {
+        overflow: auto;
+      }
     }
 
     svg {
