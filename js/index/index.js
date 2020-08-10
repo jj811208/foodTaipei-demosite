@@ -877,8 +877,7 @@ var buttonMNT = document.querySelector(".buttonMNT");
 var buttonPC = document.querySelector(".buttonPC");
 var buttonFactSheet = document.querySelector(".buttonFactSheet");
 var buttonVisitor = document.querySelector(".buttonVisitor");
-var buttonToLeft = document.querySelector(".toLeft");
-[buttonExhibitor, buttonEvents, buttonPSR, buttonSVG, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor, buttonToLeft].forEach(function (button) {
+[buttonExhibitor, buttonEvents, buttonPSR, buttonSVG, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor].forEach(function (button) {
   gsap.to(button, {
     startAt: {
       opacity: 0,
@@ -906,27 +905,17 @@ var scrollEvent = function scrollEvent() {
       });
     }
   });
-  var ladder = document.querySelector(".ladder");
-
-  if (isElementInViewport(ladder)) {
-    if (buttonToLeft.style.opacity !== "0") return;
-    gsap.timeline().to(buttonToLeft, {
-      zIndex: 1
-    }).to(buttonToLeft, {
-      opacity: 1,
-      scale: 1,
-      ease: Back.easeOut.config(7)
-    });
-  } else {
-    if (buttonToLeft.style.opacity !== "1") return;
-    gsap.timeline().to(buttonToLeft, {
-      opacity: 0,
-      zIndex: -2
-    }).to(buttonToLeft, {
-      scale: 0.7,
-      duration: 0.1
-    });
-  }
+  var buttonToLeft = document.querySelector(".toLeft");
+  gsap.to(buttonToLeft, {
+    scrollTrigger: {
+      trigger: ".scrollElement",
+      start: "48% center",
+      end: "48% center",
+      scrub: 0.1
+    },
+    opacity: 1,
+    pointerEvents: "auto"
+  });
 };
 
 function toLeft() {

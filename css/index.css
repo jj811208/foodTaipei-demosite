@@ -262,8 +262,7 @@ body {
     pointer-events: none;
     opacity: 0;
     -webkit-box-shadow: 0 4px 32px -6px #444444cc;
-            box-shadow: 0 4px 32px -6px #444444cc;
-    overflow: auto; }
+            box-shadow: 0 4px 32px -6px #444444cc; }
     @media (max-width: 600px) {
       .menu__list {
         width: 100vw;
@@ -271,7 +270,8 @@ body {
         padding-top: 80px;
         padding-bottom: 24px;
         display: block;
-        pointer-events: auto; } }
+        pointer-events: auto;
+        overflow: hidden; } }
     .menu--active + .menu__list {
       z-index: 3;
       opacity: 1;
@@ -281,6 +281,9 @@ body {
       -webkit-transition-delay: 0.2s;
            -o-transition-delay: 0.2s;
               transition-delay: 0.2s; }
+      @media (max-width: 600px) {
+        .menu--active + .menu__list {
+          overflow: auto; } }
     .menu__list svg {
       position: absolute;
       top: 50%;
@@ -353,7 +356,7 @@ body {
   width: 100px;
   height: 100px;
   opacity: 0;
-  z-index: -2;
+  pointer-events: none;
   background-image: url("../assets/toLeft.png");
   background-position: left top;
   background-size: contain;
@@ -362,11 +365,12 @@ body {
 .languageSwitch {
   position: fixed;
   right: -4px;
-  pointer-events: auto;
   bottom: -4px;
   cursor: pointer;
   width: 200px;
   height: 172px; }
+  .menu--active + * .languageSwitch {
+    pointer-events: auto; }
   .chinese .languageSwitch {
     background-image: url("../assets/languageToE.png");
     background-position: left top;
