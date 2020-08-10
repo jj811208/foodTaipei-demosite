@@ -255,6 +255,22 @@ function animationInit() {
       },
       "0"
     );
+
+  gsap.fromTo(
+    ".ribbon,.ribbon-1,.ribbon-2",
+    {
+      rotate: 0,
+    },
+    {
+      rotate: -6,
+      yoyo: true,
+      duration: 3,
+      repeat: -1,
+      transformOrigin: "top center",
+      ease: "power1.inOut",
+    }
+  );
+
   gsap.fromTo(
     ".windowClouds",
     {

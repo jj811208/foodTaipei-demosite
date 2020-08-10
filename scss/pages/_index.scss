@@ -73,14 +73,14 @@
     @include rectM(566.61, -46, 407, 152.6);
   }
   &-1 {
-    @include rect(1366, -155, 653, 300);
+    @include rect(1366, -155, 503, 300);
     @include img("../assets/ribbon-1.png");
     @include size(padS) {
       @include rectM(948.5, -87, 323, 152.6);
     }
   }
   &-2 {
-    @include rect(2350, -81.14, 617.12, 231.47);
+    @include rect(2350, -101.14, 617.12, 231.47);
     @include img("../assets/ribbon-2.png");
     @include size(padS) {
       @include rectM(1443.38, -33.5, 407, 152.6);
