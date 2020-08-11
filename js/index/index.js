@@ -1257,5 +1257,5 @@ const scrollEvent = () => {
 };
 
 function toLeft() {
-  document.querySelector("html").scrollTo({ behavior: "smooth", top: 0 });
+  window.scrollTo({ behavior: "smooth", top: 0 });
 }

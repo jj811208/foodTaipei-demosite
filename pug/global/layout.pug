@@ -1,6 +1,6 @@
 
 block var
-// pagetitle classlist
+
 doctype html
 html.english
   head
@@ -12,7 +12,7 @@ html.english
     link(href="./css/index.css" rel="stylesheet")
     block prejs
     block css
-  body(class=classlist)
+  body
     .container
       //- (style="display:none")
       block content
@@ -32,6 +32,7 @@ html.english
     script(src="./js/layout/menu.js" type="text/javascript")
     script(src="./js/vendors/gsap/gsap.min.js" type="text/javascript")
     script(src="./js/vendors/gsap/scrollTrigger.min.js" type="text/javascript")
+    script(defer,src="./js/vendors/smoothscroll.min.js")
     script(src="./js/index/loading.js" type="text/javascript")
     block js
     

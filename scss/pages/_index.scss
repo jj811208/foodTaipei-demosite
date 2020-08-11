@@ -55,8 +55,8 @@
   }
 }
 .logo {
-  height: vh(18);
-  left: 24px;
+  height: vh(15);
+  left: 16px;
   top: 0;
   position: fixed;
   @include size(padS) {
@@ -275,7 +275,7 @@
 }
 
 .tv {
-  @include rect(2512, -21, 360, 342);
+  @include rect(2512, 0, 360, 342);
   @include img("../assets/tv.png");
   @include size(padS) {
     @include rectM(1407, 19, 260, 246);
@@ -283,7 +283,7 @@
 }
 .buttonSVG {
   //33734
-  @include rect(2448, 67, 210 * 1.2, 63 * 1.2 /*, 2120, -8, 360, 342*/);
+  @include rect(2448, 118, 210 * 1.2, 63 * 1.2 /*, 2120, -8, 360, 342*/);
   .chinese & {
     @include img("../assets/buttonSVGC.png");
   }
