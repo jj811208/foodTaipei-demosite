@@ -66,14 +66,14 @@ var resizeDebounce = function resizeDebounce() {
 
     if (parallaxInstance) {
       // ParallaxFn() 的時候 要確保scrollbar 和 動畫 維持初始狀態
-      window.scrollTo(0, 0);
-      document.body.style.overflow = "hidden"; // 等待動畫跑到對的地方
+      document.body.style.overflow = "hidden";
+      window.scrollTo(0, 0); // 等待動畫跑到對的地方
 
       setTimeout(function () {
-        document.body.style.overflow = "unset";
         parallaxInstance.clear();
         ParallaxFn();
-      }, 2000); //等待動畫回到 0 0 的時間
+        document.body.style.overflow = "unset";
+      }, 1600); //等待動畫回到 0 0 的時間
     }
   }, 500); //debounce時間
 }; //載入所有資源再進入場景

@@ -919,7 +919,7 @@ var scrollEvent = function scrollEvent() {
 };
 
 function toLeft() {
-  document.querySelector("html").scrollTo({
+  window.scrollTo({
     behavior: "smooth",
     top: 0
   });
