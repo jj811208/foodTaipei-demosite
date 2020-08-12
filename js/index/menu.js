@@ -1,3 +1,22 @@
+const menuLink = {
+  FactSheetLink: "https://google.com",
+  FactSheetLinkChinese: "https://yahoo.com.tw",
+  SVGLink: "https://google.com",
+  SVGLinkChinese: "https://yahoo.com.tw",
+  ExhibitorLink: "https://google.com",
+  ExhibitorLinkChinese: "https://yahoo.com.tw",
+  VisitorLink: "https://google.com",
+  VisitorLinkChinese: "https://yahoo.com.tw",
+  PCLink: "https://google.com",
+  PCLinkChinese: "https://yahoo.com.tw",
+  MNTLink: "https://google.com",
+  MNTLinkChinese: "https://yahoo.com.tw",
+  EventsLink: "https://google.com",
+  EventsLinkChinese: "https://yahoo.com.tw",
+  PSRLink: "https://google.com",
+  PSRLinkChinese: "https://yahoo.com.tw",
+};
+
 function menuInit() {
   const menuDOM = document.querySelector(".menu__container");
   menuDOM.addEventListener("click", () => {
@@ -55,4 +74,25 @@ function menuInit() {
 function langSwitch() {
   document.querySelector("html").classList.toggle("english");
   document.querySelector("html").classList.toggle("chinese");
+  [
+    "FactSheetLink",
+    "SVGLink",
+    "ExhibitorLink",
+    "VisitorLink",
+    "PCLink",
+    "MNTLink",
+    "EventsLink",
+    "PSRLink",
+  ].forEach((className) => {
+    const aTags = document.querySelectorAll(`a.${className}`);
+    if (document.querySelector("html").classList.contains("english")) {
+      aTags.forEach((aTag) => {
+        aTag.setAttribute("href", menuLink[className]);
+      });
+    } else {
+      aTags.forEach((aTag) => {
+        aTag.setAttribute("href", menuLink[`${className}Chinese`]);
+      });
+    }
+  });
 }

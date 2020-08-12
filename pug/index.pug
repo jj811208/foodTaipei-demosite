@@ -1,5 +1,6 @@
 extends global/layout
 
+//- 這邊放的全部都是英文連結
 block var
   - FactSheetLink='https://google.com';
   - SVGLink='https://google.com';
@@ -11,7 +12,6 @@ block var
   - PSRLink='https://google.com';
 
 block prejs
-  //- script(src="js/vendors/scrollreveal/scrollreveal.min.js" type="text/javascript")
 
 block js
   script(src="./js/index/index.js" type="text/javascript")
@@ -29,8 +29,8 @@ block content
       .windowClouds-1
   .orangeCabinet.backend.scenery
   .cabinet-1.backend.scenery
-  a.elsa.backend(href=VisitorLink,target="_blank")
-  a.buttonVisitor.backend(href=VisitorLink,target="_blank")
+  a.elsa.backend.VisitorLink(href=VisitorLink,target="_blank")
+  a.buttonVisitor.backend.VisitorLink(href=VisitorLink,target="_blank")
   .carton.backend.scenery
   .worldCarton.backend.scenery
   .cabinet.backend.scenery
@@ -40,16 +40,16 @@ block content
     .candyTable
   .worldCabinet.backend.scenery
     .juice-o
-  a.ladder.backend(href=FactSheetLink,target="_blank")
+  a.ladder.backend.FactSheetLink(href=FactSheetLink,target="_blank")
     .ladderLeftHand.scenery
     .ladderBody.scenery
     .ladderCarton.scenery
     .ladderRightHand.scenery
-  a.buttonFactSheet.backend(href=FactSheetLink,target="_blank")
-  a.poster.backend(href=PCLink,target="_blank")
-  a.buttonPC.backend(href=PCLink,target="_blank")
+  a.buttonFactSheet.backend.FactSheetLink(href=FactSheetLink,target="_blank")
+  a.poster.backend.PCLink(href=PCLink,target="_blank")
+  a.buttonPC.backend.PCLink(href=PCLink,target="_blank")
   .supportingRole.middle.scenery
-  a.hao.middle(href=ExhibitorLink,target="_blank")
+  a.hao.middle.ExhibitorLink(href=ExhibitorLink,target="_blank")
     .haoHandContainer.middle.scenery
       .milkTea
         .pearl.pearl-1
@@ -59,13 +59,13 @@ block content
         .pearl.pearl-5
         .pearl.pearl-6
       .haoHand
-  a.buttonExhibitor.middle(href=ExhibitorLink,target="_blank")
+  a.buttonExhibitor.middle.ExhibitorLink(href=ExhibitorLink,target="_blank")
   .yellowTable.middle.scenery
   .mainTableItems.middle
     .mainTableItemsLoudly.scenery
     .mainTableItemsVoice.scenery
-    a.mainTableItemsStar(href=MNTLink,target="_blank")
-  a.buttonMNT.middle(href=MNTLink,target="_blank")
+    a.mainTableItemsStar.MNTLink(href=MNTLink,target="_blank")
+  a.buttonMNT.middle.MNTLink(href=MNTLink,target="_blank")
   .internationalFruit.middle.scenery
     .avocado-o
   .taiwanFishery.middle.scenery
@@ -84,8 +84,8 @@ block content
   .ribbon-2.front.scenery
   .ribbon-1.front.scenery
   .ribbon.front.scenery
-  a.tv.middle(href=SVGLink,target="_blank")
-  a.buttonSVG.middle(href=SVGLink,target="_blank")
+  a.tv.middle.SVGLink(href=SVGLink,target="_blank")
+  a.buttonSVG.middle.SVGLink(href=SVGLink,target="_blank")
   .refrigerator.front.scenery
 
   .richman.scenery
@@ -97,18 +97,16 @@ block content
     .noodles
     .protagonist
     
-  a.ryan(href=PSRLink,target="_blank")
+  a.ryan.PSRLink(href=PSRLink,target="_blank")
     .ryanRightHand.scenery
     .ryanBody.scenery
     .ryanLeftHand.scenery
   .fruitCabinet.front.scenery
   .wineCabinet.scenery
     .wine-o
-  a.buttonPSR(href=PSRLink,target="_blank")
-  a.grandma(href=EventsLink,target="_blank")
+  a.buttonPSR.PSRLink(href=PSRLink,target="_blank")
+  a.grandma.EventsLink(href=EventsLink,target="_blank")
     .grandmaHand.scenery
     .grandmaBody.scenery
-  a.buttonEvents(href=EventsLink,target="_blank")
+  a.buttonEvents.EventsLink(href=EventsLink,target="_blank")
   .vegetableBasket.front.scenery
-
-
