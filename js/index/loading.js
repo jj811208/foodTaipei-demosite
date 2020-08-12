@@ -81,7 +81,7 @@ var resizeDebounce = function resizeDebounce() {
 
 window.onload = function () {
   document.documentElement.style.setProperty("--vh", "".concat(window.innerHeight / 100, "px"));
-  window.addEventListener(isMobile ? "orientationchange" : "resize", resizeDebounce); // 如果是重新整理 有可能不在一開始的位置
+  window.addEventListener(isMobile.any ? "orientationchange" : "resize", resizeDebounce); // 如果是重新整理 有可能不在一開始的位置
 
   window.scrollTo(0, 0);
   ScrollTrigger.refresh();
