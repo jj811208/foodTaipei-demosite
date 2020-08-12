@@ -97,7 +97,7 @@ const resizeDebounce = () => {
 window.onload = function () {
   document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
 
-  window.addEventListener(isMobile ? "orientationchange" : "resize", resizeDebounce);
+  window.addEventListener(isMobile.any ? "orientationchange" : "resize", resizeDebounce);
 
   // 如果是重新整理 有可能不在一開始的位置
   window.scrollTo(0, 0);
