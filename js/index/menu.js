@@ -1,22 +1,24 @@
 "use strict";
 
 var menuLink = {
-  FactSheetLink: "https://google.com",
-  FactSheetLinkChinese: "https://yahoo.com.tw",
-  SVGLink: "https://google.com",
-  SVGLinkChinese: "https://yahoo.com.tw",
-  ExhibitorLink: "https://google.com",
-  ExhibitorLinkChinese: "https://yahoo.com.tw",
-  VisitorLink: "https://google.com",
-  VisitorLinkChinese: "https://yahoo.com.tw",
-  PCLink: "https://google.com",
-  PCLinkChinese: "https://yahoo.com.tw",
-  MNTLink: "https://google.com",
-  MNTLinkChinese: "https://yahoo.com.tw",
-  EventsLink: "https://google.com",
-  EventsLinkChinese: "https://yahoo.com.tw",
-  PSRLink: "https://google.com",
-  PSRLinkChinese: "https://yahoo.com.tw"
+  IndexLink: "https://www.foodtaipei.com.tw/en_US/index.html",
+  IndexLinkChinese: "https://www.foodtaipei.com.tw/zh_TW/index.html",
+  FactSheetLink: "https://www.foodtaipei.com.tw/en/news/data-list/industry/index.html",
+  FactSheetLinkChinese: "https://www.foodtaipei.com.tw/zh-tw/news/data-list/industry/index.html",
+  SVGLink: "https://www.taiwantradeshows.com.tw/en_US/index.html",
+  SVGLinkChinese: "https://www.taiwantradeshows.com.tw/en_US/index.html",
+  ExhibitorLink: "https://www.foodtaipei.com.tw/en/exhibitor/index.html",
+  ExhibitorLinkChinese: "https://www.foodtaipei.com.tw/zh-tw/exhibitor/index.html",
+  VisitorLink: "https://www.foodtaipei.com.tw/en/visitor/index.html",
+  VisitorLinkChinese: "https://www.foodtaipei.com.tw/zh-tw/visitor/index.html",
+  PCLink: "https://www.foodtaipei.com.tw/en/product/grid-list/index.html",
+  PCLinkChinese: "https://www.foodtaipei.com.tw/zh-tw/product/grid-list/index.html",
+  MNTLink: "https://www.foodtaipei.com.tw/en/media/index.html",
+  MNTLinkChinese: "https://www.foodtaipei.com.tw/zh-tw/media/index.html",
+  EventsLink: "https://www.foodtaipei.com.tw/zh_TW/act/media/info.html?id=606C2D52ABD9B796",
+  EventsLinkChinese: "https://www.foodtaipei.com.tw/zh_TW/act/media/info.html?id=606C2D52ABD9B796",
+  PSRLink: "https://www.foodtaipei.com.tw/en/menu/19416ACD889F225FD0636733C6861689/info.html",
+  PSRLinkChinese: "https://www.foodtaipei.com.tw/zh-tw/menu/005900A58DCBBB36D0636733C6861689/info.html"
 };
 
 function menuInit() {
@@ -66,7 +68,7 @@ function menuInit() {
 function langSwitch() {
   document.querySelector("html").classList.toggle("english");
   document.querySelector("html").classList.toggle("chinese");
-  ["FactSheetLink", "SVGLink", "ExhibitorLink", "VisitorLink", "PCLink", "MNTLink", "EventsLink", "PSRLink"].forEach(function (className) {
+  ["IndexLink", "FactSheetLink", "SVGLink", "ExhibitorLink", "VisitorLink", "PCLink", "MNTLink", "EventsLink", "PSRLink"].forEach(function (className) {
     var aTags = document.querySelectorAll("a.".concat(className));
 
     if (document.querySelector("html").classList.contains("english")) {

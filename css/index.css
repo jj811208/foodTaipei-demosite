@@ -406,17 +406,17 @@ body {
   @media (max-width: 600px) {
     .ribbon {
       position: absolute;
-      width: 24.40048%;
+      width: 22.42206%;
       top: -8.09859%;
       left: 33.96942%; }
       .ribbon::before {
         content: "";
         display: block;
-        padding-top: 37.49386%; } }
+        padding-top: 35.45455%; } }
   .ribbon-1 {
     position: absolute;
     width: 17.46528%;
-    top: -20.23499%;
+    top: -11.09661%;
     left: 47.43056%;
     background-image: url("../assets/ribbon-1.png");
     background-position: left top;
@@ -429,18 +429,18 @@ body {
     @media (max-width: 600px) {
       .ribbon-1 {
         position: absolute;
-        width: 19.36451%;
-        top: -15.3169%;
+        width: 18.22542%;
+        top: -2.99296%;
         left: 56.86451%; }
         .ribbon-1::before {
           content: "";
           display: block;
-          padding-top: 47.24458%; } }
+          padding-top: 37.03947%; } }
   .ribbon-2 {
     position: absolute;
     width: 21.42778%;
     top: -13.20366%;
-    left: 81.59722%;
+    left: 88.54167%;
     background-image: url("../assets/ribbon-2.png");
     background-position: left top;
     background-size: contain;
@@ -452,13 +452,13 @@ body {
     @media (max-width: 600px) {
       .ribbon-2 {
         position: absolute;
-        width: 24.40048%;
+        width: 22.42206%;
         top: -5.89789%;
-        left: 86.53357%; }
+        left: 92.52878%; }
         .ribbon-2::before {
           content: "";
           display: block;
-          padding-top: 37.49386%; } }
+          padding-top: 35.45455%; } }
 
 .vegetableBasket {
   position: absolute;
@@ -554,13 +554,13 @@ body {
 
 .buttonEvents {
   position: absolute;
-  width: 5%;
+  width: 10%;
   top: 78.98172%;
   left: 68.64583%; }
   .buttonEvents::before {
     content: "";
     display: block;
-    padding-top: 50%; }
+    padding-top: 25%; }
   .chinese .buttonEvents {
     background-image: url("../assets/buttonEventsC.png");
     background-position: left top;
@@ -574,13 +574,13 @@ body {
   @media (max-width: 600px) {
     .buttonEvents {
       position: absolute;
-      width: 7.19424%;
+      width: 10.79137%;
       top: 82.92254%;
       left: 72.90168%; }
       .buttonEvents::before {
         content: "";
         display: block;
-        padding-top: 53.33333%; }
+        padding-top: 27.77778%; }
       .chinese .buttonEvents {
         background-image: url("../assets/buttonEventsCM.png");
         background-position: left top;
@@ -1031,7 +1031,7 @@ body {
     .tv {
       position: absolute;
       width: 15.58753%;
-      top: 3.34507%;
+      top: -1.76056%;
       left: 84.35252%; }
       .tv::before {
         content: "";
@@ -1176,13 +1176,13 @@ body {
 
 .buttonMNT {
   position: absolute;
-  width: 8.75%;
+  width: 6.66667%;
   top: 33.94256%;
   left: 30.90278%; }
   .buttonMNT::before {
     content: "";
     display: block;
-    padding-top: 30%; }
+    padding-top: 39.375%; }
   .chinese .buttonMNT {
     background-image: url("../assets/buttonMNTC.png");
     background-position: left top;

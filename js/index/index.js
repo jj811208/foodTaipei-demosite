@@ -27,7 +27,7 @@ function animationInit() {
   gsap.timeline().from(".logo", {
     duration: 0.3,
     yPercent: -100
-  }, 0.4).from(".backend:not(.background):not(.ladder):not(.elsa):not(.poster):not(.buttonVisitor):not(.buttonFactSheet):not(.buttonExhibitor):not(.buttonMNT):not(.buttonPC):not(.buttonEvents):not(.buttonSVG):not(.buttonPSR):not(.window):not(.window-1)", {
+  }, 0.4).from(".backend:not(.background):not(.ladder):not(.elsa):not(.poster):not(.buttonVisitor):not(.buttonFactSheet):not(.buttonExhibitor):not(.buttonMNT):not(.buttonPC):not(.buttonEvents):not(.buttonPSR):not(.window):not(.window-1)", {
     duration: 0.5,
     transformOrigin: "bottom",
     y: "1000px"
@@ -66,6 +66,11 @@ function animationInit() {
     transformOrigin: "bottom",
     scaleY: 0,
     ease: "elastic.out(1, 0.3)"
+  }, ElsaDelay).from(".poster", {
+    duration: 1.7,
+    transformOrigin: "bottom",
+    scaleY: 0,
+    ease: "elastic.out(1, 0.3)"
   }, ElsaDelay); //進場動畫
   // gsap.from(".ladder", {
   //   duration: 1.7,
@@ -85,18 +90,18 @@ function animationInit() {
   //   scaleY: 0,
   //   ease: "elastic.out(1, 0.3)",
   // });
+  // gsap.from(".poster", {
+  //   scrollTrigger: {
+  //     trigger: ".scrollElement",
+  //     id: "poster",
+  //     start: "15% center",
+  //   },
+  //   duration: 1.7,
+  //   transformOrigin: "bottom",
+  //   scaleY: 0,
+  //   ease: "elastic.out(1, 0.3)",
+  // });
 
-  gsap.from(".poster", {
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      id: "poster",
-      start: "15% center"
-    },
-    duration: 1.7,
-    transformOrigin: "bottom",
-    scaleY: 0,
-    ease: "elastic.out(1, 0.3)"
-  });
   gsap.from(".grandma", {
     scrollTrigger: {
       trigger: ".scrollElement",
@@ -415,7 +420,7 @@ function animationInit() {
   var MAINTABLEITEMSSTAR = [".buttonMNT,.mainTableItemsStar", ".mainTableItemsStar"];
   var POSTER = [".buttonPC,.poster", ".poster"];
   var GRANDMA = [".buttonEvents,.grandma", ".grandma"];
-  var TV = [".buttonSVG,.tv", ".tv"];
+  var TV = [".tv", ".tv"];
   var RYAN = [".buttonPSR,.ryan", ".ryan"];
   var hoverIn = [{
     rotate: 2
@@ -455,9 +460,8 @@ function animationInit() {
   var BMNT = ".buttonMNT";
   var BPC = ".buttonPC";
   var BEV = ".buttonEvents";
-  var BSVG = ".buttonSVG";
   var BPSR = ".buttonPSR";
-  [BV, BF, BE, BMNT, BPC, BEV, BSVG, BPSR].forEach(function (className) {
+  [BV, BF, BE, BMNT, BPC, BEV, BPSR].forEach(function (className) {
     mouseHover(className, {
       mouseover: function mouseover() {
         return gsap.to(className, {
@@ -503,7 +507,7 @@ var ParallaxFn = function ParallaxFn() {
   }, 0).to(".grandma", {
     xPercent: -60
   }, 0).to(".buttonEvents", {
-    xPercent: window.innerWidth > 600 ? -280 : -180
+    xPercent: window.innerWidth > 600 ? -180 : -130
   }, 0).to(".front", {
     x: function x() {
       var delta = containerDOM.offsetHeight / -5.16;
@@ -872,12 +876,11 @@ var ParallaxFn = function ParallaxFn() {
 var buttonExhibitor = document.querySelector(".buttonExhibitor");
 var buttonEvents = document.querySelector(".buttonEvents");
 var buttonPSR = document.querySelector(".buttonPSR");
-var buttonSVG = document.querySelector(".buttonSVG");
 var buttonMNT = document.querySelector(".buttonMNT");
 var buttonPC = document.querySelector(".buttonPC");
 var buttonFactSheet = document.querySelector(".buttonFactSheet");
 var buttonVisitor = document.querySelector(".buttonVisitor");
-[buttonExhibitor, buttonEvents, buttonPSR, buttonSVG, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor].forEach(function (button) {
+[buttonExhibitor, buttonEvents, buttonPSR, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor].forEach(function (button) {
   gsap.to(button, {
     startAt: {
       opacity: 0,
@@ -887,7 +890,7 @@ var buttonVisitor = document.querySelector(".buttonVisitor");
 });
 
 var scrollEvent = function scrollEvent() {
-  [buttonExhibitor, buttonEvents, buttonPSR, buttonSVG, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor].forEach(function (button) {
+  [buttonExhibitor, buttonEvents, buttonPSR, buttonMNT, buttonPC, buttonFactSheet, buttonVisitor].forEach(function (button) {
     if (isElementInViewport(button)) {
       if (button.style.opacity !== "0") return;
       gsap.to(button, {
