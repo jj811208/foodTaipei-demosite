@@ -15,7 +15,8 @@ html.english
   body
     .container
       block content
-    img.logo(src="./assets/logo.png")
+    a.IndexLink(href=IndexLink,target="_blank")
+      img.logo(src="./assets/logo.png")
     include menu
     .toLeft(onClick='toLeft();')
     .ratioError

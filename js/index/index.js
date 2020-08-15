@@ -15,7 +15,7 @@ function animationInit() {
       0.4
     )
     .from(
-      ".backend:not(.background):not(.ladder):not(.elsa):not(.poster):not(.buttonVisitor):not(.buttonFactSheet):not(.buttonExhibitor):not(.buttonMNT):not(.buttonPC):not(.buttonEvents):not(.buttonSVG):not(.buttonPSR):not(.window):not(.window-1)",
+      ".backend:not(.background):not(.ladder):not(.elsa):not(.poster):not(.buttonVisitor):not(.buttonFactSheet):not(.buttonExhibitor):not(.buttonMNT):not(.buttonPC):not(.buttonEvents):not(.buttonPSR):not(.window):not(.window-1)",
       {
         duration: 0.5,
         transformOrigin: "bottom",
@@ -88,7 +88,17 @@ function animationInit() {
         ease: "elastic.out(1, 0.3)",
       },
       ElsaDelay
-    );
+    )
+    .from(
+      ".poster",
+      {
+        duration: 1.7,
+        transformOrigin: "bottom",
+        scaleY: 0,
+        ease: "elastic.out(1, 0.3)",
+      },
+      ElsaDelay
+    )
 
   //進場動畫
   // gsap.from(".ladder", {
@@ -109,17 +119,17 @@ function animationInit() {
   //   scaleY: 0,
   //   ease: "elastic.out(1, 0.3)",
   // });
-  gsap.from(".poster", {
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      id: "poster",
-      start: "15% center",
-    },
-    duration: 1.7,
-    transformOrigin: "bottom",
-    scaleY: 0,
-    ease: "elastic.out(1, 0.3)",
-  });
+  // gsap.from(".poster", {
+  //   scrollTrigger: {
+  //     trigger: ".scrollElement",
+  //     id: "poster",
+  //     start: "15% center",
+  //   },
+  //   duration: 1.7,
+  //   transformOrigin: "bottom",
+  //   scaleY: 0,
+  //   ease: "elastic.out(1, 0.3)",
+  // });
   gsap.from(".grandma", {
     scrollTrigger: {
       trigger: ".scrollElement",
@@ -600,7 +610,7 @@ function animationInit() {
   const MAINTABLEITEMSSTAR = [".buttonMNT,.mainTableItemsStar", ".mainTableItemsStar"];
   const POSTER = [".buttonPC,.poster", ".poster"];
   const GRANDMA = [".buttonEvents,.grandma", ".grandma"];
-  const TV = [".buttonSVG,.tv", ".tv"];
+  const TV = [".tv", ".tv"];
   const RYAN = [".buttonPSR,.ryan", ".ryan"];
   const hoverIn = [
     {
@@ -640,9 +650,8 @@ function animationInit() {
   const BMNT = ".buttonMNT";
   const BPC = ".buttonPC";
   const BEV = ".buttonEvents";
-  const BSVG = ".buttonSVG";
   const BPSR = ".buttonPSR";
-  [BV, BF, BE, BMNT, BPC, BEV, BSVG, BPSR].forEach((className) => {
+  [BV, BF, BE, BMNT, BPC, BEV, BPSR].forEach((className) => {
     mouseHover(className, {
       mouseover: () => {
         return gsap.to(className, { scale: 1.1, duration: 0.2 });
@@ -705,7 +714,7 @@ const ParallaxFn = () => {
     .to(
       ".buttonEvents",
       {
-        xPercent: window.innerWidth > 600 ? -280 : -180,
+        xPercent: window.innerWidth > 600 ? -180 : -130,
       },
       0
     )
@@ -1187,7 +1196,6 @@ const ParallaxFn = () => {
 const buttonExhibitor = document.querySelector(".buttonExhibitor");
 const buttonEvents = document.querySelector(".buttonEvents");
 const buttonPSR = document.querySelector(".buttonPSR");
-const buttonSVG = document.querySelector(".buttonSVG");
 const buttonMNT = document.querySelector(".buttonMNT");
 const buttonPC = document.querySelector(".buttonPC");
 const buttonFactSheet = document.querySelector(".buttonFactSheet");
@@ -1196,7 +1204,6 @@ const buttonVisitor = document.querySelector(".buttonVisitor");
   buttonExhibitor,
   buttonEvents,
   buttonPSR,
-  buttonSVG,
   buttonMNT,
   buttonPC,
   buttonFactSheet,
@@ -1215,7 +1222,6 @@ const scrollEvent = () => {
     buttonExhibitor,
     buttonEvents,
     buttonPSR,
-    buttonSVG,
     buttonMNT,
     buttonPC,
     buttonFactSheet,

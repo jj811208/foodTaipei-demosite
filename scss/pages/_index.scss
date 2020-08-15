@@ -72,20 +72,20 @@
   @include rect(786.76, -127.03, 617.12, 231.47);
   @include img("../assets/ribbon.png");
   @include size(padS) {
-    @include rectM(566.61, -46, 407, 152.6);
+    @include rectM(566.61, -46, 374, 132.6);
   }
   &-1 {
-    @include rect(1366, -155, 503, 300);
+    @include rect(1366, -85, 503, 300);
     @include img("../assets/ribbon-1.png");
     @include size(padS) {
-      @include rectM(948.5, -87, 323, 152.6);
+      @include rectM(948.5, -17, 304, 112.6);
     }
   }
   &-2 {
-    @include rect(2350, -101.14, 617.12, 231.47);
+    @include rect(2550, -101.14, 617.12, 231.47);
     @include img("../assets/ribbon-2.png");
     @include size(padS) {
-      @include rectM(1443.38, -33.5, 407, 152.6);
+      @include rectM(1543.38, -33.5, 374, 132.6);
     }
   }
 }
@@ -118,7 +118,7 @@
   }
 }
 .buttonEvents {
-  @include rect(1977, 605, 120 * 1.2, 60 * 1.2 /*, 1528, 384, 545.1, 390*/);
+  @include rect(1977, 605, 240 * 1.2, 60 * 1.2 /*, 1528, 384, 545.1, 390*/);
   .chinese & {
     @include img("../assets/buttonEventsC.png");
   }
@@ -126,7 +126,7 @@
     @include img("../assets/buttonEvents.png");
   }
   @include size(padS) {
-    @include rectM(1216, 471, 120, 64);
+    @include rectM(1216, 471, 180, 50);
     .chinese & {
       @include img("../assets/buttonEventsCM.png");
     }
@@ -278,7 +278,7 @@
   @include rect(2512, 0, 360, 342);
   @include img("../assets/tv.png");
   @include size(padS) {
-    @include rectM(1407, 19, 260, 246);
+    @include rectM(1407, -10, 260, 246);
   }
 }
 .buttonSVG {
@@ -331,7 +331,7 @@
 }
 .buttonMNT {
   //3.33493
-  @include rect(890, 260, 210 * 1.2, 63 * 1.2 /*, 835.03, 263.74, 404.97, 193.22*/);
+  @include rect(890, 260, 160 * 1.2, 63 * 1.2 /*, 835.03, 263.74, 404.97, 193.22*/);
   .chinese & {
     @include img("../assets/buttonMNTC.png");
   }
