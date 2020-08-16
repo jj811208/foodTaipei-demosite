@@ -101,35 +101,6 @@ function animationInit() {
     )
 
   //進場動畫
-  // gsap.from(".ladder", {
-  //   duration: 1.7,
-  //   transformOrigin: "bottom",
-  //   scaleY: 0,
-  //   ease: "elastic.out(1, 0.3)",
-  // });
-  // gsap.from(".hao", {
-  //   duration: 1.7,
-  //   transformOrigin: "bottom",
-  //   scaleY: 0,
-  //   ease: "elastic.out(1, 0.3)",
-  // });
-  // gsap.from(".mainTableItems", {
-  //   duration: 1.7,
-  //   transformOrigin: "bottom",
-  //   scaleY: 0,
-  //   ease: "elastic.out(1, 0.3)",
-  // });
-  // gsap.from(".poster", {
-  //   scrollTrigger: {
-  //     trigger: ".scrollElement",
-  //     id: "poster",
-  //     start: "15% center",
-  //   },
-  //   duration: 1.7,
-  //   transformOrigin: "bottom",
-  //   scaleY: 0,
-  //   ease: "elastic.out(1, 0.3)",
-  // });
   gsap.from(".grandma", {
     scrollTrigger: {
       trigger: ".scrollElement",
@@ -141,7 +112,6 @@ function animationInit() {
     scaleY: 0,
     ease: "elastic.out(1, 0.3)",
   });
-
   gsap.from(".tv", {
     scrollTrigger: {
       trigger: ".scrollElement",

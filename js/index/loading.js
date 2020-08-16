@@ -15,6 +15,12 @@ gsap
   .to("#E", loadingtransform, `<+${speed}`)
   .to("#I-1", loadingtransform, `<+${speed}`);
 
+gsap
+  .timeline({
+    repeat: -1,
+  })
+  .to("#scrollDownArrow", { y: 10, duration: 0.6, repeat: 3, yoyo: true, ease: "power1.inOut" }, 0);
+
 let mouseX = 0;
 let mouseY = 0;
 const cursor = document.querySelector(".loadingAsset__cursor");
@@ -78,7 +84,6 @@ const resizeDebounce = () => {
       }, 300);
     }, 300);
 
-    
     if (parallaxInstance) {
       // ParallaxFn() 的時候 要確保scrollbar 和 動畫 維持初始狀態
       document.body.style.overflow = "hidden";
@@ -115,9 +120,15 @@ window.onload = function () {
       });
       document.querySelector(".container").classList.add("container__loaded");
       setTimeout(() => {
-        animationInit();
         menuInit();
-        ParallaxFn();
+        animationInit();
+
+        window.scrollTo(0, 0);
+        document.body.style.overflow = "hidden";
+        setTimeout(() => {
+          document.body.style.overflow = "unset";
+          ParallaxFn();
+        }, 3400);
         loadingAsset.classList.add("loadingAsset__loaded");
       }, 100);
       window.removeEventListener("scroll", loadedClickEvent);
