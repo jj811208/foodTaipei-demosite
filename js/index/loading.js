@@ -115,19 +115,21 @@ window.onload = function () {
     loadingAsset.classList.add("loadingAsset__clickable");
 
     const loadedClickEvent = (e) => {
-      window.addEventListener("scroll", () => {
-        scrollEvent();
-      });
+      window.scrollTo(0, 0);
+      document.body.style.overflow = "hidden";
       document.querySelector(".container").classList.add("container__loaded");
       setTimeout(() => {
+        window.scrollTo(0, 0);
         menuInit();
         animationInit();
+        ParallaxFn();
 
-        window.scrollTo(0, 0);
-        document.body.style.overflow = "hidden";
         setTimeout(() => {
+          window.scrollTo(0, 0);
           document.body.style.overflow = "unset";
-          ParallaxFn();
+          window.addEventListener("scroll", () => {
+            scrollEvent();
+          });
         }, 3400);
         loadingAsset.classList.add("loadingAsset__loaded");
       }, 100);
