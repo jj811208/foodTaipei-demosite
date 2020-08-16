@@ -38,36 +38,36 @@
 }
 @mixin maxSize($media) {
   @if $media == desktop {
-    @media (min-width: $media-desktop) {
+    @media (min-width: #{$media-desktopM}) {
       @content;
     }
   }
   @if $media == desktop-s {
-    @media (min-width: $media-desktop-s) {
+    @media (min-width: $media-desktop-sM) {
       @content;
     }
   } @else if $media == pad {
-    @media (min-width: $media-pad) {
+    @media (min-width: $media-padM) {
       @content;
     }
   } @else if $media == padM {
-    @media (min-width: $media-pad-middle) {
+    @media (min-width: $media-pad-middleM) {
       @content;
     }
   } @else if $media == padP {
-    @media (min-width: $media-pad-portrait) {
+    @media (min-width: $media-pad-portraitM) {
       @content;
     }
   } @else if $media == padS {
-    @media (min-width: $media-pad-small) {
+    @media (min-width: $media-pad-smallM) {
       @content;
     }
   } @else if $media == phone {
-    @media (min-width: $media-phone) {
+    @media (min-width: $media-phoneM) {
       @content;
     }
   } @else if $media == phonexs {
-    @media (min-width: $media-phone-xs) {
+    @media (min-width: $media-phone-xsM) {
       @content;
     }
   }
