@@ -11,6 +11,15 @@ var speed = ".2";
 gsap.timeline({
   repeat: -1
 }).to("#F", loadingtransform, 0).to("#O", loadingtransform, "<+".concat(speed)).to("#O-1", loadingtransform, "<+".concat(speed)).to("#D", loadingtransform, "<+".concat(speed)).to("#T", loadingtransform, "<+".concat(speed)).to("#A", loadingtransform, "<+".concat(speed)).to("#I", loadingtransform, "<+".concat(speed)).to("#P", loadingtransform, "<+".concat(speed)).to("#E", loadingtransform, "<+".concat(speed)).to("#I-1", loadingtransform, "<+".concat(speed));
+gsap.timeline({
+  repeat: -1
+}).to("#scrollDownArrow", {
+  y: 10,
+  duration: 0.6,
+  repeat: 3,
+  yoyo: true,
+  ease: "power1.inOut"
+}, 0);
 var mouseX = 0;
 var mouseY = 0;
 var cursor = document.querySelector(".loadingAsset__cursor");
@@ -96,9 +105,14 @@ window.onload = function () {
       });
       document.querySelector(".container").classList.add("container__loaded");
       setTimeout(function () {
-        animationInit();
         menuInit();
-        ParallaxFn();
+        animationInit();
+        window.scrollTo(0, 0);
+        document.body.style.overflow = "hidden";
+        setTimeout(function () {
+          document.body.style.overflow = "unset";
+          ParallaxFn();
+        }, 3400);
         loadingAsset.classList.add("loadingAsset__loaded");
       }, 100);
       window.removeEventListener("scroll", loadedClickEvent);
