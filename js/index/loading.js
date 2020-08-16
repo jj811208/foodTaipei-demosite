@@ -100,18 +100,20 @@ window.onload = function () {
     loadingAsset.classList.add("loadingAsset__clickable");
 
     var loadedClickEvent = function loadedClickEvent(e) {
-      window.addEventListener("scroll", function () {
-        scrollEvent();
-      });
+      window.scrollTo(0, 0);
+      document.body.style.overflow = "hidden";
       document.querySelector(".container").classList.add("container__loaded");
       setTimeout(function () {
+        window.scrollTo(0, 0);
         menuInit();
         animationInit();
-        window.scrollTo(0, 0);
-        document.body.style.overflow = "hidden";
+        ParallaxFn();
         setTimeout(function () {
+          window.scrollTo(0, 0);
           document.body.style.overflow = "unset";
-          ParallaxFn();
+          window.addEventListener("scroll", function () {
+            scrollEvent();
+          });
         }, 3400);
         loadingAsset.classList.add("loadingAsset__loaded");
       }, 100);
