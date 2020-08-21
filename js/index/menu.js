@@ -5,8 +5,10 @@ var menuLink = {
   IndexLinkChinese: "https://www.foodtaipei.com.tw/zh_TW/index.html",
   FactSheetLink: "https://www.foodtaipei.com.tw/en/news/data-list/industry/index.html",
   FactSheetLinkChinese: "https://www.foodtaipei.com.tw/zh-tw/news/data-list/industry/index.html",
-  SVGLink: "https://www.taiwantradeshows.com.tw/en_US/index.html",
-  SVGLinkChinese: "https://www.taiwantradeshows.com.tw/en_US/index.html",
+  TVLink: "https://www.taiwantradeshows.com.tw/en_US/index.html",
+  TVLinkChinese: "https://www.taiwantradeshows.com.tw/en_US/index.html",
+  SVGLink: "https://www.foodtaipei.com.tw/en/media/grid-list/index.html",
+  SVGLinkChinese: "https://www.foodtaipei.com.tw/zh-tw/media/grid-list/index.html",
   ExhibitorLink: "https://www.foodtaipei.com.tw/en/exhibitor/index.html",
   ExhibitorLinkChinese: "https://www.foodtaipei.com.tw/zh-tw/exhibitor/index.html",
   VisitorLink: "https://www.foodtaipei.com.tw/en/visitor/index.html",
@@ -68,7 +70,7 @@ function menuInit() {
 function langSwitch() {
   document.querySelector("html").classList.toggle("english");
   document.querySelector("html").classList.toggle("chinese");
-  ["IndexLink", "FactSheetLink", "SVGLink", "ExhibitorLink", "VisitorLink", "PCLink", "MNTLink", "EventsLink", "PSRLink"].forEach(function (className) {
+  ["IndexLink", "FactSheetLink", "TVLink", "SVGLink", "ExhibitorLink", "VisitorLink", "PCLink", "MNTLink", "EventsLink", "PSRLink"].forEach(function (className) {
     var aTags = document.querySelectorAll("a.".concat(className));
 
     if (document.querySelector("html").classList.contains("english")) {
