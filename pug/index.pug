@@ -1,10 +1,12 @@
 extends global/layout
 
 //- 這邊放的全部都是英文連結
-block var
+block append var
+  - mailTo = 'mailto:foodtaipei@taitra.org.tw';
   - IndexLink='https://www.foodtaipei.com.tw/en_US/index.html';
   - FactSheetLink='https://www.foodtaipei.com.tw/en/news/data-list/industry/index.html';
-  - SVGLink='https://www.taiwantradeshows.com.tw/en_US/index.html';
+  - TVLink='https://www.taiwantradeshows.com.tw/en_US/index.html';
+  - SVGLink='https://www.foodtaipei.com.tw/en/media/grid-list/index.html';
   - ExhibitorLink='https://www.foodtaipei.com.tw/en/exhibitor/index.html';
   - VisitorLink='https://www.foodtaipei.com.tw/en/visitor/index.html';
   - PCLink='https://www.foodtaipei.com.tw/en/product/grid-list/index.html';
@@ -85,7 +87,7 @@ block content
   .ribbon-2.front.scenery
   .ribbon-1.front.scenery
   .ribbon.front.scenery
-  a.tv.middle.SVGLink(href=SVGLink,target="_blank")
+  a.tv.middle.TVLink(href=TVLink,target="_blank")
   .refrigerator.front.scenery
 
   .richman.scenery

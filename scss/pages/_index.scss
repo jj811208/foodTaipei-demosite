@@ -20,14 +20,23 @@
 }
 .toLeft {
   position: fixed;
-  right: 24px;
-  bottom: 0;
+  right: 112px; //24px;
+  bottom: 8px;
   cursor: pointer;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   opacity: 0;
-  pointer-events:none;
+  pointer-events: none;
   @include img("../assets/toLeft.png");
+}
+.mailTo {
+  position: fixed;
+  right: 24px;
+  bottom: 8px;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  @include img("../assets/mail.png");
 }
 .languageSwitch {
   position: fixed;
@@ -36,8 +45,8 @@
   cursor: pointer;
   width: 200px;
   height: 172px;
-  
-  .menu--active + * &{
+
+  .menu--active + * & {
     pointer-events: auto;
   }
   .chinese & {
