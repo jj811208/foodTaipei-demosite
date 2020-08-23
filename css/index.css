@@ -812,8 +812,8 @@ body {
 .buttonPSR {
   position: absolute;
   width: 5.45833%;
-  top: 69.71279%;
-  left: 89.16667%; }
+  top: 67.88512%;
+  left: 89.86111%; }
   .buttonPSR::before {
     content: "";
     display: block;
@@ -832,8 +832,8 @@ body {
     .buttonPSR {
       position: absolute;
       width: 7.79376%;
-      top: 82.74648%;
-      left: 84.47242%; }
+      top: 82.04225%;
+      left: 88.42926%; }
       .buttonPSR::before {
         content: "";
         display: block;
