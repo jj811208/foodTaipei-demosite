@@ -13,14 +13,14 @@ html.english
     link(rel="shortcut icon" href="./assets/favicon.ico")
     block prejs
     block css
-  body
+  body(class=isComingSoon?'comingSoon':'')
     .container
       block content
     a.IndexLink(href=IndexLink,target="_blank")
       img.logo(src="./assets/logo.png")
     include menu
     .toLeft(onClick='toLeft();')
-    a.mailTo(link=mailTo)
+    a.mailTo(href=mailTo,target="_blank")
     .ratioError
       .ratioError__logo
       .ratioError__text 請恢復至正常螢幕比例以顯示：Food Taipei

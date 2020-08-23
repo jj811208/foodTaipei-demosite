@@ -28,6 +28,9 @@
   opacity: 0;
   pointer-events: none;
   @include img("../assets/toLeft.png");
+  @include size(padS) {
+    right: 24px;
+  }
 }
 .mailTo {
   position: fixed;
@@ -37,6 +40,9 @@
   width: 80px;
   height: 80px;
   @include img("../assets/mail.png");
+  @include size(padS) {
+    display: none;
+  }
 }
 .languageSwitch {
   position: fixed;
@@ -173,33 +179,33 @@
 .ryan {
   @include rect(2460, 325, 410.15, 363.97);
   @include size(padS) {
-    @include rectM(1413.63, 294, 245.36, 217.74);
+    @include rectM(1413.63, 310, 245.36, 217.74);
   }
 }
 .ryanBody {
   @include rect(2229.68, 305.03, 240.47, 363.97, 2060, 305.03, 410.15, 363.97);
   @include img("../assets/ryanBody.png");
   @include size(padS) {
-    @include rectM(1515.63, 293, 143, 217.74, 1413.63, 294, 245.36, 217.74);
+    @include rectM(1515.63, 293, 143, 217.74, 1413.63, 310, 245.36, 217.74);
   }
 }
 .ryanLeftHand {
   @include rect(2254.17, 414.35, 213.84, 212.56, 2060, 305.03, 410.15, 363.97);
   @include img("../assets/ryanLeftHand.png");
   @include size(padS) {
-    @include rectM(1509.77, 358.4, 147.9, 127.16, 1413.63, 294, 245.36, 217.74);
+    @include rectM(1509.77, 358.4, 147.9, 127.16, 1413.63, 310, 245.36, 217.74);
   }
 }
 .ryanRightHand {
   @include rect(2060, 339.18, 291.92, 182.21, 2060, 305.03, 410.15, 363.97);
   @include img("../assets/ryanRightHand.png");
   @include size(padS) {
-    @include rectM(1413.63, 313, 174.6, 109, 1413.63, 294, 245.36, 217.74);
+    @include rectM(1413.63, 313, 174.6, 109, 1413.63, 310, 245.36, 217.74);
   }
 }
 .buttonPSR {
   //29411
-  @include rect(2568, 534, 191 * 1.2, 65 * 1.2 /*, 2060, 305.03, 410.15, 363.97*/);
+  @include rect(2568, 534, 131 * 1.2, 65 * 1.2 /*, 2060, 305.03, 410.15, 363.97*/);
   .chinese & {
     @include img("../assets/buttonPSRC.png");
   }
@@ -207,7 +213,7 @@
     @include img("../assets/buttonPSR.png");
   }
   @include size(padS) {
-    @include rectM(1409, 470, 230, 65);
+    @include rectM(1409, 470, 130, 65);
     .chinese & {
       @include img("../assets/buttonPSRCM.png");
     }
@@ -340,7 +346,7 @@
 }
 .buttonMNT {
   //3.33493
-  @include rect(890, 260, 160 * 1.2, 63 * 1.2 /*, 835.03, 263.74, 404.97, 193.22*/);
+  @include rect(890, 260, 144 * 1.2, 63 * 1.2 /*, 835.03, 263.74, 404.97, 193.22*/);
   .chinese & {
     @include img("../assets/buttonMNTC.png");
   }
@@ -348,7 +354,7 @@
     @include img("../assets/buttonMNT.png");
   }
   @include size(padS) {
-    @include rectM(600, 164, 258, 64.5);
+    @include rectM(600, 164, 158, 64.5);
     .chinese & {
       @include img("../assets/buttonMNTCM.png");
     }
@@ -490,7 +496,7 @@
     @include img("../assets/buttonPC.png");
   }
   @include size(padS) {
-    @include rectM(889, 80, 216, 64.5);
+    @include rectM(889, 80, 186, 64.5);
     .chinese & {
       @include img("../assets/buttonPCCM.png");
     }
@@ -503,7 +509,7 @@
   @include rect(524, 431, 735, 356);
   @include img("../assets/yellowTable.png");
   @include size(padS) {
-    @include rectM(438, 336, 381.4, 184.7);
+    @include rectM(438, 350, 381.4, 184.7);
   }
 }
 .hao {
@@ -897,6 +903,48 @@
 
     .loadingAsset__clickable & {
       opacity: 1;
+    }
+  }
+}
+
+.comingSoonBtn {
+  display: none;
+  .chinese & {
+    @include img("../assets/comingSoonTagC.png");
+  }
+  .english & {
+    @include img("../assets/comingSoonTag.png");
+  }
+  .buttonMNT & {
+    .chinese & {
+      @include rect(928, 248, 88*0.9, 28*0.9, 890, 260, 144 * 1.2, 63 * 1.2);
+    }
+    .english & {
+      @include rect(920, 248, 117*0.9, 28*0.9, 890, 260, 144 * 1.2, 63 * 1.2);
+    }
+    @include size(padS) {
+      .chinese & {
+        @include rectM(627, 154, 88*0.8, 28*0.8, 600, 164, 158, 64.5);
+      }
+      .english & {
+        @include rectM(620, 154, 117*0.8, 28*0.8, 600, 164, 158, 64.5);
+      }
+    }
+  }
+  .buttonPSR & {
+    .chinese & {
+      @include rect(2592, 591, 88*0.9, 28*0.9, 2568, 534, 131 * 1.2, 65 * 1.2);
+    }
+    .english & {
+      @include rect(2590, 591, 117*0.9, 28*0.9, 2568, 534, 131 * 1.2, 65 * 1.2);
+    }
+    @include size(padS) {
+      .chinese & {
+        @include rect(1428, 517, 88*0.8, 28*0.8, 1409, 470, 130, 65);
+      }
+      .english & {
+        @include rect(1424, 517, 117*0.8, 28*0.8, 1409, 470, 130, 65);
+      }
     }
   }
 }

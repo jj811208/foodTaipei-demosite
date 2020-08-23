@@ -53,3 +53,12 @@ body {
     display:block;
   }
 }
+
+.comingSoon{
+  .PSRLink,.MNTLink{
+    pointer-events: none !important;
+  }
+  .comingSoonBtn,.comingMask{
+    display: block !important;
+  }
+}

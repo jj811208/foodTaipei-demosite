@@ -2,6 +2,7 @@ extends global/layout
 
 //- 這邊放的全部都是英文連結
 block append var
+  - isComingSoon = true;
   - mailTo = 'mailto:foodtaipei@taitra.org.tw';
   - IndexLink='https://www.foodtaipei.com.tw/en_US/index.html';
   - FactSheetLink='https://www.foodtaipei.com.tw/en/news/data-list/industry/index.html';
@@ -69,6 +70,7 @@ block content
     .mainTableItemsVoice.scenery
     a.mainTableItemsStar.MNTLink(href=MNTLink,target="_blank")
   a.buttonMNT.middle.MNTLink(href=MNTLink,target="_blank")
+    .comingSoonBtn
   .internationalFruit.middle.scenery
     .avocado-o
   .taiwanFishery.middle.scenery
@@ -107,6 +109,7 @@ block content
   .wineCabinet.scenery
     .wine-o
   a.buttonPSR.PSRLink(href=PSRLink,target="_blank")
+    .comingSoonBtn
   a.grandma.EventsLink(href=EventsLink,target="_blank")
     .grandmaHand.scenery
     .grandmaBody.scenery
