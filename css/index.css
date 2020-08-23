@@ -151,6 +151,12 @@ body {
 .chinese .C {
   display: block; }
 
+.comingSoon .PSRLink, .comingSoon .MNTLink {
+  pointer-events: none !important; }
+
+.comingSoon .comingSoonBtn, .comingSoon .comingMask {
+  display: block !important; }
+
 .menu {
   height: 80px;
   width: 80px;
@@ -329,6 +335,9 @@ body {
   position: absolute;
   bottom: 120px; }
 
+.comingMask {
+  display: none; }
+
 .container {
   display: none;
   position: fixed;
@@ -360,6 +369,9 @@ body {
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
+  @media (max-width: 600px) {
+    .toLeft {
+      right: 24px; } }
 
 .mailTo {
   position: fixed;
@@ -372,6 +384,9 @@ body {
   background-position: left top;
   background-size: contain;
   background-repeat: no-repeat; }
+  @media (max-width: 600px) {
+    .mailTo {
+      display: none; } }
 
 .languageSwitch {
   position: fixed;
@@ -715,7 +730,7 @@ body {
     .ryan {
       position: absolute;
       width: 14.70983%;
-      top: 51.76056%;
+      top: 54.57746%;
       left: 84.75%; }
       .ryan::before {
         content: "";
@@ -739,7 +754,7 @@ body {
     .ryanBody {
       position: absolute;
       width: 58.28171%;
-      top: -0.45926%;
+      top: -7.80748%;
       left: 41.57157%; }
       .ryanBody::before {
         content: "";
@@ -763,7 +778,7 @@ body {
     .ryanLeftHand {
       position: absolute;
       width: 60.27877%;
-      top: 29.57656%;
+      top: 22.22835%;
       left: 39.18324%; }
       .ryanLeftHand::before {
         content: "";
@@ -787,7 +802,7 @@ body {
     .ryanRightHand {
       position: absolute;
       width: 71.16074%;
-      top: 8.726%;
+      top: 1.37779%;
       left: 0%; }
       .ryanRightHand::before {
         content: "";
@@ -796,13 +811,13 @@ body {
 
 .buttonPSR {
   position: absolute;
-  width: 7.95833%;
+  width: 5.45833%;
   top: 69.71279%;
   left: 89.16667%; }
   .buttonPSR::before {
     content: "";
     display: block;
-    padding-top: 34.03141%; }
+    padding-top: 49.61832%; }
   .chinese .buttonPSR {
     background-image: url("../assets/buttonPSRC.png");
     background-position: left top;
@@ -816,13 +831,13 @@ body {
   @media (max-width: 600px) {
     .buttonPSR {
       position: absolute;
-      width: 13.78897%;
+      width: 7.79376%;
       top: 82.74648%;
       left: 84.47242%; }
       .buttonPSR::before {
         content: "";
         display: block;
-        padding-top: 28.26087%; }
+        padding-top: 50%; }
       .chinese .buttonPSR {
         background-image: url("../assets/buttonPSRCM.png");
         background-position: left top;
@@ -1197,13 +1212,13 @@ body {
 
 .buttonMNT {
   position: absolute;
-  width: 6.66667%;
+  width: 6%;
   top: 33.94256%;
   left: 30.90278%; }
   .buttonMNT::before {
     content: "";
     display: block;
-    padding-top: 39.375%; }
+    padding-top: 43.75%; }
   .chinese .buttonMNT {
     background-image: url("../assets/buttonMNTC.png");
     background-position: left top;
@@ -1217,13 +1232,13 @@ body {
   @media (max-width: 600px) {
     .buttonMNT {
       position: absolute;
-      width: 15.46763%;
+      width: 9.47242%;
       top: 28.87324%;
       left: 35.97122%; }
       .buttonMNT::before {
         content: "";
         display: block;
-        padding-top: 25%; }
+        padding-top: 40.82278%; }
       .chinese .buttonMNT {
         background-image: url("../assets/buttonMNTCM.png");
         background-position: left top;
@@ -1625,13 +1640,13 @@ body {
   @media (max-width: 600px) {
     .buttonPC {
       position: absolute;
-      width: 12.94964%;
+      width: 11.15108%;
       top: 14.08451%;
       left: 53.29736%; }
       .buttonPC::before {
         content: "";
         display: block;
-        padding-top: 29.86111%; }
+        padding-top: 34.67742%; }
       .chinese .buttonPC {
         background-image: url("../assets/buttonPCCM.png");
         background-position: left top;
@@ -1660,7 +1675,7 @@ body {
     .yellowTable {
       position: absolute;
       width: 22.86571%;
-      top: 59.15493%;
+      top: 61.61972%;
       left: 26.25899%; }
       .yellowTable::before {
         content: "";
@@ -2602,5 +2617,92 @@ body {
         opacity: 1; }
     .loadingAsset__clickable .loadingAsset__cursor {
       opacity: 1; }
+
+.comingSoonBtn {
+  display: none; }
+  .chinese .comingSoonBtn {
+    background-image: url("../assets/comingSoonTagC.png");
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat; }
+  .english .comingSoonBtn {
+    background-image: url("../assets/comingSoonTag.png");
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat; }
+  .chinese .buttonMNT .comingSoonBtn {
+    position: absolute;
+    width: 45.83333%;
+    top: -15.87302%;
+    left: 21.99074%; }
+    .chinese .buttonMNT .comingSoonBtn::before {
+      content: "";
+      display: block;
+      padding-top: 31.81818%; }
+  .english .buttonMNT .comingSoonBtn {
+    position: absolute;
+    width: 60.9375%;
+    top: -15.87302%;
+    left: 17.36111%; }
+    .english .buttonMNT .comingSoonBtn::before {
+      content: "";
+      display: block;
+      padding-top: 23.93162%; }
+  @media (max-width: 600px) {
+    .chinese .buttonMNT .comingSoonBtn {
+      position: absolute;
+      width: 44.55696%;
+      top: -15.50388%;
+      left: 17.08861%; }
+      .chinese .buttonMNT .comingSoonBtn::before {
+        content: "";
+        display: block;
+        padding-top: 31.81818%; }
+    .english .buttonMNT .comingSoonBtn {
+      position: absolute;
+      width: 59.24051%;
+      top: -15.50388%;
+      left: 12.65823%; }
+      .english .buttonMNT .comingSoonBtn::before {
+        content: "";
+        display: block;
+        padding-top: 23.93162%; } }
+  .chinese .buttonPSR .comingSoonBtn {
+    position: absolute;
+    width: 50.38168%;
+    top: 73.07692%;
+    left: 15.26718%; }
+    .chinese .buttonPSR .comingSoonBtn::before {
+      content: "";
+      display: block;
+      padding-top: 31.81818%; }
+  .english .buttonPSR .comingSoonBtn {
+    position: absolute;
+    width: 66.98473%;
+    top: 73.07692%;
+    left: 13.99491%; }
+    .english .buttonPSR .comingSoonBtn::before {
+      content: "";
+      display: block;
+      padding-top: 23.93162%; }
+  @media (max-width: 600px) {
+    .chinese .buttonPSR .comingSoonBtn {
+      position: absolute;
+      width: 54.15385%;
+      top: 72.30769%;
+      left: 14.61538%; }
+      .chinese .buttonPSR .comingSoonBtn::before {
+        content: "";
+        display: block;
+        padding-top: 31.81818%; }
+    .english .buttonPSR .comingSoonBtn {
+      position: absolute;
+      width: 72%;
+      top: 72.30769%;
+      left: 11.53846%; }
+      .english .buttonPSR .comingSoonBtn::before {
+        content: "";
+        display: block;
+        padding-top: 23.93162%; } }
 
 /*# sourceMappingURL=index.css.map */
