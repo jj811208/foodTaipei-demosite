@@ -205,7 +205,7 @@
 }
 .buttonPSR {
   //29411
-  @include rect(2568, 534, 131 * 1.2, 65 * 1.2 /*, 2060, 305.03, 410.15, 363.97*/);
+  @include rect(2588, 520, 131 * 1.2, 65 * 1.2 /*, 2060, 305.03, 410.15, 363.97*/);
   .chinese & {
     @include img("../assets/buttonPSRC.png");
   }
@@ -213,7 +213,7 @@
     @include img("../assets/buttonPSR.png");
   }
   @include size(padS) {
-    @include rectM(1409, 470, 130, 65);
+    @include rectM(1475, 466, 130, 65);
     .chinese & {
       @include img("../assets/buttonPSRCM.png");
     }
