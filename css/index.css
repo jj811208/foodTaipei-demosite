@@ -151,10 +151,17 @@ body {
 .chinese .C {
   display: block; }
 
-.comingSoon .PSRLink, .comingSoon .MNTLink {
+.chinese .Edown {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0); }
+
+.comingSoon .PSRLink,
+.comingSoon .MNTLink {
   pointer-events: none !important; }
 
-.comingSoon .comingSoonBtn, .comingSoon .comingMask {
+.comingSoon .comingSoonBtn,
+.comingSoon .comingMask {
   display: block !important; }
 
 .menu {
