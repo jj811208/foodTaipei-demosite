@@ -28,37 +28,42 @@ body {
   }
 }
 
-.english{
-  .E{
+.english {
+  .E {
     // opacity: 1;
-    display:block;
+    display: block;
   }
-  .C{
+  .C {
     // opacity: 0;
     // pointer-events: none;
-    display:none !important;
+    display: none !important;
   }
-  .Edown{
+  .Edown {
     transform: translateY(20px);
   }
 }
-.chinese{
-  .E{
+.chinese {
+  .E {
     // opacity: 0;
     // pointer-events: none;
-    display:none !important;
+    display: none !important;
   }
-  .C{
+  .C {
     // opacity: 1;
-    display:block;
+    display: block;
+  }
+  .Edown {
+    transform: translateY(0);
   }
 }
 
-.comingSoon{
-  .PSRLink,.MNTLink{
+.comingSoon {
+  .PSRLink,
+  .MNTLink {
     pointer-events: none !important;
   }
-  .comingSoonBtn,.comingMask{
+  .comingSoonBtn,
+  .comingMask {
     display: block !important;
   }
 }
